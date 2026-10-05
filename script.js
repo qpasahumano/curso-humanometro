@@ -3,47 +3,51 @@
 
 /* =========================================
    PÁGINAS INDIVIDUALES DEL CURSO
-
-   IMPORTANTE:
-   Las imágenes están en la raíz del
-   repositorio, no dentro de /paginas/.
 ========================================= */
 
 const paginas = {
-    1: "pagina_1.png",
-    2: "pagina_2.png",
-    3: "pagina_3.png",
-    4: "pagina_4.png",
-    5: "pagina_5.png",
-    6: "pagina_6.png",
-    7: "pagina_7.png",
-    8: "pagina_8.png",
-    9: "pagina_9.png",
-    10: "pagina_10.png"
+    1: "paginas/pagina_1.png",
+    2: "paginas/pagina_2.png",
+    3: "paginas/pagina_3.png",
+    4: "paginas/pagina_4.png",
+    5: "paginas/pagina_5.png",
+    6: "paginas/pagina_6.png",
+    7: "paginas/pagina_7.png",
+    8: "paginas/pagina_8.png",
+    9: "paginas/pagina_9.png",
+    10: "paginas/pagina_10.png"
 };
 
 
 /* =========================================
-   ABRIR UNA SOLA HOJA
+   ABRIR UNA PÁGINA
 ========================================= */
 
 function abrirPagina(numeroPagina) {
 
-    const modal = document.getElementById("modalPdf");
-    const titulo = document.getElementById("tituloModal");
-    const visor = document.getElementById("paginaVisor");
+    const modal =
+        document.getElementById("modalPdf");
+
+    const titulo =
+        document.getElementById("tituloModal");
+
+    const visor =
+        document.getElementById("paginaVisor");
 
     if (!paginas[numeroPagina]) {
         return;
     }
 
     titulo.innerText =
-        "CURSO HUMANÓMETRO · HOJA " + numeroPagina;
+        "Curso Humanómetro · Hoja " + numeroPagina;
 
-    visor.src = paginas[numeroPagina];
+    visor.src =
+        paginas[numeroPagina];
 
     visor.alt =
-        "Hoja " + numeroPagina + " del curso Humanómetro";
+        "Hoja " +
+        numeroPagina +
+        " del curso Humanómetro";
 
     modal.style.display = "flex";
 
@@ -53,6 +57,16 @@ function abrirPagina(numeroPagina) {
     );
 
     document.body.style.overflow = "hidden";
+
+    const contenedor =
+        document.querySelector(
+            ".pagina-visor-container"
+        );
+
+    if (contenedor) {
+        contenedor.scrollTop = 0;
+        contenedor.scrollLeft = 0;
+    }
 }
 
 
@@ -82,7 +96,7 @@ function cerrarModal() {
 
 
 /* =========================================
-   CERRAR AL TOCAR FUERA
+   CERRAR HACIENDO CLICK FUERA
 ========================================= */
 
 window.addEventListener(
@@ -117,7 +131,7 @@ document.addEventListener(
 
 
 /* =========================================
-   PROTECCIÓN BÁSICA DEL CONTENIDO
+   PROTECCIÓN BÁSICA DE INTERFAZ
 ========================================= */
 
 document.addEventListener(
@@ -130,17 +144,18 @@ document.addEventListener(
 );
 
 
+/* =========================================
+   EVITAR ARRASTRE DE IMÁGENES
+========================================= */
+
 document.addEventListener(
     "dragstart",
     function(event) {
 
         if (
-            event.target &&
             event.target.tagName === "IMG"
         ) {
-
             event.preventDefault();
-
         }
 
     }
@@ -148,7 +163,7 @@ document.addEventListener(
 
 
 /* =========================================
-   BLOQUEAR ATAJOS HABITUALES
+   ATAJOS BÁSICOS
 ========================================= */
 
 document.addEventListener(
@@ -188,22 +203,12 @@ document.addEventListener(
 
         }
 
-
-        if (
-            event.ctrlKey &&
-            event.key === "PrintScreen"
-        ) {
-
-            event.preventDefault();
-
-        }
-
     }
 );
 
 
 /* =========================================
-   DESACTIVAR ARRASTRE DE IMÁGENES
+   EVITAR ARRASTRE DE IMÁGENES
 ========================================= */
 
 document
@@ -216,21 +221,3 @@ document
         );
 
     });
-
-
-/* =========================================
-   BLOQUEO COMERCIAL
-
-   TODAVÍA NO SE ACTIVA.
-
-   Primero se prueba:
-   - las 10 hojas
-   - miniaturas
-   - visor individual
-   - scroll vertical
-   - computadora retro
-   - videos
-
-   El desbloqueo por pago se incorpora
-   después de aprobar toda la interfaz.
-========================================= */
