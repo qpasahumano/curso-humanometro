@@ -1,27 +1,17 @@
 "use strict";
 
 
-
 const paginas = {
 
     1: "pagina_1.png",
-
     2: "pagina_2.png",
-
     3: "pagina_3.png",
-
     4: "pagina_4.png",
-
     5: "pagina_5.png",
-
     6: "pagina_6.png",
-
     7: "pagina_7.png",
-
     8: "pagina_8.png",
-
     9: "pagina_9.png",
-
     10: "pagina_10.png"
 
 };
@@ -38,8 +28,8 @@ function abrirPagina(numeroPagina) {
 
 
     const titulo =
-        document.getElementById(
-            "tituloModal"
+        document.querySelector(
+            ".titulo-modal"
         );
 
 
@@ -49,20 +39,22 @@ function abrirPagina(numeroPagina) {
         );
 
 
-    const contenedor =
+    const carpeta =
         document.querySelector(
-            ".pagina-visor-container"
+            ".carpeta-visor"
         );
 
 
-    if (!paginas[numeroPagina]) {
+    if (
+        !paginas[numeroPagina]
+    ) {
 
         return;
 
     }
 
 
-    titulo.innerText =
+    titulo.textContent =
         "Curso Humanómetro · Hoja " +
         numeroPagina;
 
@@ -91,9 +83,9 @@ function abrirPagina(numeroPagina) {
         "hidden";
 
 
-    if (contenedor) {
+    if (carpeta) {
 
-        contenedor.scrollTop =
+        carpeta.scrollTop =
             0;
 
     }
@@ -256,7 +248,6 @@ document
     .querySelectorAll("img")
     .forEach(
         function(imagen) {
-
 
             imagen.setAttribute(
                 "draggable",
