@@ -2,55 +2,59 @@
     box-sizing: border-box;
 }
 
+
 html {
     width: 100%;
     min-height: 100%;
+
     background: #5b321d;
 }
 
+
 body {
     margin: 0;
+
     padding: 0 0 40px;
+
     width: 100%;
+
     min-height: 100vh;
+
     overflow-x: hidden;
 
-    background-color: #5b321d;
-
-    background-image:
+    background:
         linear-gradient(
-            rgba(70,34,16,.16),
-            rgba(30,14,7,.25)
+            rgba(55, 28, 14, .38),
+            rgba(30, 14, 7, .48)
         ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,.035) 0,
-            rgba(255,255,255,.035) 2px,
-            transparent 2px,
-            transparent 54px
-        ),
-        repeating-linear-gradient(
-            7deg,
-            rgba(0,0,0,.08) 0,
-            rgba(0,0,0,.08) 2px,
-            transparent 2px,
-            transparent 42px
-        );
+        #5b321d;
 
-    font-family: "Courier New", Courier, monospace;
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
 
     color: #222;
 
     user-select: none;
+
     -webkit-user-select: none;
 }
 
 
+
+/* ==========================================
+   ENCABEZADO
+   ========================================== */
+
 header {
+
     width: 92%;
+
     max-width: 760px;
 
     margin: 20px auto 18px;
+
     padding: 15px 22px;
 
     text-align: center;
@@ -59,13 +63,16 @@ header {
 
     border: 3px solid #333;
 
-    box-shadow: 5px 5px 0 #000;
+    box-shadow:
+        5px 5px 0 #000;
 
-    transform: rotate(-.5deg);
+    transform:
+        rotate(-.5deg);
 }
 
 
 header .materia {
+
     display: inline-block;
 
     margin-bottom: 10px;
@@ -82,20 +89,23 @@ header .materia {
 
     letter-spacing: 1px;
 
-    transform: rotate(-1deg);
+    transform:
+        rotate(-1deg);
 }
 
 
 header h1 {
+
     margin: 0;
 
     color: #002d73;
 
-    font-size: clamp(
-        1.35rem,
-        4vw,
-        2.25rem
-    );
+    font-size:
+        clamp(
+            1.35rem,
+            4vw,
+            2.25rem
+        );
 
     line-height: 1.08;
 
@@ -109,9 +119,11 @@ header h1 {
 
 
 header .subtitulo {
+
     max-width: 700px;
 
-    margin: 11px auto 4px;
+    margin:
+        11px auto 4px;
 
     padding: 5px 10px;
 
@@ -119,34 +131,45 @@ header .subtitulo {
 
     color: #111;
 
-    font-size: clamp(
-        .82rem,
-        2.2vw,
-        1.05rem
-    );
+    font-size:
+        clamp(
+            .82rem,
+            2.2vw,
+            1.05rem
+        );
 
     font-weight: bold;
 
-    transform: rotate(.4deg);
+    transform:
+        rotate(.4deg);
 }
 
 
 header .bajada {
-    margin: 9px 0 0;
+
+    margin:
+        9px 0 0;
 
     color: #173c69;
 
-    font-size: clamp(
-        .74rem,
-        2vw,
-        .95rem
-    );
+    font-size:
+        clamp(
+            .74rem,
+            2vw,
+            .95rem
+        );
 
     font-weight: bold;
 }
 
 
+
+/* ==========================================
+   CONTENEDOR GENERAL
+   ========================================== */
+
 main {
+
     width: 100%;
 
     display: flex;
@@ -157,15 +180,26 @@ main {
 }
 
 
+
+/* ==========================================
+   PUPITRE REAL
+   ========================================== */
+
 .pupitre-wrap {
+
     position: relative;
 
     width: 94%;
+
     max-width: 1050px;
+
+    margin:
+        0 auto 28px;
 }
 
 
 .pupitre {
+
     width: 100%;
 
     display: grid;
@@ -178,29 +212,20 @@ main {
 
     gap: 22px;
 
-    padding: 24px;
+    padding:
+        75px 48px 70px;
 
-    margin-bottom: 35px;
+    background-image:
+        url("pupitre_humanometro.png");
 
-    background:
-        linear-gradient(
-            rgba(86,50,25,.15),
-            rgba(38,20,10,.25)
-        ),
-        repeating-linear-gradient(
-            8deg,
-            rgba(255,255,255,.035) 0 2px,
-            transparent 2px 48px
-        ),
-        #69431f;
+    background-size:
+        100% 100%;
 
-    border: 5px solid #3b2414;
+    background-position:
+        center;
 
-    border-radius: 12px;
-
-    box-shadow:
-        inset 0 0 0 2px rgba(255,255,255,.08),
-        8px 10px 0 rgba(0,0,0,.55);
+    background-repeat:
+        no-repeat;
 
     position: relative;
 
@@ -208,144 +233,83 @@ main {
 }
 
 
-.pupitre:before {
-    content: "";
 
-    position: absolute;
-
-    inset: 8px;
-
-    border:
-        1px solid
-        rgba(255,220,160,.08);
-
-    border-radius: 7px;
-
-    pointer-events: none;
-}
-
-
-.escrito-pupitre {
-    position: absolute;
-
-    z-index: 20;
-
-    color:
-        rgba(
-            244,
-            235,
-            208,
-            .62
-        );
-
-    font-family:
-        "Comic Sans MS",
-        "Bradley Hand",
-        "Segoe Print",
-        cursive;
-
-    font-weight: bold;
-
-    pointer-events: none;
-
-    text-shadow:
-        1px 1px 0
-        rgba(0,0,0,.25);
-}
-
-
-.escrito-uno {
-    left: 12px;
-    bottom: 3px;
-
-    font-size: .82rem;
-
-    transform: rotate(-4deg);
-}
-
-
-.escrito-dos {
-    right: 14px;
-    top: 5px;
-
-    font-size: .80rem;
-
-    transform: rotate(3deg);
-}
-
-
-.corazon-pupitre {
-    color:
-        rgba(
-            255,
-            90,
-            120,
-            .70
-        );
-}
-
+/* ==========================================
+   HOJAS
+   ========================================== */
 
 .hoja-papel {
+
     position: relative;
 
     z-index: 2;
 
-    padding: 9px;
+    margin: 0;
 
-    background: #fffdf4;
+    padding: 0;
 
-    border:
-        1px solid
-        #d4c5a9;
+    background: transparent;
 
-    box-shadow:
-        4px 5px 9px
-        rgba(0,0,0,.58);
+    border: none;
+
+    outline: none;
 
     cursor: pointer;
 
     transition:
         transform .2s ease,
-        box-shadow .2s ease;
+        filter .2s ease;
 
-    overflow: hidden;
+    overflow: visible;
 }
 
 
-.hoja-papel:nth-child(3n+1) {
-    transform: rotate(-1deg);
+.hoja-papel:nth-child(3n + 1) {
+
+    transform:
+        rotate(-1deg);
 }
 
 
-.hoja-papel:nth-child(3n+2) {
-    transform: rotate(.7deg);
+.hoja-papel:nth-child(3n + 2) {
+
+    transform:
+        rotate(.7deg);
 }
 
 
 .hoja-papel:nth-child(3n) {
-    transform: rotate(-.5deg);
+
+    transform:
+        rotate(-.5deg);
 }
 
 
 .hoja-papel:hover {
+
     transform:
         scale(1.035)
-        rotate(0);
+        rotate(0deg);
 
-    box-shadow:
-        7px 10px 17px
-        rgba(0,0,0,.72);
+    filter:
+        drop-shadow(
+            7px 10px 8px
+            rgba(0,0,0,.60)
+        );
 
     z-index: 10;
 }
 
 
 .hoja-papel:active {
-    transform: scale(.99);
+
+    transform:
+        scale(.99);
 }
 
 
 .miniatura {
+
     display: block;
 
     width: 100%;
@@ -354,271 +318,217 @@ main {
 
     max-width: 100%;
 
-    border:
-        1px solid
-        #c7bda8;
+    margin: 0;
 
-    background: #f2ead7;
+    padding: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
 
     object-fit: contain;
 
     pointer-events: none;
+
+    filter:
+        drop-shadow(
+            4px 5px 5px
+            rgba(0,0,0,.52)
+        );
 }
 
 
-/* ==============================
-   COMPUTADORA RETRO
-   ============================== */
+
+/* ==========================================
+   COMPUTADORA REAL
+   ========================================== */
 
 .estacion-multimedia {
+
     width: 92%;
-    max-width: 760px;
 
-    margin-bottom: 30px;
+    max-width: 850px;
 
-    padding: 15px;
+    margin:
+        10px auto 35px;
+
+    padding:
+        18px 14px 16px;
 
     text-align: center;
 
-    background: #8b8177;
+    background:
+        rgba(
+            35,
+            25,
+            18,
+            .30
+        );
 
-    border: 5px solid #4b4844;
+    border: none;
 
-    border-radius: 8px;
+    border-radius: 0;
 
-    box-shadow:
-        7px 7px 0 #222;
+    box-shadow: none;
 }
 
 
 .titulo-estacion {
-    margin-bottom: 10px;
 
-    color: #fff;
+    margin-bottom: 14px;
 
-    font-weight: bold;
-
-    letter-spacing: 1px;
-}
-
-
-.pc-retro {
-    width: min(100%, 620px);
-
-    margin: 0 auto;
-
-    padding: 18px 18px 14px;
-
-    background: #b7b1a5;
-
-    border: 4px solid #68645d;
-
-    border-radius:
-        10px 10px 5px 5px;
-
-    box-shadow:
-        inset 0 0 0 2px #d9d4c9;
-}
-
-
-.monitor {
-    padding: 10px;
-
-    background: #272725;
-
-    border: 12px solid #a39e91;
-
-    border-bottom-width: 18px;
-
-    border-radius:
-        9px 9px 14px 14px;
-
-    box-shadow:
-        inset 0 0 0 3px #5a554c,
-        5px 6px 0 #4b4844;
-}
-
-
-.monitor-marco-superior {
-    padding: 4px 7px;
-
-    background: #d5d1c8;
-
-    color: #111;
-
-    text-align: left;
-
-    font-size: .68rem;
+    color: #f4ebd0;
 
     font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        2px 2px 0 #000;
 }
 
 
-.monitor-pantalla {
-    min-height: 245px;
 
-    display: flex;
+/* ==========================================
+   IMAGEN DE LA COMPUTADORA
+   ========================================== */
 
-    flex-direction: column;
+.computadora-real {
 
-    justify-content: space-between;
+    position: relative;
 
-    overflow: hidden;
-
-    background: #050b0c;
-
-    border: 3px inset #454545;
-
-    color: #00ff66;
-
-    font-family:
-        "Courier New",
-        Courier,
-        monospace;
-}
-
-
-.monitor-barra {
-    padding: 4px 7px;
-
-    background: #d5d1c8;
-
-    color: #111;
-
-    text-align: left;
-
-    font-size: .68rem;
-
-    font-weight: bold;
-}
-
-
-.youtube-contenedor {
     width: 100%;
 
-    flex: 1;
+    max-width: 850px;
+
+    margin:
+        0 auto;
+
+    line-height: 0;
 }
 
 
-.youtube-frame {
+.computadora-imagen {
+
     display: block;
 
     width: 100%;
 
-    height: 205px;
+    height: auto;
+
+    margin: 0 auto;
 
     border: none;
-}
 
+    outline: none;
 
-.monitor-pie {
-    padding: 7px;
+    background: transparent;
 
-    color: #00ff66;
+    pointer-events: none;
 
-    text-align: center;
+    user-select: none;
 
-    font-size: .72rem;
-}
+    -webkit-user-drag: none;
 
-
-.pc-base {
-    width: 55%;
-
-    height: 16px;
-
-    margin: 14px auto 0;
-
-    background: #8f897e;
-
-    border: 3px solid #666158;
-
-    border-radius: 4px;
-}
-
-
-.teclado {
-    width: 75%;
-
-    margin: 9px auto 0;
-
-    padding: 5px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            10,
-            1fr
+    filter:
+        drop-shadow(
+            7px 12px 10px
+            rgba(0,0,0,.55)
         );
-
-    gap: 3px;
-
-    background: #d4d0c7;
-
-    border: 3px solid #817c72;
-
-    border-radius: 4px;
-
-    box-shadow:
-        inset 0 0 0 2px
-        #aaa59b;
 }
 
 
-.teclado span {
-    min-height: 16px;
 
-    display: flex;
+/* ==========================================
+   VIDEO SOBRE LA PANTALLA CRT
+   ========================================== */
 
-    align-items: center;
+.pantalla-youtube {
 
-    justify-content: center;
+    position: absolute;
 
-    padding: 1px;
+    /*
+       Coordenadas proporcionales
+       al PNG de la computadora.
+    */
 
-    background: #efede7;
+    left: 25.5%;
 
-    border: 1px solid #9c978d;
+    top: 8.8%;
 
-    color: #34312d;
+    width: 49.5%;
 
-    font-family: Arial, sans-serif;
+    height: 41.5%;
 
-    font-size: .43rem;
+    overflow: hidden;
 
-    font-weight: bold;
+    background: #050505;
+
+    border-radius:
+        7% / 8%;
+
+    z-index: 5;
 }
 
 
-.teclado span:last-child {
-    grid-column: span 2;
+.pantalla-youtube iframe {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    margin: 0;
+
+    padding: 0;
 }
 
+
+
+/* ==========================================
+   TEXTO DE APOYO
+   ========================================== */
 
 .apoyo-video {
-    margin: 11px 0 0;
 
-    padding: 7px;
+    display: inline-block;
 
-    background: #145a84;
+    margin:
+        13px auto 0;
 
-    border: 2px solid #000;
+    padding:
+        8px 11px;
+
+    background:
+        #145a84;
+
+    border:
+        2px solid #000;
 
     color: #fff;
 
     font-size: .82rem;
 
     font-weight: bold;
+
+    line-height: 1.25;
 }
 
 
-/* ==============================
+
+/* ==========================================
    ACCESO
-   ============================== */
+   ========================================== */
 
 .seccion-pago {
+
     width: 90%;
+
     max-width: 480px;
 
     margin-bottom: 35px;
@@ -629,7 +539,8 @@ main {
 
     background: #fff;
 
-    border: 3px solid #000;
+    border:
+        3px solid #000;
 
     box-shadow:
         5px 5px 0 #000;
@@ -637,6 +548,7 @@ main {
 
 
 .seccion-pago h3 {
+
     margin-top: 0;
 
     font-size: .95rem;
@@ -644,20 +556,24 @@ main {
 
 
 .seccion-pago p {
+
     font-size: .8rem;
 }
 
 
 .btn-mp {
+
     display: inline-block;
 
     margin-top: 8px;
 
-    padding: 10px 20px;
+    padding:
+        10px 20px;
 
     background: #009ee3;
 
-    border: 2px solid #000;
+    border:
+        2px solid #000;
 
     border-radius: 4px;
 
@@ -674,11 +590,13 @@ main {
 }
 
 
-/* ==============================
+
+/* ==========================================
    VISOR DE HOJAS
-   ============================== */
+   ========================================== */
 
 .modal {
+
     position: fixed;
 
     z-index: 1000;
@@ -699,6 +617,7 @@ main {
 
 
 .modal-contenido {
+
     position: relative;
 
     width: 96%;
@@ -715,7 +634,8 @@ main {
 
     background: #e9e3d7;
 
-    border: 4px solid #000;
+    border:
+        4px solid #000;
 
     box-shadow:
         8px 8px 0 #000;
@@ -723,17 +643,20 @@ main {
 
 
 .cerrar-modal {
+
     position: absolute;
 
     z-index: 10;
 
     top: 3px;
+
     right: 7px;
 
     width: 36px;
+
     height: 36px;
 
-    border: 0;
+    border: none;
 
     background: transparent;
 
@@ -750,6 +673,7 @@ main {
 
 
 .modal-contenido h2 {
+
     margin:
         0 42px 6px 0;
 
@@ -758,13 +682,15 @@ main {
 
 
 .aviso-legal-banner {
+
     margin-bottom: 5px;
 
     padding: 5px;
 
     background: #ffcc00;
 
-    border: 1px solid #000;
+    border:
+        1px solid #000;
 
     color: #000;
 
@@ -777,6 +703,7 @@ main {
 
 
 .aviso-zoom {
+
     margin-bottom: 6px;
 
     color: #333;
@@ -790,6 +717,7 @@ main {
 
 
 .pagina-visor-container {
+
     flex: 1 1 auto;
 
     min-height: 0;
@@ -813,11 +741,13 @@ main {
 
     background: #777;
 
-    border: 2px solid #9e9588;
+    border:
+        2px solid #9e9588;
 }
 
 
 #paginaVisor {
+
     display: block;
 
     width: 100%;
@@ -826,7 +756,8 @@ main {
 
     height: auto;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     box-shadow:
         0 3px 12px
@@ -834,62 +765,62 @@ main {
 }
 
 
-/* ==============================
+
+/* ==========================================
    TABLET
-   ============================== */
+   ========================================== */
 
 @media (max-width: 720px) {
 
+
     .pupitre {
+
         grid-template-columns:
             repeat(
                 3,
                 minmax(0,1fr)
             );
 
-        gap: 10px;
+        gap: 13px;
 
-        padding: 14px;
+        padding:
+            55px 27px 55px;
     }
 
 
-    .hoja-papel {
-        padding: 6px;
+    .estacion-multimedia {
+
+        width: 95%;
+
+        padding:
+            12px 5px;
     }
 
 
-    .escrito-uno,
-    .escrito-dos {
-        font-size: .62rem;
-    }
+    .pantalla-youtube {
 
+        left: 25.5%;
 
-    .pc-retro {
-        padding: 13px;
-    }
+        top: 8.8%;
 
+        width: 49.5%;
 
-    .monitor {
-        border-width: 8px;
-
-        border-bottom-width: 13px;
-    }
-
-
-    .youtube-frame {
-        height: 190px;
+        height: 41.5%;
     }
 
 }
 
 
-/* ==============================
+
+/* ==========================================
    CELULAR
-   ============================== */
+   ========================================== */
 
 @media (max-width: 470px) {
 
+
     header {
+
         width: 94%;
 
         padding:
@@ -898,11 +829,15 @@ main {
 
 
     .pupitre-wrap {
-        width: 96%;
+
+        width: 98%;
+
+        margin-bottom: 20px;
     }
 
 
     .pupitre {
+
         width: 100%;
 
         grid-template-columns:
@@ -913,34 +848,62 @@ main {
 
         gap: 8px;
 
-        padding: 11px;
+        padding:
+            43px 16px 48px;
     }
 
 
-    .hoja-papel {
-        padding: 4px;
+    .hoja-papel:hover {
+
+        transform:
+            scale(1.015)
+            rotate(0);
     }
 
 
-    .escrito-uno {
-        left: 8px;
+    .estacion-multimedia {
 
-        bottom: 3px;
+        width: 98%;
 
-        font-size: .58rem;
+        margin-top: 5px;
+
+        padding:
+            8px 0 12px;
     }
 
 
-    .escrito-dos {
-        right: 9px;
+    .titulo-estacion {
 
-        top: 5px;
+        margin-bottom: 10px;
 
-        font-size: .56rem;
+        font-size: .82rem;
+
+        letter-spacing: 1px;
+    }
+
+
+    .pantalla-youtube {
+
+        left: 25.5%;
+
+        top: 8.8%;
+
+        width: 49.5%;
+
+        height: 41.5%;
+    }
+
+
+    .apoyo-video {
+
+        max-width: 94%;
+
+        font-size: .72rem;
     }
 
 
     .modal-contenido {
+
         width: 99%;
 
         height: 96vh;
@@ -950,28 +913,8 @@ main {
 
 
     .pagina-visor-container {
+
         padding: 5px;
-    }
-
-
-    .teclado {
-        width: 90%;
-
-        grid-template-columns:
-            repeat(
-                10,
-                1fr
-            );
-    }
-
-
-    .teclado span {
-        font-size: .36rem;
-    }
-
-
-    .teclado span:last-child {
-        grid-column: span 2;
     }
 
 }
