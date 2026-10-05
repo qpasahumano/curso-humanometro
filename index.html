@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso Humanómetro - Manual de Estudio</title>
     <style>
-        /* Estilos generales y estética retro */
         body {
             margin: 0;
             padding: 0;
-            background-color: #8B5A2B; /* Color base de madera de pupitre */
+            background-color: #8B5A2B;
             background-image: linear-gradient(rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 50%), radial-gradient(circle, #A06535 0%, #603813 100%);
             font-family: 'Courier New', Courier, monospace;
             color: #222;
@@ -43,7 +42,6 @@
             color: #555;
         }
 
-        /* Contenedor del Pupitre (Escritorio) */
         .pupitre {
             width: 90%;
             max-width: 1000px;
@@ -58,7 +56,6 @@
             margin-bottom: 20px;
         }
 
-        /* Hojas de papel arriba del pupitre */
         .hoja-papel {
             background: #fffdf4;
             width: 140px;
@@ -108,7 +105,6 @@
             cursor: pointer;
         }
 
-        /* Estación multimedia (Monitor 90s) */
         .estacion-multimedia {
             width: 90%;
             max-width: 600px;
@@ -157,7 +153,6 @@
             text-decoration: underline;
         }
 
-        /* Sección de Pago / Acceso */
         .seccion-pago {
             background: #fff;
             border: 3px solid #000;
@@ -188,7 +183,6 @@
             box-shadow: 1px 1px 0px #000;
         }
 
-        /* Ventana Emergente (Modal para ver el PDF o contenido de la hoja) */
         .modal {
             display: none;
             position: fixed;
@@ -245,50 +239,50 @@
 
     <!-- El Pupitre con las "Hojas" del curso -->
     <div class="pupitre">
-        <div class="hoja-papel" onclick="abrirPdfPagina(1)">
+        <div class="hoja-papel" onclick="abrirPdfPagina(1, 1)">
             <h3>Módulo 01</h3>
             <p>Bases Teóricas y Estructura.</p>
             <button class="btn-leer">Abrir Hoja</button>
         </div>
 
-        <div class="hoja-papel" onclick="abrirPdfPagina(2)">
+        <div class="hoja-papel" onclick="abrirPdfPagina(2, 5)">
             <h3>Módulo 02</h3>
             <p>Bloqueos y Tiempos.</p>
             <button class="btn-leer">Abrir Hoja</button>
         </div>
 
-        <div class="hoja-papel" onclick="abrirPdfPagina(3)">
+        <div class="hoja-papel" onclick="abrirPdfPagina(3, 10)">
             <h3>Módulo 03</h3>
             <p>Indicadores Gráficos.</p>
             <button class="btn-leer">Abrir Hoja</button>
         </div>
 
-        <div class="hoja-papel" onclick="abrirPdfPagina(4)">
+        <div class="hoja-papel" onclick="abrirPdfPagina(4, 15)">
             <h3>Módulo 04</h3>
             <p>Introspección y Análisis.</p>
             <button class="btn-leer">Abrir Hoja</button>
         </div>
 
-        <div class="hoja-papel" onclick="abrirPdfPagina(5)">
+        <div class="hoja-papel" onclick="abrirPdfPagina(5, 20)">
             <h3>Módulo 05</h3>
             <p>Lectura Evolutiva.</p>
             <button class="btn-leer">Abrir Hoja</button>
         </div>
 
-        <div class="hoja-papel" onclick="abrirPdfPagina(6)">
+        <div class="hoja-papel" onclick="abrirPdfPagina(6, 25)">
             <h3>Módulo 06</h3>
             <p>Papeles y Legalidad.</p>
             <button class="btn-leer">Abrir Hoja</button>
         </div>
     </div>
 
-    <!-- Estación Multimedia (Computadora de los 90 para Videos y Repositorio) -->
+    <!-- Estación Multimedia (Terminal de Videos) -->
     <div class="estacion-multimedia">
         <div class="monitor-pantalla">
             <h3>[ TERMINAL DE VIDEO & REPO ]</h3>
             <ul class="lista-videos">
                 <li>▶ <a href="TU_LINK_DE_YOUTUBE_AQUÍ" target="_blank">Ver Video Promocional / Explicativo (YouTube)</a></li>
-                <li>📁 <a href="https://github.com/TU_USUARIO/TU_REPO" target="_blank">Acceder al Repositorio Oficial (GitHub)</a></li>
+                <li>📁 <a href="https://github.com/qpasahumano" target="_blank">Acceder al Repositorio Oficial (GitHub)</a></li>
             </ul>
         </div>
     </div>
@@ -297,45 +291,47 @@
     <div class="seccion-pago">
         <h3>¿Querés desbloquear el acceso total al material?</h3>
         <p>Adquirí tu licencia de estudio de forma directa y segura.</p>
-        <!-- Reemplazá el href con tu link de Mercado Pago real -->
         <a href="TU_LINK_DE_MERCADO_PAGO_AQUÍ" class="btn-mp" target="_blank">Comprar Acceso con Mercado Pago</a>
     </div>
 
-    <!-- Ventana Modal para incrustar y visualizar el PDF del repo -->
+    <!-- Ventana Modal para incrustar el PDF exacto -->
     <div id="modalPdf" class="modal">
         <div class="modal-contenido">
             <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
             <h2 id="tituloModal">Visualizando Manual</h2>
             <div class="pdf-visor-container">
-                <!-- Apunta directo al archivo PDF que ya tenés subido en tu repositorio de GitHub -->
-                <iframe id="iframePdf" src="curso_humanometro_completo.pdf"></iframe>
+                <iframe id="iframePdf" src=""></iframe>
             </div>
         </div>
     </div>
 
     <script>
-        function abrirPdfPagina(numModulo) {
+        function abrirPdfPagina(numModulo, numeroPagina) {
             const modal = document.getElementById('modalPdf');
             const titulo = document.getElementById('tituloModal');
+            const iframe = document.getElementById('iframePdf');
+            
             titulo.innerText = "Manual de Estudio - Módulo " + numModulo;
+            
+            // Apunta directo a tu archivo PDF real con el salto a la página correspondiente
+            iframe.src = "Curso_Humanometro_Completo_HD_Lectura_Digital_compressed.pdf#page=" + numeroPagina;
+            
             modal.style.display = "flex";
-            // Nota: Si querés que el visor apunte a una página específica del PDF podés usar #page=numModulo al final del archivo
         }
 
         function cerrarModal() {
             const modal = document.getElementById('modalPdf');
             modal.style.display = "none";
+            document.getElementById('iframePdf').src = "";
         }
 
-        // Cierra el modal si hacen clic fuera del recuadro blanco
         window.onclick = function(event) {
             const modal = document.getElementById('modalPdf');
             if (event.target == modal) {
-                modal.style.display = "none";
+                cerrarModal();
             }
         }
     </script>
 
 </body>
 </html>
-  
