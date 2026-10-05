@@ -16,6 +16,9 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            /* Evita la selección de texto general para dificultar el copiado */
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         header {
@@ -191,21 +194,32 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.85);
             justify-content: center;
             align-items: center;
         }
 
         .modal-contenido {
             background: #fff;
-            width: 85%;
-            max-width: 700px;
-            height: 80vh;
-            padding: 20px;
+            width: 90%;
+            max-width: 750px;
+            height: 85vh;
+            padding: 15px;
             border: 4px solid #000;
             display: flex;
             flex-direction: column;
             position: relative;
+        }
+
+        .aviso-legal-banner {
+            background: #ffcc00;
+            color: #000;
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 6px;
+            font-weight: bold;
+            border: 1px solid #000;
+            margin-bottom: 8px;
         }
 
         .cerrar-modal {
@@ -215,12 +229,13 @@
             font-size: 1.5rem;
             cursor: pointer;
             font-weight: bold;
+            z-index: 10;
         }
 
         .pdf-visor-container {
             flex-grow: 1;
-            margin-top: 15px;
             border: 2px solid #ccc;
+            position: relative;
         }
 
         iframe {
@@ -294,11 +309,14 @@
         <a href="TU_LINK_DE_MERCADO_PAGO_AQUÍ" class="btn-mp" target="_blank">Comprar Acceso con Mercado Pago</a>
     </div>
 
-    <!-- Ventana Modal para incrustar el PDF exacto -->
+    <!-- Ventana Modal de Lectura Protegida -->
     <div id="modalPdf" class="modal">
         <div class="modal-contenido">
             <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
-            <h2 id="tituloModal">Visualizando Manual</h2>
+            <h2 id="tituloModal" style="margin: 0 0 5px 0; font-size: 1.1rem;">Manual de Estudio</h2>
+            <div class="aviso-legal-banner">
+                ⚠️ MATERIAL PROTEGIDO POR DERECHOS DE AUTOR - PROHIBIDA SU REPRODUCCIÓN O DISTRIBUCIÓN
+            </div>
             <div class="pdf-visor-container">
                 <iframe id="iframePdf" src=""></iframe>
             </div>
@@ -306,16 +324,27 @@
     </div>
 
     <script>
+        // 1. Bloqueo de Clic Derecho en toda la página
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert("⚠️ Contenido protegido bajo derechos de autor.");
+        });
+
+        // 2. Bloqueo de atajos de teclado comunes (Ctrl+S para guardar, Ctrl+P para imprimir, Ctrl+U para código)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'u' || e.key === 'i' || e.key === 'h')) {
+                e.preventDefault();
+                alert("⚠️ Acción bloqueada por seguridad del contenido.");
+            }
+        });
+
         function abrirPdfPagina(numModulo, numeroPagina) {
             const modal = document.getElementById('modalPdf');
             const titulo = document.getElementById('tituloModal');
             const iframe = document.getElementById('iframePdf');
             
             titulo.innerText = "Manual de Estudio - Módulo " + numModulo;
-            
-            // Apunta directo a tu archivo PDF real con el salto a la página correspondiente
             iframe.src = "Curso_Humanometro_Completo_HD_Lectura_Digital_compressed.pdf#page=" + numeroPagina;
-            
             modal.style.display = "flex";
         }
 
