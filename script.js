@@ -1,32 +1,53 @@
 "use strict";
 
 
+
 const paginas = {
 
     1: "pagina_1.png",
+
     2: "pagina_2.png",
+
     3: "pagina_3.png",
+
     4: "pagina_4.png",
+
     5: "pagina_5.png",
+
     6: "pagina_6.png",
+
     7: "pagina_7.png",
+
     8: "pagina_8.png",
+
     9: "pagina_9.png",
+
     10: "pagina_10.png"
 
 };
 
 
+
 function abrirPagina(numeroPagina) {
 
+
     const modal =
-        document.getElementById("modalPdf");
+        document.getElementById(
+            "modalPdf"
+        );
+
 
     const titulo =
-        document.getElementById("tituloModal");
+        document.getElementById(
+            "tituloModal"
+        );
+
 
     const visor =
-        document.getElementById("paginaVisor");
+        document.getElementById(
+            "paginaVisor"
+        );
+
 
     const contenedor =
         document.querySelector(
@@ -35,7 +56,9 @@ function abrirPagina(numeroPagina) {
 
 
     if (!paginas[numeroPagina]) {
+
         return;
+
     }
 
 
@@ -54,7 +77,9 @@ function abrirPagina(numeroPagina) {
         " del curso Humanómetro";
 
 
-    modal.style.display = "flex";
+    modal.style.display =
+        "flex";
+
 
     modal.setAttribute(
         "aria-hidden",
@@ -68,23 +93,32 @@ function abrirPagina(numeroPagina) {
 
     if (contenedor) {
 
-        contenedor.scrollTop = 0;
+        contenedor.scrollTop =
+            0;
 
     }
 
 }
 
 
+
 function cerrarModal() {
 
+
     const modal =
-        document.getElementById("modalPdf");
+        document.getElementById(
+            "modalPdf"
+        );
+
 
     const visor =
-        document.getElementById("paginaVisor");
+        document.getElementById(
+            "paginaVisor"
+        );
 
 
-    modal.style.display = "none";
+    modal.style.display =
+        "none";
 
 
     modal.setAttribute(
@@ -93,7 +127,8 @@ function cerrarModal() {
     );
 
 
-    visor.src = "";
+    visor.src =
+        "";
 
 
     document.body.style.overflow =
@@ -102,9 +137,11 @@ function cerrarModal() {
 }
 
 
+
 window.addEventListener(
     "click",
     function(event) {
+
 
         const modal =
             document.getElementById(
@@ -124,9 +161,11 @@ window.addEventListener(
 );
 
 
+
 document.addEventListener(
     "keydown",
     function(event) {
+
 
         if (
             event.key === "Escape"
@@ -140,6 +179,7 @@ document.addEventListener(
 );
 
 
+
 document.addEventListener(
     "contextmenu",
     function(event) {
@@ -150,9 +190,11 @@ document.addEventListener(
 );
 
 
+
 document.addEventListener(
     "dragstart",
     function(event) {
+
 
         if (
             event.target.tagName === "IMG"
@@ -166,9 +208,11 @@ document.addEventListener(
 );
 
 
+
 document.addEventListener(
     "keydown",
     function(event) {
+
 
         const key =
             event.key.toLowerCase();
@@ -207,10 +251,12 @@ document.addEventListener(
 );
 
 
+
 document
     .querySelectorAll("img")
     .forEach(
         function(imagen) {
+
 
             imagen.setAttribute(
                 "draggable",
