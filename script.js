@@ -3,24 +3,28 @@
 
 /* =========================================
    PÁGINAS INDIVIDUALES DEL CURSO
+
+   IMPORTANTE:
+   Las imágenes están en la raíz del
+   repositorio, no dentro de /paginas/.
 ========================================= */
 
 const paginas = {
-    1: "paginas/pagina_1.png",
-    2: "paginas/pagina_2.png",
-    3: "paginas/pagina_3.png",
-    4: "paginas/pagina_4.png",
-    5: "paginas/pagina_5.png",
-    6: "paginas/pagina_6.png",
-    7: "paginas/pagina_7.png",
-    8: "paginas/pagina_8.png",
-    9: "paginas/pagina_9.png",
-    10: "paginas/pagina_10.png"
+    1: "pagina_1.png",
+    2: "pagina_2.png",
+    3: "pagina_3.png",
+    4: "pagina_4.png",
+    5: "pagina_5.png",
+    6: "pagina_6.png",
+    7: "pagina_7.png",
+    8: "pagina_8.png",
+    9: "pagina_9.png",
+    10: "pagina_10.png"
 };
 
 
 /* =========================================
-   ABRIR UNA SOLA PÁGINA
+   ABRIR UNA SOLA HOJA
 ========================================= */
 
 function abrirPagina(numeroPagina) {
@@ -34,7 +38,7 @@ function abrirPagina(numeroPagina) {
     }
 
     titulo.innerText =
-        "Curso Humanómetro · Hoja " + numeroPagina;
+        "CURSO HUMANÓMETRO · HOJA " + numeroPagina;
 
     visor.src = paginas[numeroPagina];
 
@@ -42,7 +46,11 @@ function abrirPagina(numeroPagina) {
         "Hoja " + numeroPagina + " del curso Humanómetro";
 
     modal.style.display = "flex";
-    modal.setAttribute("aria-hidden", "false");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
     document.body.style.overflow = "hidden";
 }
@@ -54,11 +62,18 @@ function abrirPagina(numeroPagina) {
 
 function cerrarModal() {
 
-    const modal = document.getElementById("modalPdf");
-    const visor = document.getElementById("paginaVisor");
+    const modal =
+        document.getElementById("modalPdf");
+
+    const visor =
+        document.getElementById("paginaVisor");
 
     modal.style.display = "none";
-    modal.setAttribute("aria-hidden", "true");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
     visor.src = "";
 
@@ -67,103 +82,155 @@ function cerrarModal() {
 
 
 /* =========================================
-   CERRAR HACIENDO CLICK FUERA
+   CERRAR AL TOCAR FUERA
 ========================================= */
 
-window.addEventListener("click", function(event) {
+window.addEventListener(
+    "click",
+    function(event) {
 
-    const modal = document.getElementById("modalPdf");
+        const modal =
+            document.getElementById("modalPdf");
 
-    if (event.target === modal) {
-        cerrarModal();
+        if (event.target === modal) {
+            cerrarModal();
+        }
+
     }
-
-});
+);
 
 
 /* =========================================
    CERRAR CON ESC
 ========================================= */
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener(
+    "keydown",
+    function(event) {
 
-    if (event.key === "Escape") {
-        cerrarModal();
+        if (event.key === "Escape") {
+            cerrarModal();
+        }
+
     }
-
-});
+);
 
 
 /* =========================================
-   PROTECCIÓN BÁSICA DE INTERFAZ
+   PROTECCIÓN BÁSICA DEL CONTENIDO
 ========================================= */
 
-document.addEventListener("contextmenu", function(event) {
+document.addEventListener(
+    "contextmenu",
+    function(event) {
 
-    event.preventDefault();
-
-});
-
-
-document.addEventListener("dragstart", function(event) {
-
-    if (event.target.tagName === "IMG") {
         event.preventDefault();
+
     }
+);
 
-});
 
+document.addEventListener(
+    "dragstart",
+    function(event) {
 
-document.addEventListener("keydown", function(event) {
+        if (
+            event.target &&
+            event.target.tagName === "IMG"
+        ) {
 
-    const key = event.key.toLowerCase();
+            event.preventDefault();
 
-    if (
-        event.ctrlKey &&
-        (
-            key === "s" ||
-            key === "p" ||
-            key === "u" ||
-            key === "i"
-        )
-    ) {
-        event.preventDefault();
+        }
+
     }
-
-    if (
-        event.ctrlKey &&
-        event.shiftKey &&
-        (
-            key === "i" ||
-            key === "j" ||
-            key === "c"
-        )
-    ) {
-        event.preventDefault();
-    }
-
-});
+);
 
 
 /* =========================================
-   EVITAR ARRASTRE DE IMÁGENES
+   BLOQUEAR ATAJOS HABITUALES
 ========================================= */
 
-document.querySelectorAll("img").forEach(function(imagen) {
+document.addEventListener(
+    "keydown",
+    function(event) {
 
-    imagen.setAttribute("draggable", "false");
+        const key =
+            event.key.toLowerCase();
 
-});
+
+        if (
+            event.ctrlKey &&
+            (
+                key === "s" ||
+                key === "p" ||
+                key === "u" ||
+                key === "i"
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
 
 
-/*
-   IMPORTANTE:
+        if (
+            event.ctrlKey &&
+            event.shiftKey &&
+            (
+                key === "i" ||
+                key === "j" ||
+                key === "c"
+            )
+        ) {
 
-   El bloqueo comercial por pago todavía NO se activa.
+            event.preventDefault();
 
-   Primero probamos toda la interfaz, las 10 páginas,
-   el visor individual y la sección de videos.
+        }
 
-   Cuando todo esté aprobado, se incorpora el sistema
-   de desbloqueo mediante pago.
-*/
+
+        if (
+            event.ctrlKey &&
+            event.key === "PrintScreen"
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   DESACTIVAR ARRASTRE DE IMÁGENES
+========================================= */
+
+document
+    .querySelectorAll("img")
+    .forEach(function(imagen) {
+
+        imagen.setAttribute(
+            "draggable",
+            "false"
+        );
+
+    });
+
+
+/* =========================================
+   BLOQUEO COMERCIAL
+
+   TODAVÍA NO SE ACTIVA.
+
+   Primero se prueba:
+   - las 10 hojas
+   - miniaturas
+   - visor individual
+   - scroll vertical
+   - computadora retro
+   - videos
+
+   El desbloqueo por pago se incorpora
+   después de aprobar toda la interfaz.
+========================================= */
