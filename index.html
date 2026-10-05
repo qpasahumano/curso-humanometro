@@ -124,7 +124,6 @@
             border: 6px inset #444;
             padding: 15px;
             color: #00ff66;
-            min-height: 80px;
             font-family: 'Courier New', Courier, monospace;
         }
 
@@ -137,7 +136,27 @@
         .monitor-pantalla p {
             font-size: 0.85rem;
             color: #aaa;
-            margin: 5px 0 0 0;
+            margin: 5px 0 15px 0;
+        }
+
+        .btn-youtube {
+            display: inline-block;
+            background: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            border: 2px solid #000;
+            box-shadow: 3px 3px 0px #000;
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: transform 0.1s;
+        }
+
+        .btn-youtube:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #000;
         }
 
         .seccion-pago {
@@ -275,11 +294,12 @@
         </div>
     </div>
 
-    <!-- Estación Multimedia (Preparada para cuando sumemos los videos) -->
+    <!-- Estación Multimedia con la Lista de Reproducción de YouTube -->
     <div class="estacion-multimedia">
         <div class="monitor-pantalla">
             <h3>[ TERMINAL MULTIMEDIA ]</h3>
-            <p>Próximamente: Módulo de videos explicativos.</p>
+            <p>Accedé al curso completo en video a través de nuestra lista de reproducción oficial.</p>
+            <a href="https://youtube.com/playlist?list=PLgMXXa_ibKppXXotFeUcuNdBL-Zm5GKxA" class="btn-youtube" target="_blank">📺 Ver Lista de Videos del Curso</a>
         </div>
     </div>
 
