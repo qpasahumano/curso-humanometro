@@ -16,7 +16,6 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            /* Evita la selección de texto general para dificultar el copiado */
             user-select: none;
             -webkit-user-select: none;
         }
@@ -125,7 +124,7 @@
             border: 6px inset #444;
             padding: 15px;
             color: #00ff66;
-            min-height: 120px;
+            min-height: 80px;
             font-family: 'Courier New', Courier, monospace;
         }
 
@@ -135,25 +134,10 @@
             color: #ffcc00;
         }
 
-        .lista-videos {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0 0;
-            text-align: left;
-        }
-
-        .lista-videos li {
-            margin: 8px 0;
-        }
-
-        .lista-videos a {
-            color: #00ffff;
-            text-decoration: none;
+        .monitor-pantalla p {
             font-size: 0.85rem;
-        }
-
-        .lista-videos a:hover {
-            text-decoration: underline;
+            color: #aaa;
+            margin: 5px 0 0 0;
         }
 
         .seccion-pago {
@@ -291,22 +275,19 @@
         </div>
     </div>
 
-    <!-- Estación Multimedia (Terminal de Videos) -->
+    <!-- Estación Multimedia (Preparada para cuando sumemos los videos) -->
     <div class="estacion-multimedia">
         <div class="monitor-pantalla">
-            <h3>[ TERMINAL DE VIDEO & REPO ]</h3>
-            <ul class="lista-videos">
-                <li>▶ <a href="TU_LINK_DE_YOUTUBE_AQUÍ" target="_blank">Ver Video Promocional / Explicativo (YouTube)</a></li>
-                <li>📁 <a href="https://github.com/qpasahumano" target="_blank">Acceder al Repositorio Oficial (GitHub)</a></li>
-            </ul>
+            <h3>[ TERMINAL MULTIMEDIA ]</h3>
+            <p>Próximamente: Módulo de videos explicativos.</p>
         </div>
     </div>
 
-    <!-- Sección de Pago -->
+    <!-- Sección de Pago con Mercado Pago integrado -->
     <div class="seccion-pago">
         <h3>¿Querés desbloquear el acceso total al material?</h3>
         <p>Adquirí tu licencia de estudio de forma directa y segura.</p>
-        <a href="TU_LINK_DE_MERCADO_PAGO_AQUÍ" class="btn-mp" target="_blank">Comprar Acceso con Mercado Pago</a>
+        <a href="https://mpago.la/2392HZX" class="btn-mp" target="_blank">Comprar Acceso con Mercado Pago</a>
     </div>
 
     <!-- Ventana Modal de Lectura Protegida -->
@@ -324,13 +305,13 @@
     </div>
 
     <script>
-        // 1. Bloqueo de Clic Derecho en toda la página
+        // Bloqueo de Clic Derecho en toda la página
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             alert("⚠️ Contenido protegido bajo derechos de autor.");
         });
 
-        // 2. Bloqueo de atajos de teclado comunes (Ctrl+S para guardar, Ctrl+P para imprimir, Ctrl+U para código)
+        // Bloqueo de atajos de teclado comunes (Ctrl+S, Ctrl+P, Ctrl+U, etc.)
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'u' || e.key === 'i' || e.key === 'h')) {
                 e.preventDefault();
