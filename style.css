@@ -1,1 +1,637 @@
+* {
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #5c3a21;
+    background-image:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,255,255,0.05) 0%,
+            rgba(0,0,0,0.3) 100%
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 40px,
+            rgba(0,0,0,0.08) 40px,
+            rgba(0,0,0,0.08) 80px
+        );
+    font-family: "Courier New", Courier, monospace;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    user-select: none;
+    -webkit-user-select: none;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 7px,
+            rgba(255,255,255,0.035) 8px
+        );
+    z-index: -1;
+}
+
+header {
+    text-align: center;
+    background: #f4ebd0;
+    padding: 18px 22px;
+    border: 3px solid #333;
+    box-shadow: 6px 6px 0 #000;
+    margin: 22px 0 18px;
+    transform: rotate(-0.5deg);
+    width: 92%;
+    max-width: 820px;
+    position: relative;
+}
+
+header::after {
+    content: "✎";
+    position: absolute;
+    right: 15px;
+    bottom: 8px;
+    font-size: 1.3rem;
+    color: rgba(40,40,40,0.35);
+    transform: rotate(-15deg);
+}
+
+header .materia {
+    display: inline-block;
+    font-weight: bold;
+    color: #063f7a;
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    background: #7de7ff;
+    padding: 4px 10px;
+    transform: rotate(-1deg);
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(1.35rem, 4vw, 2.25rem);
+    color: #002d73;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.08;
+    text-shadow: 2px 2px 0 #72e7ff;
+}
+
+header .subtitulo {
+    margin: 11px auto 4px;
+    max-width: 700px;
+    font-size: clamp(0.82rem, 2.2vw, 1.05rem);
+    font-weight: bold;
+    color: #111;
+    background: #ffe900;
+    padding: 5px 10px;
+    transform: rotate(0.4deg);
+}
+
+header .bajada {
+    margin: 9px 0 0;
+    font-size: clamp(0.74rem, 2vw, 0.95rem);
+    color: #173c69;
+    font-weight: bold;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pupitre-wrap {
+    position: relative;
+    width: 94%;
+    max-width: 1050px;
+}
+
+.pupitre {
+    width: 100%;
+    background:
+        linear-gradient(
+            rgba(86,50,25,0.15),
+            rgba(38,20,10,0.25)
+        ),
+        repeating-linear-gradient(
+            8deg,
+            rgba(255,255,255,0.035) 0 2px,
+            transparent 2px 48px
+        ),
+        #69431f;
+    border: 5px solid #3b2414;
+    border-radius: 12px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 35px;
+    box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,0.08),
+        8px 10px 0 rgba(0,0,0,0.55);
+    position: relative;
+    overflow: visible;
+}
+
+.pupitre::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(255,220,160,0.08);
+    border-radius: 7px;
+    pointer-events: none;
+}
+
+.escrito-pupitre {
+    position: absolute;
+    z-index: 20;
+    color: rgba(244,235,208,0.50);
+    font-family: "Comic Sans MS", "Courier New", cursive;
+    font-weight: bold;
+    pointer-events: none;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
+}
+
+.escrito-uno {
+    left: 12px;
+    bottom: 3px;
+    font-size: 0.75rem;
+    transform: rotate(-4deg);
+}
+
+.escrito-dos {
+    right: 14px;
+    top: 5px;
+    font-size: 0.72rem;
+    transform: rotate(3deg);
+}
+
+.escrito-tres {
+    left: 44%;
+    bottom: 5px;
+    font-size: 0.65rem;
+    transform: rotate(2deg);
+}
+
+.corazon-pupitre {
+    display: inline-block;
+    margin-left: 4px;
+    color: rgba(255,90,120,0.62);
+}
+
+.hoja-papel {
+    background: #fffdf4;
+    min-height: 245px;
+    padding: 11px;
+    box-shadow: 4px 5px 9px rgba(0,0,0,0.58);
+    border: 1px solid #d4c5a9;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.hoja-papel:nth-child(3n+1) {
+    transform: rotate(-1deg);
+}
+
+.hoja-papel:nth-child(3n+2) {
+    transform: rotate(0.7deg);
+}
+
+.hoja-papel:nth-child(3n) {
+    transform: rotate(-0.5deg);
+}
+
+.hoja-papel:hover {
+    transform: scale(1.035) rotate(0deg);
+    box-shadow: 7px 10px 17px rgba(0,0,0,0.72);
+    z-index: 10;
+}
+
+.hoja-papel:active {
+    transform: scale(0.99);
+}
+
+.miniatura {
+    width: 100%;
+    height: 178px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border: 1px solid #c7bda8;
+    background: #f2ead7;
+    pointer-events: none;
+}
+
+.hoja-info {
+    padding: 7px 2px 0;
+    text-align: center;
+}
+
+.hoja-info h3 {
+    font-size: 0.76rem;
+    margin: 0;
+    color: #123f79;
+    line-height: 1.12;
+}
+
+.hoja-info p {
+    font-size: 0.63rem;
+    color: #666;
+    margin: 4px 0 0;
+    line-height: 1.15;
+}
+
+.btn-leer {
+    display: block;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    border: 2px solid #111;
+    padding: 6px;
+    margin-top: 7px;
+    font-size: 0.66rem;
+    text-align: center;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-leer:hover {
+    background: #0b5c8e;
+}
+
+
+/* ================================
+   COMPUTADORA RETRO
+================================ */
+
+.estacion-multimedia {
+    width: 92%;
+    max-width: 800px;
+    background: #8b8177;
+    border: 5px solid #4b4844;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 7px 7px 0 #222;
+    margin-bottom: 35px;
+    text-align: center;
+    position: relative;
+}
+
+.titulo-estacion {
+    margin: -2px auto 13px;
+    display: inline-block;
+    background: #f4ebd0;
+    border: 3px solid #333;
+    padding: 5px 13px;
+    box-shadow: 3px 3px 0 #000;
+    font-size: 0.78rem;
+    font-weight: bold;
+    transform: rotate(-1deg);
+}
+
+.pc-retro {
+    width: min(100%, 650px);
+    margin: 0 auto;
+    padding: 18px 18px 14px;
+    background: #b7b1a5;
+    border: 4px solid #68645d;
+    border-radius: 10px 10px 5px 5px;
+    box-shadow: inset 0 0 0 2px #d9d4c9;
+}
+
+.monitor {
+    background: #272725;
+    border: 12px solid #a39e91;
+    border-bottom-width: 18px;
+    border-radius: 9px 9px 14px 14px;
+    padding: 10px;
+    box-shadow:
+        inset 0 0 0 3px #5a554c,
+        5px 6px 0 #4b4844;
+}
+
+.monitor-marco-superior {
+    background: #aaa59a;
+    color: #302f2c;
+    font-family: "Courier New", monospace;
+    font-size: 0.58rem;
+    font-weight: bold;
+    padding: 3px 6px;
+    text-align: right;
+    border-bottom: 2px solid #55514a;
+}
+
+.monitor-pantalla {
+    background: #050b0c;
+    border: 3px inset #454545;
+    min-height: 245px;
+    color: #00ff66;
+    font-family: "Courier New", Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.monitor-barra {
+    background: #d5d1c8;
+    color: #111;
+    text-align: left;
+    font-size: 0.68rem;
+    font-weight: bold;
+    padding: 4px 7px;
+    flex-shrink: 0;
+}
+
+.youtube-contenedor {
+    background: #000;
+    flex: 1;
+    min-height: 205px;
+}
+
+.youtube-frame {
+    width: 100%;
+    height: 205px;
+    border: none;
+    display: block;
+}
+
+.monitor-pie {
+    padding: 7px;
+    font-size: 0.72rem;
+    color: #00ff66;
+    text-align: center;
+    background: #07110a;
+    border-top: 1px solid #00ff66;
+}
+
+.pc-base {
+    width: 55%;
+    height: 16px;
+    margin: 14px auto 0;
+    background: #8f897e;
+    border: 3px solid #666158;
+    border-radius: 4px;
+}
+
+.teclado {
+    width: 78%;
+    min-height: 38px;
+    margin: 9px auto 0;
+    padding: 4px 6px;
+    background: #d4d0c7;
+    border: 3px solid #817c72;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 2px #aaa59b;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 3px;
+}
+
+.teclado span {
+    height: 12px;
+    background: #aaa59b;
+    border: 1px solid #817c72;
+    border-radius: 1px;
+}
+
+.apoyo-video {
+    margin: 12px 0 0;
+    font-size: 0.82rem;
+    color: #fff;
+    font-weight: bold;
+    background: #145a84;
+    border: 2px solid #000;
+    padding: 8px;
+}
+
+
+/* ================================
+   PAGO
+================================ */
+
+.seccion-pago {
+    background: #fff;
+    border: 3px solid #000;
+    padding: 17px;
+    text-align: center;
+    max-width: 480px;
+    width: 90%;
+    margin-bottom: 35px;
+    box-shadow: 5px 5px 0 #000;
+}
+
+.seccion-pago h3 {
+    font-size: 0.95rem;
+    margin-top: 0;
+}
+
+.seccion-pago p {
+    font-size: 0.8rem;
+}
+
+.btn-mp {
+    display: inline-block;
+    background: #009ee3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 2px solid #000;
+    margin-top: 8px;
+    box-shadow: 3px 3px 0 #000;
+    font-size: 0.85rem;
+}
+
+.btn-mp:hover {
+    transform: translate(-1px,-1px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+
+/* ================================
+   VISOR
+================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0,0,0,0.88);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.modal-contenido {
+    background: #e9e3d7;
+    width: 96%;
+    max-width: 820px;
+    height: 94vh;
+    padding: 10px;
+    border: 4px solid #000;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 8px 8px 0 #000;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background: transparent;
+    color: #000;
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10;
+    line-height: 1;
+}
+
+.modal-contenido h2 {
+    margin: 0 42px 6px 0;
+    font-size: 1rem;
+}
+
+.aviso-legal-banner {
+    background: #ffcc00;
+    color: #000;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid #000;
+    margin-bottom: 6px;
+}
+
+.pagina-visor-container {
+    flex-grow: 1;
+    border: 2px solid #9e9588;
+    background: #777;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 8px;
+}
+
+#paginaVisor {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+.modal-footer {
+    font-size: 0.65rem;
+    text-align: center;
+    padding-top: 5px;
+    color: #444;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 720px) {
+
+    .pupitre {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 15px;
+    }
+
+    .hoja-papel {
+        min-height: 215px;
+    }
+
+    .miniatura {
+        height: 145px;
+    }
+
+    .escrito-uno,
+    .escrito-dos,
+    .escrito-tres {
+        font-size: 0.58rem;
+    }
+
+    .pc-retro {
+        padding: 13px;
+    }
+
+    .monitor {
+        border-width: 8px;
+        border-bottom-width: 13px;
+    }
+}
+
+
+@media (max-width: 470px) {
+
+    .pupitre {
+        grid-template-columns: 1fr;
+        width: 92%;
+    }
+
+    .hoja-papel {
+        min-height: 0;
+    }
+
+    .miniatura {
+        height: 330px;
+    }
+
+    .modal-contenido {
+        width: 99%;
+        height: 96vh;
+    }
+
+    .youtube-frame {
+        height: 190px;
+    }
+
+    .teclado {
+        width: 90%;
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    .escrito-tres {
+        display: none;
+    }
+  }
