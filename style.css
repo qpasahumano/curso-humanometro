@@ -10,7 +10,10 @@ body {
     padding: 0;
 
     width: 100%;
+    max-width: 100vw;
     min-height: 100%;
+
+    overflow-x: hidden;
 
 }
 
@@ -57,6 +60,15 @@ body {
 }
 
 
+main {
+
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: hidden;
+
+}
+
 
 /* ==================================================
    ESCENA COMPLETA
@@ -75,13 +87,14 @@ body {
     margin: 0 auto;
 
     padding:
-        18px 28px 55px;
+        18px 28px 45px;
 
     background:
         transparent;
 
-}
+    overflow-x: hidden;
 
+}
 
 
 /* ==================================================
@@ -99,13 +112,15 @@ body {
     max-width: none;
 
     margin:
-        0 auto 25px;
+        0 auto 22px;
 
     display: flex;
 
     justify-content: center;
 
     align-items: center;
+
+    overflow: visible;
 
 }
 
@@ -132,7 +147,6 @@ body {
         );
 
 }
-
 
 
 /* ==================================================
@@ -168,7 +182,7 @@ body {
         );
 
     gap:
-        22px 18px;
+        20px 18px;
 
 }
 
@@ -292,86 +306,6 @@ body {
 }
 
 
-
-/* ==================================================
-   INDICADOR SCROLL
-   ================================================== */
-
-.indicador-scroll {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 7px;
-
-    width: 100%;
-
-    margin:
-        12px auto 0;
-
-    padding: 0;
-
-    color: rgba(255,255,255,.78);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 12px;
-
-    line-height: 1;
-
-    letter-spacing: .08em;
-
-    text-align: center;
-
-    text-shadow:
-        0 1px 3px
-        rgba(0,0,0,.75);
-
-    pointer-events: none;
-
-    transition:
-        opacity .25s ease;
-
-}
-
-
-.indicador-scroll img {
-
-    display: block;
-
-    width: 28px !important;
-
-    max-width: 28px !important;
-
-    height: auto !important;
-
-    margin: 0 !important;
-
-    padding: 0;
-
-    object-fit: contain;
-
-    opacity: .35;
-
-    transform: rotate(90deg);
-
-}
-
-
-.indicador-scroll.oculto {
-
-    opacity: 0;
-
-}
-
-
-
 /* ==================================================
    COMPUTADORA
    ================================================== */
@@ -387,7 +321,7 @@ body {
     max-width: 760px;
 
     margin:
-        28px auto 0;
+        17px auto 0;
 
 }
 
@@ -432,7 +366,6 @@ body {
         );
 
 }
-
 
 
 /* ==================================================
@@ -494,7 +427,6 @@ body {
 }
 
 
-
 /* ==================================================
    SILLA
    ================================================== */
@@ -510,7 +442,7 @@ body {
     max-width: 760px;
 
     margin:
-        24px auto 0;
+        10px auto 0;
 
     display: flex;
 
@@ -566,16 +498,16 @@ body {
     z-index: 40;
 
     left:
-        34.5%;
+        29%;
 
     top:
-        48.5%;
+        44%;
 
     width:
-        31%;
+        42%;
 
     height:
-        13%;
+        20%;
 
     display: block;
 
@@ -587,7 +519,6 @@ body {
 }
 
 
-
 /* ==================================================
    CRÉDITOS
    ================================================== */
@@ -597,7 +528,7 @@ body {
     width: 100%;
 
     margin:
-        10px auto 0;
+        6px auto 0;
 
     padding: 0 8px;
 
@@ -623,7 +554,6 @@ body {
         rgba(0,0,0,.80);
 
 }
-
 
 
 /* ==================================================
@@ -661,7 +591,7 @@ body {
         100%;
 
     max-width:
-        950px;
+        1100px;
 
     height:
         100dvh;
@@ -690,7 +620,6 @@ body {
 
     display:
         none;
-
 
 }
 
@@ -749,9 +678,8 @@ body {
 }
 
 
-
 /* ==================================================
-   VISOR LIMPIO — SOLO LA HOJA
+   VISOR LIMPIO + CONTENIDO COMPLEMENTARIO
    ================================================== */
 
 .carpeta-visor {
@@ -767,7 +695,10 @@ body {
     width:
         100%;
 
-    overflow:
+    overflow-y:
+        auto;
+
+    overflow-x:
         hidden;
 
     -webkit-overflow-scrolling:
@@ -777,7 +708,7 @@ body {
         pan-y pinch-zoom;
 
     padding:
-        50px 8px 8px;
+        48px 10px 26px;
 
     background:
         transparent;
@@ -788,6 +719,40 @@ body {
     box-shadow:
         none;
 
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        rgba(255,255,255,.38)
+        transparent;
+
+}
+
+
+.carpeta-visor::-webkit-scrollbar {
+
+    width:
+        7px;
+
+}
+
+
+.carpeta-visor::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+
+}
+
+
+.carpeta-visor::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255,255,255,.38);
+
+    border-radius:
+        20px;
+
 }
 
 
@@ -796,7 +761,6 @@ body {
 
     display:
         none;
-
 
 }
 
@@ -812,11 +776,8 @@ body {
     width:
         100%;
 
-    height:
-        100%;
-
     min-height:
-        0;
+        calc(100dvh - 112px);
 
     padding:
         0;
@@ -851,10 +812,10 @@ body {
         auto;
 
     max-width:
-        calc(100vw - 16px);
+        calc(100vw - 20px);
 
     max-height:
-        calc(100dvh - 58px);
+        calc(100dvh - 118px);
 
     height:
         auto;
@@ -883,6 +844,259 @@ body {
 }
 
 
+/* ==================================================
+   CONTENIDO COMPLEMENTARIO DEL VISOR
+   ================================================== */
+
+.zona-complementaria {
+
+    width:
+        min(100%, 900px);
+
+    margin:
+        0 auto;
+
+    padding:
+        8px 10px 22px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.boton-video-complementario,
+.accion-pagina {
+
+    appearance:
+        none;
+
+    -webkit-appearance:
+        none;
+
+    border:
+        1px solid rgba(255,255,255,.42);
+
+    background:
+        rgba(0,0,0,.34);
+
+    color:
+        rgba(255,255,255,.94);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        .08em;
+
+    line-height:
+        1.2;
+
+    text-align:
+        center;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,.85);
+
+    border-radius:
+        8px;
+
+    padding:
+        10px 16px;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.28);
+
+    transition:
+        background .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+
+}
+
+
+.boton-video-complementario:hover,
+.accion-pagina:hover {
+
+    background:
+        rgba(255,255,255,.10);
+
+    border-color:
+        rgba(255,255,255,.70);
+
+}
+
+
+.boton-video-complementario:active,
+.accion-pagina:active {
+
+    transform:
+        scale(.985);
+
+}
+
+
+.boton-video-complementario.oculto {
+
+    display:
+        none;
+
+}
+
+
+.subtitulo-video {
+
+    min-height:
+        0;
+
+    width:
+        100%;
+
+    color:
+        rgba(255,255,255,.82);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        12px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.35;
+
+    letter-spacing:
+        .02em;
+
+    text-align:
+        center;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,.90);
+
+}
+
+
+.contenedor-video-complementario {
+
+    width:
+        min(100%, 860px);
+
+    display:
+        none;
+
+    margin:
+        0 auto;
+
+}
+
+
+.contenedor-video-complementario.visible {
+
+    display:
+        block;
+
+}
+
+
+.video-responsive {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    aspect-ratio:
+        16 / 9;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        9px;
+
+    background:
+        #050505;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.42);
+
+}
+
+
+.video-responsive iframe {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    outline:
+        0;
+
+}
+
+
+.accion-pagina {
+
+    min-width:
+        190px;
+
+    margin-top:
+        2px;
+
+    border-color:
+        rgba(255,255,255,.50);
+
+    background:
+        rgba(20,20,20,.52);
+
+}
+
 
 /* ==================================================
    TABLET
@@ -904,8 +1118,14 @@ body {
 
     .escena-pupitre {
 
+        width:
+            100%;
+
+        max-width:
+            100%;
+
         padding:
-            10px 18px 28px;
+            10px 18px 26px;
 
     }
 
@@ -913,21 +1133,13 @@ body {
     .zona-pizarron {
 
         width:
-            100vw;
+            100%;
 
         max-width:
             none;
 
-        margin-left:
-            calc(
-                (100% - 100vw) / 2
-            );
-
-        margin-right:
-            0;
-
-        margin-bottom:
-            12px;
+        margin:
+            0 auto 10px;
 
     }
 
@@ -935,13 +1147,13 @@ body {
     .pizarron {
 
         width:
-            132vw;
+            132%;
 
         max-width:
             none;
 
         margin:
-            0 -16vw;
+            0 -16%;
 
     }
 
@@ -1083,35 +1295,13 @@ body {
     }
 
 
-    .indicador-scroll {
-
-        margin:
-            5px auto 0;
-
-        font-size:
-            11px;
-
-    }
-
-
-    .indicador-scroll img {
-
-        width:
-            24px !important;
-
-        max-width:
-            24px !important;
-
-    }
-
-
     .zona-computadora {
 
         width:
             82%;
 
         margin-top:
-            15px;
+            7px;
 
     }
 
@@ -1136,10 +1326,27 @@ body {
     .zona-silla {
 
         width:
-            82%;
+            78%;
 
         margin-top:
-            15px;
+            7px;
+
+    }
+
+
+    .boton-silla {
+
+        left:
+            29%;
+
+        top:
+            44%;
+
+        width:
+            42%;
+
+        height:
+            20%;
 
     }
 
@@ -1147,7 +1354,7 @@ body {
     .creditos {
 
         margin-top:
-            8px;
+            5px;
 
         font-size:
             14px;
@@ -1158,7 +1365,15 @@ body {
     .carpeta-visor {
 
         padding:
-            50px 8px 8px;
+            48px 8px 20px;
+
+    }
+
+
+    .hoja-lectura {
+
+        min-height:
+            calc(100dvh - 110px);
 
     }
 
@@ -1172,12 +1387,42 @@ body {
             calc(100vw - 16px);
 
         max-height:
-            calc(100dvh - 58px);
+            calc(100dvh - 116px);
+
+    }
+
+
+    .zona-complementaria {
+
+        width:
+            100%;
+
+        padding:
+            8px 4px 20px;
+
+    }
+
+
+    .boton-video-complementario,
+    .accion-pagina {
+
+        font-size:
+            12px;
+
+        padding:
+            9px 13px;
+
+    }
+
+
+    .subtitulo-video {
+
+        font-size:
+            11px;
 
     }
 
 }
-
 
 
 /* ==================================================
@@ -1200,8 +1445,14 @@ body {
 
     .escena-pupitre {
 
+        width:
+            100%;
+
+        max-width:
+            100%;
+
         padding:
-            7px 7px 22px;
+            7px 7px 20px;
 
     }
 
@@ -1209,21 +1460,13 @@ body {
     .zona-pizarron {
 
         width:
-            100vw;
+            100%;
 
         max-width:
             none;
 
-        margin-left:
-            calc(
-                (100% - 100vw) / 2
-            );
-
-        margin-right:
-            0;
-
-        margin-bottom:
-            8px;
+        margin:
+            0 auto 7px;
 
     }
 
@@ -1231,13 +1474,13 @@ body {
     .pizarron {
 
         width:
-            132vw;
+            132%;
 
         max-width:
             none;
 
         margin:
-            0 -16vw;
+            0 -16%;
 
     }
 
@@ -1267,38 +1510,13 @@ body {
     }
 
 
-    .indicador-scroll {
-
-        margin:
-            4px auto 0;
-
-        font-size:
-            10px;
-
-        letter-spacing:
-            .06em;
-
-    }
-
-
-    .indicador-scroll img {
-
-        width:
-            22px !important;
-
-        max-width:
-            22px !important;
-
-    }
-
-
     .zona-computadora {
 
         width:
             88%;
 
         margin-top:
-            11px;
+            5px;
 
     }
 
@@ -1337,10 +1555,10 @@ body {
     .zona-silla {
 
         width:
-            88%;
+            76%;
 
         margin-top:
-            10px;
+            5px;
 
     }
 
@@ -1348,16 +1566,16 @@ body {
     .boton-silla {
 
         left:
-            34.5%;
+            29%;
 
         top:
-            48.5%;
+            44%;
 
         width:
-            31%;
+            42%;
 
         height:
-            13%;
+            20%;
 
     }
 
@@ -1365,7 +1583,7 @@ body {
     .creditos {
 
         margin-top:
-            7px;
+            5px;
 
         padding:
             0 5px;
@@ -1396,7 +1614,7 @@ body {
     .carpeta-visor {
 
         padding:
-            50px 8px 8px;
+            48px 6px 18px;
 
     }
 
@@ -1433,16 +1651,80 @@ body {
     }
 
 
+    .hoja-lectura {
+
+        min-height:
+            calc(100dvh - 108px);
+
+    }
+
+
     #paginaVisor {
 
         width:
             auto;
 
         max-width:
-            calc(100vw - 16px);
+            calc(100vw - 12px);
 
         max-height:
-            calc(100dvh - 58px);
+            calc(100dvh - 114px);
+
+    }
+
+
+    .zona-complementaria {
+
+        gap:
+            9px;
+
+        padding:
+            8px 2px 18px;
+
+    }
+
+
+    .boton-video-complementario,
+    .accion-pagina {
+
+        max-width:
+            calc(100vw - 28px);
+
+        font-size:
+            11px;
+
+        letter-spacing:
+            .055em;
+
+        padding:
+            9px 11px;
+
+    }
+
+
+    .subtitulo-video {
+
+        font-size:
+            10.5px;
+
+        line-height:
+            1.3;
+
+    }
+
+
+    .contenedor-video-complementario {
+
+        width:
+            100%;
+
+    }
+
+
+    .video-responsive {
+
+        border-radius:
+            7px;
 
     }
 
