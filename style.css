@@ -60,16 +60,6 @@ body {
 }
 
 
-main {
-
-    width: 100%;
-    max-width: 100%;
-
-    overflow-x: hidden;
-
-}
-
-
 /* ==================================================
    ESCENA COMPLETA
    ================================================== */
@@ -1567,16 +1557,25 @@ main {
     }
 
 
+    /* ----------------------------------------------
+       COMPUTADORA
+       Compacta y elevada.
+       Mantiene separación respecto de la hoja.
+       ---------------------------------------------- */
+
     .zona-computadora {
 
         width:
-            58%;
+            52%;
 
         max-width:
             560px;
 
         margin-top:
-            4px;
+            3px;
+
+        margin-bottom:
+            0;
 
     }
 
@@ -1612,15 +1611,24 @@ main {
     }
 
 
+    /* ----------------------------------------------
+       SILLA
+       Compacta y elevada.
+       Mantiene legibilidad del acceso.
+       ---------------------------------------------- */
+
     .zona-silla {
 
         width:
-            63%;
+            54%;
 
         max-width:
             600px;
 
         margin-top:
+            3px;
+
+        margin-bottom:
             0;
 
     }
@@ -1819,59 +1827,6 @@ main {
 
         border-radius:
             7px;
-
-    }
-
-}
-/* ==================================================
-   AJUSTE FINAL DE COMPOSICIÓN VERTICAL
-   COMPUTADORA + SILLA
-   ================================================== */
-
-@media (max-width: 470px) {
-
-    /* ----------------------------------------------
-       COMPUTADORA
-       Un poco más compacta y más arriba.
-       Mantiene aire respecto de la hoja.
-       ---------------------------------------------- */
-
-    .zona-computadora {
-
-        width:
-            80%;
-
-        max-width:
-            760px;
-
-        margin-top:
-            6px;
-
-        margin-bottom:
-            0;
-
-    }
-
-
-    /* ----------------------------------------------
-       SILLA
-       Más compacta para recuperar espacio vertical
-       y permitir que aparezca completa.
-       ---------------------------------------------- */
-
-    .zona-silla {
-
-        width:
-            78%;
-
-        max-width:
-            760px;
-
-        margin-top:
-            6px;
-
-        margin-bottom:
-            0;
 
     }
 
