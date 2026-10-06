@@ -2723,3 +2723,20 @@ body {
     }
 
 }
+/* ==================================================
+   AJUSTE FINAL — TAMAÑO OPCIONES DE ACCESO
+   ================================================== */
+
+.acceso-opcion img {
+
+    display: block;
+
+    width:
+        clamp(180px, 60vw, 320px);
+
+    max-width:
+        100%;
+
+    height: auto;
+
+}
