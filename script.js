@@ -1,5 +1,8 @@
 "use strict";
 
+/* CACHE-BUSTER: 2026-10-05-2047 */
+const HM_JS_VERSION = "9";
+
 
 const paginas = {
 
