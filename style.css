@@ -282,6 +282,31 @@ body {
 
 
 /* ==================================================
+   INDICADOR SCROLL
+   ================================================== */
+
+img[src="a_clean_graphic_png_style_illustration_on_a_transp.png"] {
+
+    display: block;
+
+    width: 150px !important;
+
+    max-width: 150px !important;
+
+    height: auto !important;
+
+    margin:
+        12px auto 0 !important;
+
+    padding: 0;
+
+    object-fit: contain;
+
+}
+
+
+
+/* ==================================================
    COMPUTADORA
    ================================================== */
 
@@ -521,7 +546,7 @@ body {
     justify-content: center;
 
     padding:
-        4px;
+        0;
 
     background:
         rgba(0,0,0,.90);
@@ -534,29 +559,29 @@ body {
     position: relative;
 
     width:
-        99%;
+        100%;
 
     max-width:
         950px;
 
     height:
-        98vh;
+        100vh;
 
     display: flex;
 
     flex-direction: column;
 
     padding:
-        4px;
+        0;
 
     background:
-        #ddd4c3;
+        transparent;
 
     border:
-        3px solid #111;
+        none;
 
     box-shadow:
-        7px 7px 0 #000;
+        none;
 
 }
 
@@ -566,6 +591,7 @@ body {
 
     display:
         none;
+
 
 }
 
@@ -577,16 +603,16 @@ body {
     z-index: 50;
 
     top:
-        3px;
+        6px;
 
     right:
-        7px;
+        8px;
 
     width:
-        38px;
+        42px;
 
     height:
-        38px;
+        42px;
 
     padding:
         0;
@@ -606,13 +632,13 @@ body {
         sans-serif;
 
     font-size:
-        2rem;
+        2.3rem;
 
     font-weight:
         bold;
 
     line-height:
-        38px;
+        42px;
 
     cursor:
         pointer;
@@ -622,7 +648,7 @@ body {
 
 
 /* ==================================================
-   CARPETA ESCOLAR DEL VISOR
+   VISOR LIMPIO — SOLO LA HOJA
    ================================================== */
 
 .carpeta-visor {
@@ -648,142 +674,25 @@ body {
         pan-y pinch-zoom;
 
     padding:
-        2px 3px 20px 43px;
+        0;
 
     background:
-        linear-gradient(
-            90deg,
-            #b8d0c4 0,
-            #c9ddd2 6px,
-            #e2d9bd 6px,
-            #e2d9bd 100%
-        );
+        transparent;
 
     border:
-        2px solid #84796b;
+        none;
 
     box-shadow:
-        inset 0 0 0 1px
-        rgba(255,255,255,.35);
-
-}
-
-
-.perforaciones {
-
-    position: absolute;
-
-    left:
-        8px;
-
-    top:
-        18px;
-
-    bottom:
-        18px;
-
-    width:
-        17px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        space-around;
-
-    z-index:
-        10;
-
-}
-
-
-.perforaciones span {
-
-    display:
-        block;
-
-    width:
-        13px;
-
-    height:
-        13px;
-
-    border-radius:
-        50%;
-
-    background:
-        #efe7d0;
-
-    border:
-        2px solid #70695e;
-
-    box-shadow:
-        inset 2px 2px 2px
-        rgba(0,0,0,.28);
-
-}
-
-
-.argollas {
-
-    position: absolute;
-
-    left:
-        19px;
-
-    top:
-        18px;
-
-    bottom:
-        18px;
-
-    width:
-        22px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        space-around;
-
-    z-index:
-        12;
-
-    pointer-events:
         none;
 
 }
 
 
-.argollas i {
+.perforaciones,
+.argollas {
 
     display:
-        block;
-
-    width:
-        22px;
-
-    height:
-        8px;
-
-    border:
-        2px solid #777;
-
-    border-radius:
-        50%;
-
-    background:
-        #c8c1b4;
-
-    box-shadow:
-        1px 2px 2px
-        rgba(0,0,0,.35);
+        none;
 
 }
 
@@ -806,7 +715,7 @@ body {
         0;
 
     margin:
-        0;
+        0 auto;
 
     background:
         transparent;
@@ -826,13 +735,13 @@ body {
         100%;
 
     max-width:
-        none;
+        950px;
 
     height:
         auto;
 
     margin:
-        0;
+        0 auto;
 
     padding:
         0;
@@ -860,6 +769,17 @@ body {
 @media (max-width: 720px) {
 
 
+    body {
+
+        background-size:
+            100% auto;
+
+        background-attachment:
+            scroll;
+
+    }
+
+
     .escena-pupitre {
 
         padding:
@@ -871,13 +791,29 @@ body {
     .zona-pizarron {
 
         width:
-            100%;
+            100vw;
 
         max-width:
             none;
 
+        margin-left:
+            calc(
+                (100% - 100vw) / 2
+            );
+
+        margin-right:
+            0;
+
         margin-bottom:
             25px;
+
+    }
+
+
+    .pizarron {
+
+        width:
+            100%;
 
     }
 
@@ -889,6 +825,20 @@ body {
 
         padding:
             0 7px;
+
+    }
+
+
+    img[src="a_clean_graphic_png_style_illustration_on_a_transp.png"] {
+
+        width:
+            125px !important;
+
+        max-width:
+            125px !important;
+
+        margin:
+            12px auto 0 !important;
 
     }
 
@@ -935,7 +885,7 @@ body {
     .carpeta-visor {
 
         padding:
-            2px 3px 22px 43px;
+            0;
 
     }
 
@@ -950,6 +900,17 @@ body {
 @media (max-width: 470px) {
 
 
+    body {
+
+        background-size:
+            100% auto;
+
+        background-attachment:
+            scroll;
+
+    }
+
+
     .escena-pupitre {
 
         padding:
@@ -961,13 +922,29 @@ body {
     .zona-pizarron {
 
         width:
-            100%;
+            100vw;
 
         max-width:
             none;
 
+        margin-left:
+            calc(
+                (100% - 100vw) / 2
+            );
+
+        margin-right:
+            0;
+
         margin-bottom:
             18px;
+
+    }
+
+
+    .pizarron {
+
+        width:
+            100%;
 
     }
 
@@ -985,6 +962,20 @@ body {
 
         padding:
             0 2px;
+
+    }
+
+
+    img[src="a_clean_graphic_png_style_illustration_on_a_transp.png"] {
+
+        width:
+            115px !important;
+
+        max-width:
+            115px !important;
+
+        margin:
+            10px auto 0 !important;
 
     }
 
@@ -1062,13 +1053,13 @@ body {
     .modal-contenido {
 
         width:
-            99%;
+            100%;
 
         height:
-            98vh;
+            100vh;
 
         padding:
-            3px;
+            0;
 
     }
 
@@ -1076,51 +1067,50 @@ body {
     .carpeta-visor {
 
         padding:
-            2px 2px 20px 38px;
+            0;
 
     }
 
 
-    .perforaciones {
+    .perforaciones,
+    .argollas {
 
-        left:
+        display:
+            none;
+
+    }
+
+
+    .cerrar-modal {
+
+        top:
+            5px;
+
+        right:
             6px;
 
         width:
-            13px;
-
-    }
-
-
-    .perforaciones span {
-
-        width:
-            11px;
+            42px;
 
         height:
-            11px;
+            42px;
+
+        font-size:
+            2.3rem;
+
+        line-height:
+            42px;
 
     }
 
 
-    .argollas {
-
-        left:
-            16px;
+    #paginaVisor {
 
         width:
-            18px;
+            100%;
 
-    }
-
-
-    .argollas i {
-
-        width:
-            18px;
-
-        height:
-            7px;
+        max-width:
+            none;
 
     }
 
