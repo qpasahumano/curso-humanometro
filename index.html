@@ -19,7 +19,7 @@
 
     <link
         rel="stylesheet"
-        href="style.css?v=14"
+        href="style.css?v=15"
     >
 
 </head>
@@ -28,7 +28,141 @@
 <body>
 
 
-<main>
+<!-- ==================================================
+     PANTALLA PREVIA DE ACCESO
+     ================================================== -->
+
+<section
+    id="pantallaAcceso"
+    class="pantalla-acceso"
+    aria-label="Acceso al contenido"
+>
+
+
+    <div class="acceso-escena">
+
+
+        <div class="acceso-pizarron">
+
+            <img
+                src="wide_horizontal_png_style_illustration_on_a_transp.png"
+                class="acceso-pizarron-imagen"
+                alt="Pizarrón"
+                draggable="false"
+            >
+
+        </div>
+
+
+        <div class="acceso-opciones">
+
+
+            <button
+                id="botonYaAcceso"
+                class="acceso-opcion acceso-opcion-ingreso"
+                type="button"
+                aria-label="Ya tenés acceso. Ingresar"
+            >
+
+                <img
+                    src="ya_tenes_acceso_ingresar.png"
+                    alt="Ya tenés acceso. Ingresar"
+                    draggable="false"
+                >
+
+            </button>
+
+
+            <button
+                id="botonNoAcceso"
+                class="acceso-opcion acceso-opcion-desbloqueo"
+                type="button"
+                aria-label="No tenés acceso. Desbloquear conocimientos"
+            >
+
+                <img
+                    src="no_tenes_acceso_desbloquear_conocimientos.png"
+                    alt="No tenés acceso. Desbloquear conocimientos"
+                    draggable="false"
+                >
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="panelIngreso"
+            class="panel-ingreso"
+            aria-hidden="true"
+        >
+
+            <div class="panel-ingreso-contenido">
+
+
+                <label for="usuarioAcceso">
+                    USUARIO
+                </label>
+
+                <input
+                    id="usuarioAcceso"
+                    type="text"
+                    autocomplete="username"
+                    inputmode="email"
+                    placeholder="Usuario o correo"
+                >
+
+
+                <label for="claveAcceso">
+                    CLAVE
+                </label>
+
+                <input
+                    id="claveAcceso"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="Contraseña"
+                >
+
+
+                <button
+                    id="botonConfirmarIngreso"
+                    type="button"
+                    class="boton-confirmar-ingreso"
+                >
+                    INGRESAR
+                </button>
+
+
+                <button
+                    id="botonCerrarIngreso"
+                    type="button"
+                    class="boton-cerrar-ingreso"
+                >
+                    VOLVER
+                </button>
+
+
+                <p
+                    id="mensajeIngreso"
+                    class="mensaje-ingreso"
+                    aria-live="polite"
+                ></p>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<main id="contenidoPrincipal">
 
     <section class="escena-pupitre">
 
@@ -421,7 +555,7 @@
 
 
 
-<script src="script.js?v=14"></script>
+<script src="script.js?v=15"></script>
 
 
 </body>
