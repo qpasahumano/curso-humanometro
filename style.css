@@ -158,6 +158,72 @@ body {
 }
 
 
+/* ==================================================
+   IDENTIDAD HACETUAPP.COM
+   ================================================== */
+
+.acceso-identidad {
+
+    position: relative;
+
+    z-index: 25;
+
+    width: 100%;
+
+    margin:
+        clamp(5px, 1vh, 10px) auto
+        clamp(10px, 2vh, 18px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    pointer-events: none;
+
+}
+
+
+.acceso-identidad-imagen {
+
+    display: block;
+
+    width:
+        clamp(220px, 42vw, 380px);
+
+    max-width:
+        100%;
+
+    height: auto;
+
+    margin: 0;
+
+    padding: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    filter:
+        drop-shadow(
+            3px 5px 4px
+            rgba(0,0,0,.36)
+        );
+
+    transform:
+        rotate(-2.5deg);
+
+    transform-origin:
+        center center;
+
+    pointer-events: none;
+
+}
+
+
 .acceso-opciones {
 
     position: relative;
@@ -1181,6 +1247,7 @@ body {
     display:
         none;
 
+
 }
 
 
@@ -1752,6 +1819,51 @@ body {
     }
 
 
+    .acceso-pizarron {
+
+        width:
+            100%;
+
+        max-width:
+            none;
+
+    }
+
+
+    .acceso-pizarron-imagen {
+
+        width:
+            132%;
+
+        max-width:
+            none;
+
+        margin:
+            0 -16%;
+
+    }
+
+
+    .acceso-identidad {
+
+        margin:
+            4px auto
+            clamp(8px, 1.8vh, 16px);
+
+    }
+
+
+    .acceso-identidad-imagen {
+
+        width:
+            clamp(210px, 48vw, 330px);
+
+        transform:
+            rotate(-2.5deg);
+
+    }
+
+
     .zona-pizarron {
 
         width:
@@ -1767,31 +1879,6 @@ body {
 
 
     .pizarron {
-
-        width:
-            132%;
-
-        max-width:
-            none;
-
-        margin:
-            0 -16%;
-
-    }
-
-
-    .acceso-pizarron {
-
-        width:
-            100%;
-
-        max-width:
-            none;
-
-    }
-
-
-    .acceso-pizarron-imagen {
 
         width:
             132%;
@@ -2231,6 +2318,26 @@ body {
 
         margin:
             0 -16%;
+
+    }
+
+
+    .acceso-identidad {
+
+        margin:
+            3px auto
+            10px;
+
+    }
+
+
+    .acceso-identidad-imagen {
+
+        width:
+            min(72vw, 270px);
+
+        transform:
+            rotate(-2.5deg);
 
     }
 
