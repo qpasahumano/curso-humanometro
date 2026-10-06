@@ -1,7 +1,7 @@
 "use strict";
 
 /* CACHE-BUSTER: 2026-10-06-0836 */
-const HM_JS_VERSION = "14.0";
+const HM_JS_VERSION = "15.0";
 
 
 const paginas = {
@@ -52,6 +52,250 @@ const subtitulosVideos = {
 
 
 let paginaActual = 1;
+
+
+
+/* ==================================================
+   PANTALLA PREVIA DE ACCESO
+   ================================================== */
+
+const pantallaAcceso =
+    document.getElementById(
+        "pantallaAcceso"
+    );
+
+
+const contenidoPrincipal =
+    document.getElementById(
+        "contenidoPrincipal"
+    );
+
+
+const botonYaAcceso =
+    document.getElementById(
+        "botonYaAcceso"
+    );
+
+
+const botonNoAcceso =
+    document.getElementById(
+        "botonNoAcceso"
+    );
+
+
+const panelIngreso =
+    document.getElementById(
+        "panelIngreso"
+    );
+
+
+const botonConfirmarIngreso =
+    document.getElementById(
+        "botonConfirmarIngreso"
+    );
+
+
+const botonCerrarIngreso =
+    document.getElementById(
+        "botonCerrarIngreso"
+    );
+
+
+const mensajeIngreso =
+    document.getElementById(
+        "mensajeIngreso"
+    );
+
+
+const usuarioAcceso =
+    document.getElementById(
+        "usuarioAcceso"
+    );
+
+
+const claveAcceso =
+    document.getElementById(
+        "claveAcceso"
+    );
+
+
+function mostrarPanelIngreso() {
+
+    if (
+        !panelIngreso
+    ) {
+
+        return;
+
+    }
+
+
+    panelIngreso.classList.add(
+        "visible"
+    );
+
+
+    panelIngreso.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    if (
+        mensajeIngreso
+    ) {
+
+        mensajeIngreso.textContent =
+            "";
+
+    }
+
+
+    window.setTimeout(
+        function() {
+
+            if (
+                usuarioAcceso
+            ) {
+
+                usuarioAcceso.focus();
+
+            }
+
+        },
+        80
+    );
+
+}
+
+
+function ocultarPanelIngreso() {
+
+    if (
+        !panelIngreso
+    ) {
+
+        return;
+
+    }
+
+
+    panelIngreso.classList.remove(
+        "visible"
+    );
+
+
+    panelIngreso.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    if (
+        mensajeIngreso
+    ) {
+
+        mensajeIngreso.textContent =
+            "";
+
+    }
+
+}
+
+
+function intentarIngreso() {
+
+    /*
+       La validación real todavía no está conectada
+       al servidor. No se concede acceso desde el
+       navegador hasta implementar la autenticación.
+    */
+
+    if (
+        mensajeIngreso
+    ) {
+
+        mensajeIngreso.textContent =
+            "El acceso se habilitará cuando conectemos tu sistema de usuarios.";
+
+    }
+
+}
+
+
+function abrirMercadoPago() {
+
+    window.open(
+        "https://mpago.la/2392HZX",
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
+
+if (
+    botonYaAcceso
+) {
+
+    botonYaAcceso.addEventListener(
+        "click",
+        function() {
+
+            mostrarPanelIngreso();
+
+        }
+    );
+
+}
+
+
+if (
+    botonNoAcceso
+) {
+
+    botonNoAcceso.addEventListener(
+        "click",
+        function() {
+
+            abrirMercadoPago();
+
+        }
+    );
+
+}
+
+
+if (
+    botonConfirmarIngreso
+) {
+
+    botonConfirmarIngreso.addEventListener(
+        "click",
+        function() {
+
+            intentarIngreso();
+
+        }
+    );
+
+}
+
+
+if (
+    botonCerrarIngreso
+) {
+
+    botonCerrarIngreso.addEventListener(
+        "click",
+        function() {
+
+            ocultarPanelIngreso();
+
+        }
+    );
+
+}
 
 
 
