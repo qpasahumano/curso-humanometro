@@ -1040,6 +1040,39 @@ const carruselHojas =
     );
 
 
+const indicadorDeslizar =
+    document.querySelector(
+        ".indicador-scroll"
+    );
+
+
+let carruselYaDesplazado =
+    false;
+
+
+function ocultarIndicadorDeslizar() {
+
+    if (
+        carruselYaDesplazado ||
+        !indicadorDeslizar
+    ) {
+
+        return;
+
+    }
+
+
+    carruselYaDesplazado =
+        true;
+
+
+    indicadorDeslizar.classList.add(
+        "oculto"
+    );
+
+}
+
+
 if (carruselHojas) {
 
     carruselHojas.addEventListener(
@@ -1052,6 +1085,25 @@ if (carruselHojas) {
         {
             passive: true,
             once: true
+        }
+    );
+
+
+    carruselHojas.addEventListener(
+        "scroll",
+        function() {
+
+            if (
+                carruselHojas.scrollLeft > 2
+            ) {
+
+                ocultarIndicadorDeslizar();
+
+            }
+
+        },
+        {
+            passive: true
         }
     );
 
