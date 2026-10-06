@@ -316,12 +316,12 @@ main {
 
     z-index: 18;
 
-    width: 76%;
+    width: 68%;
 
-    max-width: 760px;
+    max-width: 680px;
 
     margin:
-        17px auto 0;
+        24px auto 0;
 
 }
 
@@ -442,7 +442,7 @@ main {
     max-width: 250px;
 
     margin:
-        2px auto 2px;
+        5px auto 3px;
 
     padding:
         2px 8px 3px;
@@ -492,31 +492,6 @@ main {
 }
 
 
-.chivo-pupitre::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 5px;
-
-    right: 5px;
-
-    bottom: 2px;
-
-    height: 1px;
-
-    background:
-        rgba(80,80,80,.22);
-
-    transform:
-        rotate(-1deg);
-
-    pointer-events: none;
-
-}
-
-
 .chivo-url {
 
     font-size:
@@ -558,12 +533,12 @@ main {
 
     z-index: 22;
 
-    width: 76%;
+    width: 72%;
 
-    max-width: 760px;
+    max-width: 720px;
 
     margin:
-        10px auto 0;
+        5px auto 0;
 
     display: flex;
 
@@ -649,7 +624,7 @@ main {
     width: 100%;
 
     margin:
-        6px auto 0;
+        5px auto 0;
 
     padding: 0 8px;
 
@@ -966,7 +941,7 @@ main {
 
 
 /* ==================================================
-   CONTENIDO COMPLEMENTARIO DEL VISOR
+   CONTENIDO COMPLEMENTARIO
    ================================================== */
 
 .zona-complementaria {
@@ -1025,13 +1000,13 @@ main {
         none;
 
     border:
-        1px solid rgba(255,255,255,.42);
+        1px solid rgba(255,255,255,.50);
 
     background:
-        rgba(0,0,0,.34);
+        rgba(0,0,0,.38);
 
     color:
-        rgba(255,255,255,.94);
+        rgba(255,255,255,.97);
 
     font-family:
         "Comic Sans MS",
@@ -1046,7 +1021,7 @@ main {
         700;
 
     letter-spacing:
-        .035em;
+        .025em;
 
     line-height:
         1.2;
@@ -1055,7 +1030,8 @@ main {
         center;
 
     text-shadow:
-        0 1px 3px rgba(0,0,0,.85);
+        0 0 3px rgba(255,255,255,.60),
+        0 1px 4px rgba(0,0,0,.95);
 
     border-radius:
         8px;
@@ -1067,11 +1043,13 @@ main {
         pointer;
 
     box-shadow:
-        0 3px 10px rgba(0,0,0,.28);
+        0 0 7px rgba(255,255,255,.16),
+        0 3px 10px rgba(0,0,0,.30);
 
     transition:
         background .18s ease,
         border-color .18s ease,
+        box-shadow .18s ease,
         transform .18s ease;
 
 }
@@ -1081,10 +1059,14 @@ main {
 .accion-pagina:hover {
 
     background:
-        rgba(255,255,255,.10);
+        rgba(255,255,255,.11);
 
     border-color:
-        rgba(255,255,255,.70);
+        rgba(255,255,255,.78);
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,.23),
+        0 3px 12px rgba(0,0,0,.34);
 
 }
 
@@ -1317,13 +1299,13 @@ main {
     .hojas-carrusel {
 
         height:
-            clamp(230px, 34vh, 310px);
+            clamp(220px, 31vh, 285px);
 
         min-height:
-            230px;
+            220px;
 
         max-height:
-            310px;
+            285px;
 
         display:
             flex;
@@ -1443,10 +1425,13 @@ main {
     .zona-computadora {
 
         width:
-            74%;
+            63%;
+
+        max-width:
+            620px;
 
         margin-top:
-            4px;
+            10px;
 
     }
 
@@ -1468,41 +1453,13 @@ main {
     }
 
 
-    .zona-silla {
-
-        width:
-            70%;
-
-        margin-top:
-            4px;
-
-    }
-
-
-    .boton-silla {
-
-        left:
-            29%;
-
-        top:
-            44%;
-
-        width:
-            42%;
-
-        height:
-            20%;
-
-    }
-
-
     .chivo-pupitre {
 
         max-width:
             205px;
 
         margin:
-            1px auto 1px;
+            3px auto 2px;
 
         padding:
             2px 7px 3px;
@@ -1525,6 +1482,37 @@ main {
 
         font-size:
             9px;
+
+    }
+
+
+    .zona-silla {
+
+        width:
+            66%;
+
+        max-width:
+            660px;
+
+        margin-top:
+            2px;
+
+    }
+
+
+    .boton-silla {
+
+        left:
+            29%;
+
+        top:
+            44%;
+
+        width:
+            42%;
+
+        height:
+            20%;
 
     }
 
@@ -1605,7 +1593,7 @@ main {
             11px;
 
         letter-spacing:
-            .025em;
+            .02em;
 
         padding:
             8px 9px;
@@ -1711,10 +1699,13 @@ main {
     .zona-computadora {
 
         width:
-            72%;
+            58%;
+
+        max-width:
+            560px;
 
         margin-top:
-            3px;
+            12px;
 
     }
 
@@ -1750,13 +1741,52 @@ main {
     }
 
 
+    .chivo-pupitre {
+
+        max-width:
+            190px;
+
+        margin:
+            3px auto 1px;
+
+        padding:
+            2px 6px 3px;
+
+        transform:
+            rotate(-4deg);
+
+    }
+
+
+    .chivo-url {
+
+        font-size:
+            9.5px;
+
+    }
+
+
+    .chivo-frase {
+
+        margin-left:
+            7px;
+
+        font-size:
+            8.5px;
+
+    }
+
+
     .zona-silla {
 
         width:
-            68%;
+            63%;
+
+        max-width:
+            600px;
 
         margin-top:
-            3px;
+            1px;
 
     }
 
@@ -1781,7 +1811,7 @@ main {
     .creditos {
 
         margin-top:
-            5px;
+            4px;
 
         padding:
             0 5px;
@@ -1912,13 +1942,21 @@ main {
             10px;
 
         letter-spacing:
-            .015em;
+            .01em;
 
         padding:
             8px 5px;
 
         white-space:
             nowrap;
+
+        text-shadow:
+            0 0 4px rgba(255,255,255,.72),
+            0 1px 4px rgba(0,0,0,.98);
+
+        box-shadow:
+            0 0 8px rgba(255,255,255,.20),
+            0 3px 10px rgba(0,0,0,.32);
 
     }
 
