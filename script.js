@@ -1,7 +1,7 @@
 "use strict";
 
-/* CACHE-BUSTER: 2026-10-06-0733 */
-const HM_JS_VERSION = "12.0";
+/* CACHE-BUSTER: 2026-10-06-0818 */
+const HM_JS_VERSION = "13.0";
 
 
 const paginas = {
@@ -119,9 +119,13 @@ function resetearVideoComplementario() {
     video.src = "";
 
     contenedorVideo.classList.remove("visible");
-    contenedorVideo.setAttribute("aria-hidden", "true");
+    contenedorVideo.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
     botonVideo.classList.remove("oculto");
+
     botonVideo.textContent =
         "▶ VER VIDEO";
 
@@ -215,15 +219,23 @@ function alternarVideoComplementario() {
 
 
     const videoVisible =
-        contenedorVideo.classList.contains("visible");
+        contenedorVideo.classList.contains(
+            "visible"
+        );
 
 
     if (videoVisible) {
 
         video.src = "";
 
-        contenedorVideo.classList.remove("visible");
-        contenedorVideo.setAttribute("aria-hidden", "true");
+        contenedorVideo.classList.remove(
+            "visible"
+        );
+
+        contenedorVideo.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
         botonVideo.textContent =
             "▶ VER VIDEO";
@@ -234,7 +246,9 @@ function alternarVideoComplementario() {
 
 
     const youtubeId =
-        obtenerIdYoutube(urlVideo);
+        obtenerIdYoutube(
+            urlVideo
+        );
 
 
     if (!youtubeId) {
@@ -246,12 +260,20 @@ function alternarVideoComplementario() {
 
     video.src =
         "https://www.youtube.com/embed/" +
-        encodeURIComponent(youtubeId) +
+        encodeURIComponent(
+            youtubeId
+        ) +
         "?rel=0";
 
 
-    contenedorVideo.classList.add("visible");
-    contenedorVideo.setAttribute("aria-hidden", "false");
+    contenedorVideo.classList.add(
+        "visible"
+    );
+
+    contenedorVideo.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
     botonVideo.textContent =
         "▲ CERRAR VIDEO";
@@ -317,14 +339,18 @@ function cargarPaginaEnVisor(numeroPagina) {
         );
 
 
-    if (!paginas[numeroPagina] || !visor) {
+    if (
+        !paginas[numeroPagina] ||
+        !visor
+    ) {
 
         return;
 
     }
 
 
-    paginaActual = numeroPagina;
+    paginaActual =
+        numeroPagina;
 
 
     visor.src =
@@ -338,13 +364,16 @@ function cargarPaginaEnVisor(numeroPagina) {
 
 
     resetearVideoComplementario();
+
     prepararVideoComplementario();
+
     actualizarAccionPagina();
 
 
     if (carpeta) {
 
-        carpeta.scrollTop = 0;
+        carpeta.scrollTop =
+            0;
 
     }
 
@@ -353,21 +382,25 @@ function cargarPaginaEnVisor(numeroPagina) {
 
 function abrirPagina(numeroPagina) {
 
-
     const modal =
         document.getElementById(
             "modalPdf"
         );
 
 
-    if (!paginas[numeroPagina] || !modal) {
+    if (
+        !paginas[numeroPagina] ||
+        !modal
+    ) {
 
         return;
 
     }
 
 
-    cargarPaginaEnVisor(numeroPagina);
+    cargarPaginaEnVisor(
+        numeroPagina
+    );
 
 
     modal.style.display =
@@ -388,9 +421,12 @@ function abrirPagina(numeroPagina) {
 
 function avanzarPagina() {
 
-    if (paginaActual >= 10) {
+    if (
+        paginaActual >= 10
+    ) {
 
         cerrarModal();
+
         return;
 
     }
@@ -404,7 +440,6 @@ function avanzarPagina() {
 
 
 function cerrarModal() {
-
 
     const modal =
         document.getElementById(
@@ -449,22 +484,30 @@ function cerrarModal() {
 
     if (visor) {
 
-        visor.src = "";
+        visor.src =
+            "";
 
     }
 
 
     if (video) {
 
-        video.src = "";
+        video.src =
+            "";
 
     }
 
 
     if (contenedorVideo) {
 
-        contenedorVideo.classList.remove("visible");
-        contenedorVideo.setAttribute("aria-hidden", "true");
+        contenedorVideo.classList.remove(
+            "visible"
+        );
+
+        contenedorVideo.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
     }
 
@@ -478,7 +521,6 @@ function cerrarModal() {
 window.addEventListener(
     "click",
     function(event) {
-
 
         const modal =
             document.getElementById(
@@ -498,11 +540,9 @@ window.addEventListener(
 );
 
 
-
 document.addEventListener(
     "keydown",
     function(event) {
-
 
         if (
             event.key === "Escape"
@@ -516,7 +556,6 @@ document.addEventListener(
 );
 
 
-
 document.addEventListener(
     "contextmenu",
     function(event) {
@@ -527,11 +566,9 @@ document.addEventListener(
 );
 
 
-
 document.addEventListener(
     "dragstart",
     function(event) {
-
 
         if (
             event.target.tagName === "IMG"
@@ -545,11 +582,9 @@ document.addEventListener(
 );
 
 
-
 document.addEventListener(
     "keydown",
     function(event) {
-
 
         const key =
             event.key.toLowerCase();
@@ -586,7 +621,6 @@ document.addEventListener(
 
     }
 );
-
 
 
 document
