@@ -314,10 +314,10 @@ body {
         50%;
 
     width:
-        clamp(78px, 27vw, 115px);
+        clamp(39px, 13.5vw, 57.5px);
 
     max-width:
-        115px;
+        57.5px;
 
     height:
         auto;
@@ -386,10 +386,10 @@ body {
         2px;
 
     width:
-        clamp(78px, 27vw, 115px);
+        clamp(39px, 13.5vw, 57.5px);
 
     max-width:
-        115px;
+        57.5px;
 
     height:
         auto;
@@ -758,6 +758,7 @@ body {
 
     display:
         none;
+
 
 }
 
@@ -1473,10 +1474,10 @@ body {
             50%;
 
         width:
-            clamp(78px, 27vw, 115px);
+            clamp(39px, 13.5vw, 57.5px);
 
         max-width:
-            115px;
+            57.5px;
 
         bottom:
             auto;
@@ -1503,10 +1504,10 @@ body {
             2px;
 
         width:
-            clamp(78px, 27vw, 115px);
+            clamp(39px, 13.5vw, 57.5px);
 
         max-width:
-            115px;
+            57.5px;
 
         transform:
             rotate(1.5deg);
@@ -1764,10 +1765,10 @@ body {
             50%;
 
         width:
-            clamp(78px, 27vw, 115px);
+            clamp(39px, 13.5vw, 57.5px);
 
         max-width:
-            115px;
+            57.5px;
 
         bottom:
             auto;
@@ -1794,10 +1795,10 @@ body {
             2px;
 
         width:
-            clamp(78px, 27vw, 115px);
+            clamp(39px, 13.5vw, 57.5px);
 
         max-width:
-            115px;
+            57.5px;
 
         transform:
             rotate(1.5deg);
