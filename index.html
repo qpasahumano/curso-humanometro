@@ -19,7 +19,7 @@
 
     <link
         rel="stylesheet"
-        href="style.css?v=10"
+        href="style.css?v=12"
     >
 
 </head>
@@ -198,23 +198,6 @@
             </div>
 
 
-            <!-- ==================================================
-                 INDICADOR DE SCROLL
-                 ================================================== -->
-
-            <div class="indicador-scroll">
-
-                <span>DESLIZÁ ←</span>
-
-                <img
-                    src="a_clean_graphic_png_style_illustration_on_a_transp.png"
-                    alt="Indicador de desplazamiento horizontal"
-                    draggable="false"
-                >
-
-            </div>
-
-
         </div>
 
 
@@ -279,7 +262,7 @@
                     class="boton-silla"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Acceder al curso"
+                    aria-label="Desbloquear conocimientos"
                 ></a>
 
 
@@ -346,6 +329,61 @@
             </div>
 
 
+            <section
+                class="zona-complementaria"
+                aria-label="Contenido complementario de la página"
+            >
+
+                <button
+                    id="botonVideoComplementario"
+                    class="boton-video-complementario"
+                    type="button"
+                    onclick="alternarVideoComplementario()"
+                >
+                    ▶ VER VIDEO COMPLEMENTARIO
+                </button>
+
+
+                <div
+                    id="subtituloVideo"
+                    class="subtitulo-video"
+                    aria-live="polite"
+                ></div>
+
+
+                <div
+                    id="contenedorVideoComplementario"
+                    class="contenedor-video-complementario"
+                    aria-hidden="true"
+                >
+
+                    <div class="video-responsive">
+
+                        <iframe
+                            id="videoComplementario"
+                            title="Video complementario del curso Humanómetro"
+                            src=""
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="accionPagina"
+                    class="accion-pagina"
+                    type="button"
+                    onclick="avanzarPagina()"
+                >
+                    SIGUIENTE PÁGINA
+                </button>
+
+            </section>
+
+
         </div>
 
 
@@ -356,7 +394,7 @@
 
 
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=12"></script>
 
 
 </body>
