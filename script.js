@@ -1,7 +1,7 @@
 "use strict";
 
-/* CACHE-BUSTER: 2026-10-05-2138 */
-const HM_JS_VERSION = "11";
+/* CACHE-BUSTER: 2026-10-06-0508 */
+const HM_JS_VERSION = "11.1";
 
 
 const paginas = {
