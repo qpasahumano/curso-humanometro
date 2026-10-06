@@ -33,11 +33,6 @@ body {
 
     color: #111;
 
-    /*
-       LA MADERA ES EL ÚNICO FONDO
-       DE TODA LA INTERFAZ.
-    */
-
     background-color: #4a2918;
 
     background-image:
@@ -98,11 +93,6 @@ body {
     position: relative;
 
     z-index: 20;
-
-    /*
-       Tamaño equivalente al antiguo
-       recuadro superior.
-    */
 
     width: 88%;
 
@@ -358,35 +348,37 @@ body {
    YOUTUBE DENTRO DEL CRT
    ================================================== */
 
-/*
-   Las coordenadas corresponden a la pantalla
-   real de la computadora proporcionada.
-
-   El iframe queda dentro del vidrio negro,
-   no sobre el marco beige.
-*/
-
 .pantalla-youtube {
 
     position: absolute;
 
     z-index: 30;
 
-    left: 29.3%;
+    /*
+       Ajustado para ocupar prácticamente
+       toda la pantalla negra real del CRT.
+    */
 
-    top: 9.2%;
+    left:
+        15.5%;
 
-    width: 42.5%;
+    top:
+        8.5%;
 
-    height: 37.8%;
+    width:
+        70%;
 
-    overflow: hidden;
+    height:
+        35%;
+
+    overflow:
+        hidden;
 
     background:
         #050505;
 
     border-radius:
-        9% / 10%;
+        9% / 11%;
 
 }
 
@@ -395,17 +387,23 @@ body {
 
     display: block;
 
-    width: 100%;
+    width:
+        100%;
 
-    height: 100%;
+    height:
+        100%;
 
-    margin: 0;
+    margin:
+        0;
 
-    padding: 0;
+    padding:
+        0;
 
-    border: 0;
+    border:
+        0;
 
-    outline: 0;
+    outline:
+        0;
 
 }
 
@@ -420,12 +418,6 @@ body {
     position: relative;
 
     z-index: 22;
-
-    /*
-       Misma escala general de la computadora.
-       La silla queda proporcional al equipo
-       que tiene delante.
-    */
 
     width: 76%;
 
@@ -481,24 +473,23 @@ body {
 }
 
 
-/*
-   Área invisible sobre el botón que ya está
-   dibujado dentro de la imagen del respaldo.
-*/
-
 .boton-silla {
 
     position: absolute;
 
     z-index: 40;
 
-    left: 34.5%;
+    left:
+        34.5%;
 
-    top: 48.5%;
+    top:
+        48.5%;
 
-    width: 31%;
+    width:
+        31%;
 
-    height: 13%;
+    height:
+        13%;
 
     display: block;
 
@@ -529,7 +520,8 @@ body {
 
     justify-content: center;
 
-    padding: 7px;
+    padding:
+        4px;
 
     background:
         rgba(0,0,0,.90);
@@ -541,17 +533,21 @@ body {
 
     position: relative;
 
-    width: 97%;
+    width:
+        99%;
 
-    max-width: 850px;
+    max-width:
+        950px;
 
-    height: 96vh;
+    height:
+        98vh;
 
     display: flex;
 
     flex-direction: column;
 
-    padding: 9px;
+    padding:
+        4px;
 
     background:
         #ddd4c3;
@@ -565,23 +561,44 @@ body {
 }
 
 
+/*
+   Se conserva solamente la X.
+   El título y las instrucciones
+   desaparecen del visor.
+*/
+
+.titulo-modal,
+.aviso-zoom {
+
+    display:
+        none;
+
+}
+
+
 .cerrar-modal {
 
     position: absolute;
 
     z-index: 50;
 
-    top: 3px;
+    top:
+        3px;
 
-    right: 7px;
+    right:
+        7px;
 
-    width: 38px;
+    width:
+        38px;
 
-    height: 38px;
+    height:
+        38px;
 
-    padding: 0;
+    padding:
+        0;
 
-    border: none;
+    border:
+        none;
 
     background:
         transparent;
@@ -605,50 +622,6 @@ body {
 
     cursor:
         pointer;
-
-}
-
-
-.titulo-modal {
-
-    margin:
-        0 42px 5px 2px;
-
-    color:
-        #111;
-
-    font-size:
-        clamp(
-            .85rem,
-            2.5vw,
-            1.05rem
-        );
-
-    font-weight:
-        bold;
-
-}
-
-
-.aviso-zoom {
-
-    margin:
-        0 0 7px;
-
-    padding:
-        5px;
-
-    color:
-        #333;
-
-    text-align:
-        center;
-
-    font-size:
-        .66rem;
-
-    font-weight:
-        bold;
 
 }
 
@@ -681,12 +654,12 @@ body {
         pan-y pinch-zoom;
 
     /*
-       Ya NO hay hoja blanca detrás.
-       Esto representa la carpeta/cartulina.
+       La hoja aprovecha prácticamente
+       todo el ancho disponible.
     */
 
     padding:
-        22px 35px 35px 58px;
+        2px 3px 20px 43px;
 
     background:
         linear-gradient(
@@ -711,34 +684,46 @@ body {
 
     position: absolute;
 
-    left: 12px;
+    left:
+        8px;
 
-    top: 25px;
+    top:
+        18px;
 
-    bottom: 25px;
+    bottom:
+        18px;
 
-    width: 17px;
+    width:
+        17px;
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    justify-content: space-around;
+    justify-content:
+        space-around;
 
-    z-index: 10;
+    z-index:
+        10;
 
 }
 
 
 .perforaciones span {
 
-    display: block;
+    display:
+        block;
 
-    width: 13px;
+    width:
+        13px;
 
-    height: 13px;
+    height:
+        13px;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     background:
         #efe7d0;
@@ -757,39 +742,52 @@ body {
 
     position: absolute;
 
-    left: 23px;
+    left:
+        19px;
 
-    top: 25px;
+    top:
+        18px;
 
-    bottom: 25px;
+    bottom:
+        18px;
 
-    width: 22px;
+    width:
+        22px;
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    justify-content: space-around;
+    justify-content:
+        space-around;
 
-    z-index: 12;
+    z-index:
+        12;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
 
 .argollas i {
 
-    display: block;
+    display:
+        block;
 
-    width: 22px;
+    width:
+        22px;
 
-    height: 8px;
+    height:
+        8px;
 
     border:
         2px solid #777;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     background:
         #c8c1b4;
@@ -803,15 +801,23 @@ body {
 
 .hoja-lectura {
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 5;
+    z-index:
+        5;
 
-    width: 100%;
+    width:
+        100%;
 
-    min-height: 100%;
+    min-height:
+        0;
 
-    padding: 0;
+    padding:
+        0;
+
+    margin:
+        0;
 
     background:
         transparent;
@@ -824,28 +830,35 @@ body {
 
 #paginaVisor {
 
-    display: block;
+    display:
+        block;
 
-    width: 100%;
+    width:
+        100%;
 
-    max-width: none;
+    max-width:
+        none;
 
-    height: auto;
+    height:
+        auto;
 
-    margin: 0;
+    margin:
+        0;
 
-    padding: 0;
+    padding:
+        0;
 
-    border: none;
+    border:
+        none;
 
-    outline: none;
+    outline:
+        none;
 
     background:
         transparent;
 
     box-shadow:
-        0 5px 13px
-        rgba(0,0,0,.38);
+        none;
 
 }
 
@@ -899,6 +912,23 @@ body {
     }
 
 
+    .pantalla-youtube {
+
+        left:
+            15.5%;
+
+        top:
+            8.5%;
+
+        width:
+            70%;
+
+        height:
+            35%;
+
+    }
+
+
     .zona-silla {
 
         width:
@@ -913,7 +943,7 @@ body {
     .carpeta-visor {
 
         padding:
-            18px 18px 28px 49px;
+            2px 3px 22px 43px;
 
     }
 
@@ -937,11 +967,6 @@ body {
 
 
     .zona-pizarron {
-
-        /*
-           Sigue siendo aproximadamente el tamaño
-           del antiguo recuadro superior.
-        */
 
         width:
             91%;
@@ -981,33 +1006,42 @@ body {
 
 
     /*
-       Coordenadas específicas para la pantalla
-       de la computadora real.
+       Pantalla CRT corregida:
+       ocupa el área negra real del monitor.
     */
 
     .pantalla-youtube {
 
         left:
-            29.3%;
+            15.5%;
 
         top:
-            9.2%;
+            8.5%;
 
         width:
-            42.5%;
+            70%;
 
         height:
-            37.8%;
+            35%;
+
+        border-radius:
+            9% / 11%;
+
+    }
+
+
+    .pantalla-youtube iframe {
+
+        width:
+            100%;
+
+        height:
+            100%;
 
     }
 
 
     .zona-silla {
-
-        /*
-           La silla mantiene prácticamente
-           la misma huella que la computadora.
-        */
 
         width:
             88%;
@@ -1041,10 +1075,10 @@ body {
             99%;
 
         height:
-            97vh;
+            98vh;
 
         padding:
-            6px;
+            3px;
 
     }
 
@@ -1052,7 +1086,7 @@ body {
     .carpeta-visor {
 
         padding:
-            15px 9px 25px 42px;
+            2px 2px 20px 38px;
 
     }
 
@@ -1060,7 +1094,7 @@ body {
     .perforaciones {
 
         left:
-            8px;
+            6px;
 
         width:
             13px;
@@ -1082,7 +1116,7 @@ body {
     .argollas {
 
         left:
-            18px;
+            16px;
 
         width:
             18px;
