@@ -24,6 +24,8 @@ html {
 
 body {
 
+    position: relative;
+
     overflow-x: hidden;
 
     font-family:
@@ -33,7 +35,35 @@ body {
 
     color: #111;
 
-    background-color: #4a2918;
+    background:
+        #4a2918;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+}
+
+
+/*
+   FONDO DE MADERA REAL.
+   Se mantiene cubriendo siempre todo el viewport
+   para impedir que aparezcan franjas marrones laterales.
+*/
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    z-index: 0;
+
+    inset: 0;
+
+    width: 100vw;
+
+    height: 100vh;
 
     background-image:
         url("pupitre_humanometro_fondo.png");
@@ -45,14 +75,10 @@ body {
         center top;
 
     background-repeat:
-        repeat-y;
+        no-repeat;
 
-    background-attachment:
-        fixed;
-
-    user-select: none;
-
-    -webkit-user-select: none;
+    pointer-events:
+        none;
 
 }
 
@@ -62,13 +88,24 @@ body {
    ESCENA COMPLETA
    ================================================== */
 
+main {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+}
+
+
 .escena-pupitre {
 
     position: relative;
 
     width: 100%;
-
-    max-width: 1100px;
 
     min-height: 100vh;
 
@@ -94,7 +131,7 @@ body {
 
     z-index: 20;
 
-    width: 100%;
+    width: 97%;
 
     max-width: 1100px;
 
@@ -107,8 +144,6 @@ body {
 
     align-items: center;
 
-    overflow: visible;
-
 }
 
 
@@ -116,14 +151,11 @@ body {
 
     display: block;
 
-    width: 148%;
-
-    max-width: none;
+    width: 100%;
 
     height: auto;
 
-    margin:
-        0 -24%;
+    margin: 0 auto;
 
     pointer-events: none;
 
@@ -156,6 +188,8 @@ body {
             3,
             minmax(0, 1fr)
         );
+
+    grid-auto-flow: row;
 
     gap:
         22px 18px;
@@ -287,63 +321,51 @@ body {
 
 
 /* ==================================================
-   INDICADOR DE SCROLL
+   INDICADOR SCROLL
    ================================================== */
 
 .indicador-scroll {
 
-    position: relative;
+    grid-column:
+        2 / 4;
 
-    align-self: center;
+    grid-row:
+        4;
 
-    justify-self: center;
+    align-self:
+        center;
 
-    width: 100%;
+    justify-self:
+        center;
 
-    max-width: 180px;
+    width:
+        62%;
 
     margin:
-        12px auto 0;
+        0;
 
-    padding: 0;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
 
 .indicador-scroll img {
 
-    display: block;
+    display:
+        block;
 
-    width: 100%;
+    width:
+        100%;
 
-    height: auto;
+    height:
+        auto;
 
-    margin: 0;
+    margin:
+        0 auto;
 
-    padding: 0;
-
-    border: none;
-
-    outline: none;
-
-    background:
-        transparent;
-
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            1px 2px 2px
-            rgba(0,0,0,.45)
-        );
+    pointer-events:
+        none;
 
 }
 
@@ -359,9 +381,9 @@ body {
 
     z-index: 18;
 
-    width: 76%;
+    width: 90%;
 
-    max-width: 760px;
+    max-width: 900px;
 
     margin:
         48px auto 0;
@@ -422,17 +444,22 @@ body {
 
     z-index: 30;
 
+    /*
+       Coordenadas ajustadas a la pantalla negra
+       real de la computadora retro.
+    */
+
     left:
-        15.5%;
+        29.3%;
 
     top:
-        13.5%;
+        9.1%;
 
     width:
-        70%;
+        42.7%;
 
     height:
-        30%;
+        37.9%;
 
     overflow:
         hidden;
@@ -441,7 +468,7 @@ body {
         #050505;
 
     border-radius:
-        9% / 11%;
+        8% / 11%;
 
 }
 
@@ -579,20 +606,18 @@ body {
 
     display: none;
 
-    align-items:
-        flex-start;
+    align-items: flex-start;
 
-    justify-content:
-        center;
+    justify-content: center;
 
     padding:
         0;
 
-    background:
-        rgba(0,0,0,.90);
-
     overflow:
         hidden;
+
+    background:
+        rgba(0,0,0,.92);
 
 }
 
@@ -605,70 +630,55 @@ body {
         100%;
 
     max-width:
-        1100px;
+        950px;
 
     height:
         100vh;
 
-    max-height:
-        100vh;
+    display: flex;
 
-    display:
-        flex;
-
-    flex-direction:
-        column;
+    flex-direction: column;
 
     padding:
-        0 !important;
-
-    margin:
         0;
 
+    margin:
+        0 auto;
+
     background:
-        transparent !important;
+        transparent;
 
     border:
-        none !important;
+        none;
 
     box-shadow:
-        none !important;
-
-}
-
-
-/*
-   Título e instrucciones ocultos.
-*/
-
-.titulo-modal,
-.aviso-zoom {
-
-    display:
         none;
 
 }
 
 
+
+/* ==================================================
+   CERRAR
+   ================================================== */
+
 .cerrar-modal {
 
-    position:
-        fixed;
+    position: fixed;
 
-    z-index:
-        1100;
+    z-index: 50;
 
     top:
-        7px;
+        5px;
 
     right:
         8px;
 
     width:
-        48px;
+        46px;
 
     height:
-        48px;
+        46px;
 
     padding:
         0;
@@ -677,7 +687,7 @@ body {
         none;
 
     background:
-        rgba(255,255,255,.90);
+        rgba(255,255,255,.92);
 
     color:
         #000;
@@ -688,44 +698,37 @@ body {
         sans-serif;
 
     font-size:
-        2.5rem;
+        2.6rem;
 
     font-weight:
         bold;
 
     line-height:
-        48px;
-
-    text-align:
-        center;
+        42px;
 
     cursor:
         pointer;
+
+    border-radius:
+        50%;
 
 }
 
 
 
 /* ==================================================
-   VISOR DIRECTO DEL PDF
+   VISOR LIMPIO
    ================================================== */
 
 .carpeta-visor {
 
-    position:
-        relative;
-
-    width:
-        100% !important;
-
-    height:
-        100vh;
-
-    max-height:
-        100vh;
+    position: relative;
 
     flex:
         1 1 auto;
+
+    width:
+        100%;
 
     min-height:
         0;
@@ -743,28 +746,19 @@ body {
         pan-y pinch-zoom;
 
     padding:
-        0 !important;
+        0;
 
     margin:
-        0 !important;
+        0;
 
     background:
-        transparent !important;
+        transparent;
 
     border:
-        none !important;
+        none;
 
     box-shadow:
-        none !important;
-
-}
-
-
-.perforaciones,
-.argollas {
-
-    display:
-        none !important;
+        none;
 
 }
 
@@ -778,22 +772,25 @@ body {
         5;
 
     width:
-        100% !important;
+        100%;
+
+    max-width:
+        950px;
 
     min-height:
         0;
 
     padding:
-        0 !important;
+        0;
 
     margin:
-        0 !important;
+        0 auto;
 
     background:
-        transparent !important;
+        transparent;
 
     box-shadow:
-        none !important;
+        none;
 
 }
 
@@ -804,31 +801,31 @@ body {
         block;
 
     width:
-        100% !important;
+        100%;
 
     max-width:
-        none !important;
+        950px;
 
     height:
         auto;
 
     margin:
-        0 auto !important;
+        0 auto;
 
     padding:
-        0 !important;
+        0;
 
     border:
-        none !important;
+        none;
 
     outline:
         none;
 
     background:
-        transparent !important;
+        transparent;
 
     box-shadow:
-        none !important;
+        none;
 
 }
 
@@ -852,24 +849,10 @@ body {
     .zona-pizarron {
 
         width:
-            100%;
+            97%;
 
         margin-bottom:
             25px;
-
-    }
-
-
-    .pizarron {
-
-        width:
-            148%;
-
-        max-width:
-            none;
-
-        margin:
-            0 -24%;
 
     }
 
@@ -887,11 +870,8 @@ body {
 
     .indicador-scroll {
 
-        max-width:
-            150px;
-
-        margin-top:
-            10px;
+        width:
+            68%;
 
     }
 
@@ -899,7 +879,7 @@ body {
     .zona-computadora {
 
         width:
-            82%;
+            92%;
 
         margin-top:
             38px;
@@ -910,16 +890,16 @@ body {
     .pantalla-youtube {
 
         left:
-            15.5%;
+            29.3%;
 
         top:
-            13.5%;
+            9.1%;
 
         width:
-            70%;
+            42.7%;
 
         height:
-            30%;
+            37.9%;
 
     }
 
@@ -933,6 +913,7 @@ body {
             30px;
 
     }
+
 
 }
 
@@ -956,24 +937,10 @@ body {
     .zona-pizarron {
 
         width:
-            100%;
+            97%;
 
         margin-bottom:
             18px;
-
-    }
-
-
-    .pizarron {
-
-        width:
-            148%;
-
-        max-width:
-            none;
-
-        margin:
-            0 -24%;
 
     }
 
@@ -997,11 +964,8 @@ body {
 
     .indicador-scroll {
 
-        max-width:
-            125px;
-
-        margin-top:
-            8px;
+        width:
+            78%;
 
     }
 
@@ -1009,7 +973,7 @@ body {
     .zona-computadora {
 
         width:
-            88%;
+            94%;
 
         margin-top:
             27px;
@@ -1017,22 +981,28 @@ body {
     }
 
 
+    /*
+       Pantalla CRT:
+       coincide con la pantalla negra real
+       de la computadora.
+    */
+
     .pantalla-youtube {
 
         left:
-            15.5%;
+            29.3%;
 
         top:
-            13.5%;
+            9.1%;
 
         width:
-            70%;
+            42.7%;
 
         height:
-            30%;
+            37.9%;
 
         border-radius:
-            9% / 11%;
+            8% / 11%;
 
     }
 
@@ -1059,31 +1029,6 @@ body {
     }
 
 
-    .boton-silla {
-
-        left:
-            34.5%;
-
-        top:
-            48.5%;
-
-        width:
-            31%;
-
-        height:
-            13%;
-
-    }
-
-
-    .modal {
-
-        padding:
-            0;
-
-    }
-
-
     .modal-contenido {
 
         width:
@@ -1092,14 +1037,8 @@ body {
         height:
             100vh;
 
-        max-height:
-            100vh;
-
         padding:
-            0 !important;
-
-        margin:
-            0 !important;
+            0;
 
     }
 
@@ -1107,42 +1046,30 @@ body {
     .cerrar-modal {
 
         top:
-            7px;
+            4px;
 
         right:
-            7px;
+            6px;
 
         width:
-            42px;
+            44px;
 
         height:
-            42px;
+            44px;
 
         font-size:
-            2.2rem;
+            2.4rem;
 
         line-height:
-            42px;
+            40px;
 
     }
 
 
     .carpeta-visor {
 
-        width:
-            100% !important;
-
-        height:
-            100vh;
-
-        max-height:
-            100vh;
-
         padding:
-            0 !important;
-
-        margin:
-            0 !important;
+            0;
 
     }
 
@@ -1150,13 +1077,10 @@ body {
     .hoja-lectura {
 
         width:
-            100% !important;
+            100%;
 
         margin:
-            0 !important;
-
-        padding:
-            0 !important;
+            0 auto;
 
     }
 
@@ -1164,13 +1088,10 @@ body {
     #paginaVisor {
 
         width:
-            100% !important;
+            100%;
 
         max-width:
-            none !important;
-
-        margin:
-            0 auto !important;
+            none;
 
     }
 
