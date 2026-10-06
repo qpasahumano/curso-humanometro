@@ -355,21 +355,21 @@ body {
     z-index: 30;
 
     /*
-       Ajustado para ocupar prácticamente
-       toda la pantalla negra real del CRT.
+       Ajuste fino para que el reproductor
+       quede dentro del vidrio negro del CRT.
     */
 
     left:
-        15.5%;
+        17.5%;
 
     top:
-        8.5%;
+        10.4%;
 
     width:
-        70%;
+        68.5%;
 
     height:
-        35%;
+        35.5%;
 
     overflow:
         hidden;
@@ -378,7 +378,7 @@ body {
         #050505;
 
     border-radius:
-        9% / 11%;
+        10% / 12%;
 
 }
 
@@ -521,7 +521,7 @@ body {
     justify-content: center;
 
     padding:
-        4px;
+        0;
 
     background:
         rgba(0,0,0,.90);
@@ -534,65 +534,54 @@ body {
     position: relative;
 
     width:
-        99%;
+        100%;
 
     max-width:
-        950px;
+        1000px;
 
     height:
-        98vh;
+        100vh;
 
     display: flex;
 
     flex-direction: column;
 
     padding:
-        4px;
+        0;
 
     background:
-        #ddd4c3;
+        transparent;
 
     border:
-        3px solid #111;
+        none;
 
     box-shadow:
-        7px 7px 0 #000;
-
-}
-
-
-/*
-   Se conserva solamente la X.
-   El título y las instrucciones
-   desaparecen del visor.
-*/
-
-.titulo-modal,
-.aviso-zoom {
-
-    display:
         none;
 
 }
 
 
+/* ==================================================
+   CIERRE
+   ================================================== */
+
 .cerrar-modal {
 
     position: absolute;
 
-    z-index: 50;
+    z-index: 100;
 
     top:
-        3px;
+        5px;
 
     right:
         7px;
 
     width:
-        38px;
+        42px;
 
     height:
-        38px;
+        42px;
 
     padding:
         0;
@@ -601,10 +590,13 @@ body {
         none;
 
     background:
-        transparent;
+        rgba(255,255,255,.88);
 
     color:
         #000;
+
+    border-radius:
+        50%;
 
     font-family:
         Arial,
@@ -618,17 +610,24 @@ body {
         bold;
 
     line-height:
-        38px;
+        42px;
+
+    text-align:
+        center;
 
     cursor:
         pointer;
+
+    box-shadow:
+        0 2px 7px
+        rgba(0,0,0,.35);
 
 }
 
 
 
 /* ==================================================
-   CARPETA ESCOLAR DEL VISOR
+   VISOR DA PÁGINA
    ================================================== */
 
 .carpeta-visor {
@@ -640,6 +639,12 @@ body {
 
     min-height:
         0;
+
+    width:
+        100%;
+
+    height:
+        100%;
 
     overflow-y:
         auto;
@@ -653,148 +658,20 @@ body {
     touch-action:
         pan-y pinch-zoom;
 
-    /*
-       La hoja aprovecha prácticamente
-       todo el ancho disponible.
-    */
-
     padding:
-        2px 3px 20px 43px;
+        0;
+
+    margin:
+        0;
 
     background:
-        linear-gradient(
-            90deg,
-            #b8d0c4 0,
-            #c9ddd2 6px,
-            #e2d9bd 6px,
-            #e2d9bd 100%
-        );
+        transparent;
 
     border:
-        2px solid #84796b;
-
-    box-shadow:
-        inset 0 0 0 1px
-        rgba(255,255,255,.35);
-
-}
-
-
-.perforaciones {
-
-    position: absolute;
-
-    left:
-        8px;
-
-    top:
-        18px;
-
-    bottom:
-        18px;
-
-    width:
-        17px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        space-around;
-
-    z-index:
-        10;
-
-}
-
-
-.perforaciones span {
-
-    display:
-        block;
-
-    width:
-        13px;
-
-    height:
-        13px;
-
-    border-radius:
-        50%;
-
-    background:
-        #efe7d0;
-
-    border:
-        2px solid #70695e;
-
-    box-shadow:
-        inset 2px 2px 2px
-        rgba(0,0,0,.28);
-
-}
-
-
-.argollas {
-
-    position: absolute;
-
-    left:
-        19px;
-
-    top:
-        18px;
-
-    bottom:
-        18px;
-
-    width:
-        22px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        space-around;
-
-    z-index:
-        12;
-
-    pointer-events:
         none;
 
-}
-
-
-.argollas i {
-
-    display:
-        block;
-
-    width:
-        22px;
-
-    height:
-        8px;
-
-    border:
-        2px solid #777;
-
-    border-radius:
-        50%;
-
-    background:
-        #c8c1b4;
-
     box-shadow:
-        1px 2px 2px
-        rgba(0,0,0,.35);
+        none;
 
 }
 
@@ -813,10 +690,10 @@ body {
     min-height:
         0;
 
-    padding:
+    margin:
         0;
 
-    margin:
+    padding:
         0;
 
     background:
@@ -837,7 +714,7 @@ body {
         100%;
 
     max-width:
-        none;
+        100%;
 
     height:
         auto;
@@ -915,16 +792,16 @@ body {
     .pantalla-youtube {
 
         left:
-            15.5%;
+            17.5%;
 
         top:
-            8.5%;
+            10.4%;
 
         width:
-            70%;
+            68.5%;
 
         height:
-            35%;
+            35.5%;
 
     }
 
@@ -936,14 +813,6 @@ body {
 
         margin-top:
             30px;
-
-    }
-
-
-    .carpeta-visor {
-
-        padding:
-            2px 3px 22px 43px;
 
     }
 
@@ -994,10 +863,18 @@ body {
     }
 
 
+    /*
+       Computadora ligeramente más grande,
+       como ajuste final solicitado.
+    */
+
     .zona-computadora {
 
         width:
-            88%;
+            90%;
+
+        max-width:
+            780px;
 
         margin-top:
             27px;
@@ -1006,26 +883,25 @@ body {
 
 
     /*
-       Pantalla CRT corregida:
-       ocupa el área negra real del monitor.
+       Ajuste final del CRT.
     */
 
     .pantalla-youtube {
 
         left:
-            15.5%;
+            17.5%;
 
         top:
-            8.5%;
+            10.4%;
 
         width:
-            70%;
+            68.5%;
 
         height:
-            35%;
+            35.5%;
 
         border-radius:
-            9% / 11%;
+            10% / 12%;
 
     }
 
@@ -1072,65 +948,72 @@ body {
     .modal-contenido {
 
         width:
-            99%;
+            100%;
 
         height:
-            98vh;
+            100vh;
 
-        padding:
-            3px;
+    }
+
+
+    .cerrar-modal {
+
+        top:
+            5px;
+
+        right:
+            6px;
+
+        width:
+            40px;
+
+        height:
+            40px;
+
+        font-size:
+            1.85rem;
+
+        line-height:
+            40px;
 
     }
 
 
     .carpeta-visor {
 
+        width:
+            100%;
+
+        height:
+            100%;
+
         padding:
-            2px 2px 20px 38px;
+            0;
 
     }
 
 
-    .perforaciones {
-
-        left:
-            6px;
+    .hoja-lectura {
 
         width:
-            13px;
+            100%;
+
+        padding:
+            0;
 
     }
 
 
-    .perforaciones span {
+    #paginaVisor {
 
         width:
-            11px;
+            100%;
+
+        max-width:
+            100%;
 
         height:
-            11px;
-
-    }
-
-
-    .argollas {
-
-        left:
-            16px;
-
-        width:
-            18px;
-
-    }
-
-
-    .argollas i {
-
-        width:
-            18px;
-
-        height:
-            7px;
+            auto;
 
     }
 
