@@ -1823,3 +1823,56 @@ main {
     }
 
 }
+/* ==================================================
+   AJUSTE FINAL DE COMPOSICIÓN VERTICAL
+   COMPUTADORA + SILLA
+   ================================================== */
+
+@media (max-width: 470px) {
+
+    /* ----------------------------------------------
+       COMPUTADORA
+       Un poco más compacta y más arriba.
+       Mantiene aire respecto de la hoja.
+       ---------------------------------------------- */
+
+    .zona-computadora {
+
+        width:
+            80%;
+
+        max-width:
+            760px;
+
+        margin-top:
+            6px;
+
+        margin-bottom:
+            0;
+
+    }
+
+
+    /* ----------------------------------------------
+       SILLA
+       Más compacta para recuperar espacio vertical
+       y permitir que aparezca completa.
+       ---------------------------------------------- */
+
+    .zona-silla {
+
+        width:
+            78%;
+
+        max-width:
+            760px;
+
+        margin-top:
+            6px;
+
+        margin-bottom:
+            0;
+
+    }
+
+}
