@@ -1,7 +1,7 @@
 "use strict";
 
-/* CACHE-BUSTER: 2026-10-06-0508 */
-const HM_JS_VERSION = "11.1";
+/* CACHE-BUSTER: 2026-10-06-0733 */
+const HM_JS_VERSION = "12.0";
 
 
 const paginas = {
@@ -20,15 +20,290 @@ const paginas = {
 };
 
 
+/* ==================================================
+   VIDEOS COMPLEMENTARIOS POR PÁGINA
+   ================================================== */
 
-function abrirPagina(numeroPagina) {
+const videosComplementarios = {
+
+    1: "https://youtu.be/PkNDkUbAATU?si=BG3NB_5aOFggDn3Y",
+    2: "https://youtu.be/I95gS70vAPg?si=BnhaDzNyJ397-6Y5",
+    3: "https://youtu.be/3TgsyUGaGmo?si=pEEJblCUj0GJcZHQ",
+    4: "https://youtu.be/NjUCNCCuooY?si=3Y2THuEscEc50Yrb",
+    5: "https://youtu.be/NjUCNCCuooY?si=6tCWzhaVfM_oMrGY",
+    6: "https://youtu.be/fCXe7nWPwnI?si=okpMxERks_rMO3aL",
+    7: "https://youtu.be/SS5NcxjVFDg?si=AUSJN6uAlNPGoNqX",
+    8: "https://youtu.be/3XH0yOdORYQ?si=B9URc73_TJDXAZxj",
+    9: "https://youtu.be/jdDYxj2rlzU?si=tW2fi_ssXeQ3wukB"
+
+};
 
 
-    const modal =
-        document.getElementById(
-            "modalPdf"
+const subtitulosVideos = {
+
+    7: "Cuerpo de la app (HTML/JS y CSS)",
+    8: "Ejemplos personales de Promos",
+    9: "Estructura para realizar juegos estilo retros."
+
+};
+
+
+let paginaActual = 1;
+
+
+function obtenerIdYoutube(url) {
+
+    if (!url) {
+
+        return "";
+
+    }
+
+
+    const coincidencia =
+        url.match(
+            /youtu\.be\/([^?&#/]+)|youtube\.com\/watch\?v=([^&#]+)|youtube\.com\/embed\/([^?&#/]+)/i
         );
 
+
+    if (!coincidencia) {
+
+        return "";
+
+    }
+
+
+    return (
+        coincidencia[1] ||
+        coincidencia[2] ||
+        coincidencia[3] ||
+        ""
+    );
+
+}
+
+
+function resetearVideoComplementario() {
+
+    const botonVideo =
+        document.getElementById(
+            "botonVideoComplementario"
+        );
+
+
+    const subtitulo =
+        document.getElementById(
+            "subtituloVideo"
+        );
+
+
+    const contenedorVideo =
+        document.getElementById(
+            "contenedorVideoComplementario"
+        );
+
+
+    const video =
+        document.getElementById(
+            "videoComplementario"
+        );
+
+
+    if (!botonVideo || !subtitulo || !contenedorVideo || !video) {
+
+        return;
+
+    }
+
+
+    video.src = "";
+
+    contenedorVideo.classList.remove("visible");
+    contenedorVideo.setAttribute("aria-hidden", "true");
+
+    botonVideo.classList.remove("oculto");
+    botonVideo.textContent =
+        "▶ VER VIDEO COMPLEMENTARIO";
+
+    subtitulo.textContent =
+        subtitulosVideos[paginaActual] ||
+        "";
+
+}
+
+
+function prepararVideoComplementario() {
+
+    const botonVideo =
+        document.getElementById(
+            "botonVideoComplementario"
+        );
+
+
+    const subtitulo =
+        document.getElementById(
+            "subtituloVideo"
+        );
+
+
+    if (!botonVideo || !subtitulo) {
+
+        return;
+
+    }
+
+
+    const urlVideo =
+        videosComplementarios[paginaActual];
+
+
+    if (!urlVideo) {
+
+        botonVideo.classList.add("oculto");
+        subtitulo.textContent = "";
+
+        return;
+
+    }
+
+
+    botonVideo.classList.remove("oculto");
+
+    subtitulo.textContent =
+        subtitulosVideos[paginaActual] ||
+        "";
+
+}
+
+
+function alternarVideoComplementario() {
+
+    const botonVideo =
+        document.getElementById(
+            "botonVideoComplementario"
+        );
+
+
+    const contenedorVideo =
+        document.getElementById(
+            "contenedorVideoComplementario"
+        );
+
+
+    const video =
+        document.getElementById(
+            "videoComplementario"
+        );
+
+
+    if (!botonVideo || !contenedorVideo || !video) {
+
+        return;
+
+    }
+
+
+    const urlVideo =
+        videosComplementarios[paginaActual];
+
+
+    if (!urlVideo) {
+
+        return;
+
+    }
+
+
+    const videoVisible =
+        contenedorVideo.classList.contains("visible");
+
+
+    if (videoVisible) {
+
+        video.src = "";
+
+        contenedorVideo.classList.remove("visible");
+        contenedorVideo.setAttribute("aria-hidden", "true");
+
+        botonVideo.textContent =
+            "▶ VER VIDEO COMPLEMENTARIO";
+
+        return;
+
+    }
+
+
+    const youtubeId =
+        obtenerIdYoutube(urlVideo);
+
+
+    if (!youtubeId) {
+
+        return;
+
+    }
+
+
+    video.src =
+        "https://www.youtube.com/embed/" +
+        encodeURIComponent(youtubeId) +
+        "?rel=0";
+
+
+    contenedorVideo.classList.add("visible");
+    contenedorVideo.setAttribute("aria-hidden", "false");
+
+    botonVideo.textContent =
+        "▲ OCULTAR VIDEO COMPLEMENTARIO";
+
+
+    window.setTimeout(
+        function() {
+
+            contenedorVideo.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        },
+        80
+    );
+
+}
+
+
+function actualizarAccionPagina() {
+
+    const botonAccion =
+        document.getElementById(
+            "accionPagina"
+        );
+
+
+    if (!botonAccion) {
+
+        return;
+
+    }
+
+
+    if (paginaActual >= 10) {
+
+        botonAccion.textContent =
+            "VOLVER A INTERFAZ";
+
+        return;
+
+    }
+
+
+    botonAccion.textContent =
+        "SIGUIENTE PÁGINA";
+
+}
+
+
+function cargarPaginaEnVisor(numeroPagina) {
 
     const visor =
         document.getElementById(
@@ -42,13 +317,14 @@ function abrirPagina(numeroPagina) {
         );
 
 
-    if (
-        !paginas[numeroPagina]
-    ) {
+    if (!paginas[numeroPagina] || !visor) {
 
         return;
 
     }
+
+
+    paginaActual = numeroPagina;
 
 
     visor.src =
@@ -59,6 +335,39 @@ function abrirPagina(numeroPagina) {
         "Hoja " +
         numeroPagina +
         " del curso Humanómetro";
+
+
+    resetearVideoComplementario();
+    prepararVideoComplementario();
+    actualizarAccionPagina();
+
+
+    if (carpeta) {
+
+        carpeta.scrollTop = 0;
+
+    }
+
+}
+
+
+function abrirPagina(numeroPagina) {
+
+
+    const modal =
+        document.getElementById(
+            "modalPdf"
+        );
+
+
+    if (!paginas[numeroPagina] || !modal) {
+
+        return;
+
+    }
+
+
+    cargarPaginaEnVisor(numeroPagina);
 
 
     modal.style.display =
@@ -74,16 +383,24 @@ function abrirPagina(numeroPagina) {
     document.body.style.overflow =
         "hidden";
 
+}
 
-    if (carpeta) {
 
-        carpeta.scrollTop =
-            0;
+function avanzarPagina() {
+
+    if (paginaActual >= 10) {
+
+        cerrarModal();
+        return;
 
     }
 
-}
 
+    cargarPaginaEnVisor(
+        paginaActual + 1
+    );
+
+}
 
 
 function cerrarModal() {
@@ -101,6 +418,25 @@ function cerrarModal() {
         );
 
 
+    const video =
+        document.getElementById(
+            "videoComplementario"
+        );
+
+
+    const contenedorVideo =
+        document.getElementById(
+            "contenedorVideoComplementario"
+        );
+
+
+    if (!modal) {
+
+        return;
+
+    }
+
+
     modal.style.display =
         "none";
 
@@ -111,15 +447,32 @@ function cerrarModal() {
     );
 
 
-    visor.src =
-        "";
+    if (visor) {
+
+        visor.src = "";
+
+    }
+
+
+    if (video) {
+
+        video.src = "";
+
+    }
+
+
+    if (contenedorVideo) {
+
+        contenedorVideo.classList.remove("visible");
+        contenedorVideo.setAttribute("aria-hidden", "true");
+
+    }
 
 
     document.body.style.overflow =
         "";
 
 }
-
 
 
 window.addEventListener(
@@ -248,81 +601,3 @@ document
 
         }
     );
-
-
-
-
-/* ==================================================
-   CARRUSEL HORIZONTAL DE PÁGINAS
-   ================================================== */
-
-const carruselHojas =
-    document.getElementById(
-        "carruselHojas"
-    );
-
-
-const indicadorDeslizar =
-    document.querySelector(
-        ".indicador-scroll"
-    );
-
-
-if (
-    carruselHojas &&
-    indicadorDeslizar
-) {
-
-    let carruselYaDesplazado =
-        false;
-
-
-    const ocultarIndicador =
-        function() {
-
-            if (
-                carruselYaDesplazado
-            ) {
-
-                return;
-
-            }
-
-            carruselYaDesplazado =
-                true;
-
-            indicadorDeslizar.classList.add(
-                "oculto"
-            );
-
-        };
-
-
-    carruselHojas.addEventListener(
-        "scroll",
-        ocultarIndicador,
-        {
-            passive: true
-        }
-    );
-
-
-    carruselHojas.addEventListener(
-        "touchstart",
-        function() {
-
-            if (
-                carruselHojas.scrollLeft > 2
-            ) {
-
-                ocultarIndicador();
-
-            }
-
-        },
-        {
-            passive: true
-        }
-    );
-
-}
