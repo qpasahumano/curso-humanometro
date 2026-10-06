@@ -1,7 +1,7 @@
 "use strict";
 
-/* CACHE-BUSTER: 2026-10-05-2047 */
-const HM_JS_VERSION = "9";
+/* CACHE-BUSTER: 2026-10-05-2105 */
+const HM_JS_VERSION = "10";
 
 
 const paginas = {
@@ -30,12 +30,6 @@ function abrirPagina(numeroPagina) {
         );
 
 
-    const titulo =
-        document.querySelector(
-            ".titulo-modal"
-        );
-
-
     const visor =
         document.getElementById(
             "paginaVisor"
@@ -55,11 +49,6 @@ function abrirPagina(numeroPagina) {
         return;
 
     }
-
-
-    titulo.textContent =
-        "Curso Humanómetro · Hoja " +
-        numeroPagina;
 
 
     visor.src =
