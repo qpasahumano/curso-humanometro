@@ -1,7 +1,7 @@
 "use strict";
 
-/* CACHE-BUSTER: 2026-10-06-0818 */
-const HM_JS_VERSION = "13.0";
+/* CACHE-BUSTER: 2026-10-06-0836 */
+const HM_JS_VERSION = "14.0";
 
 
 const paginas = {
@@ -20,8 +20,9 @@ const paginas = {
 };
 
 
+
 /* ==================================================
-   VIDEOS COMPLEMENTARIOS POR PÁGINA
+   VIDEOS COMPLEMENTARIOS
    ================================================== */
 
 const videosComplementarios = {
@@ -39,6 +40,7 @@ const videosComplementarios = {
 };
 
 
+
 const subtitulosVideos = {
 
     7: "Cuerpo de la app (HTML/JS y CSS)",
@@ -48,8 +50,342 @@ const subtitulosVideos = {
 };
 
 
+
 let paginaActual = 1;
 
+
+
+/* ==================================================
+   TIMBRE SUTIL DE RECREO
+   ================================================== */
+
+let timbreIntentado =
+    false;
+
+
+let timbreProgramado =
+    false;
+
+
+let audioContext =
+    null;
+
+
+function reproducirTimbreRecreo() {
+
+    if (
+        timbreIntentado
+    ) {
+
+        return;
+
+    }
+
+
+    timbreIntentado =
+        true;
+
+
+    try {
+
+        const AudioContextClass =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+
+        if (
+            !AudioContextClass
+        ) {
+
+            return;
+
+        }
+
+
+        if (!audioContext) {
+
+            audioContext =
+                new AudioContextClass();
+
+        }
+
+
+        const iniciarTimbre =
+            function() {
+
+                if (
+                    !audioContext
+                ) {
+
+                    return;
+
+                }
+
+
+                const ahora =
+                    audioContext.currentTime;
+
+
+                const gananciaPrincipal =
+                    audioContext.createGain();
+
+
+                gananciaPrincipal.gain.setValueAtTime(
+                    0.0001,
+                    ahora
+                );
+
+
+                gananciaPrincipal.gain.exponentialRampToValueAtTime(
+                    0.075,
+                    ahora + 0.025
+                );
+
+
+                gananciaPrincipal.gain.exponentialRampToValueAtTime(
+                    0.0001,
+                    ahora + 1.15
+                );
+
+
+                gananciaPrincipal.connect(
+                    audioContext.destination
+                );
+
+
+                const frecuencias = [
+                    784,
+                    988,
+                    1319
+                ];
+
+
+                frecuencias.forEach(
+                    function(frecuencia, indice) {
+
+                        const oscilador =
+                            audioContext.createOscillator();
+
+
+                        const ganancia =
+                            audioContext.createGain();
+
+
+                        oscilador.type =
+                            "triangle";
+
+
+                        oscilador.frequency.setValueAtTime(
+                            frecuencia,
+                            ahora
+                        );
+
+
+                        ganancia.gain.setValueAtTime(
+                            0.0001,
+                            ahora
+                        );
+
+
+                        ganancia.gain.exponentialRampToValueAtTime(
+                            0.24 / (indice + 1),
+                            ahora + 0.018
+                        );
+
+
+                        ganancia.gain.exponentialRampToValueAtTime(
+                            0.0001,
+                            ahora + 1.05
+                        );
+
+
+                        oscilador.connect(
+                            ganancia
+                        );
+
+
+                        ganancia.connect(
+                            gananciaPrincipal
+                        );
+
+
+                        oscilador.start(
+                            ahora
+                        );
+
+
+                        oscilador.stop(
+                            ahora + 1.12
+                        );
+
+                    }
+                );
+
+
+                window.setTimeout(
+                    function() {
+
+                        if (
+                            !audioContext
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        const segundoToque =
+                            audioContext.currentTime;
+
+
+                        const gananciaSegundo =
+                            audioContext.createGain();
+
+
+                        gananciaSegundo.gain.setValueAtTime(
+                            0.0001,
+                            segundoToque
+                        );
+
+
+                        gananciaSegundo.gain.exponentialRampToValueAtTime(
+                            0.055,
+                            segundoToque + 0.02
+                        );
+
+
+                        gananciaSegundo.gain.exponentialRampToValueAtTime(
+                            0.0001,
+                            segundoToque + 0.85
+                        );
+
+
+                        gananciaSegundo.connect(
+                            audioContext.destination
+                        );
+
+
+                        const osciladorSegundo =
+                            audioContext.createOscillator();
+
+
+                        osciladorSegundo.type =
+                            "triangle";
+
+
+                        osciladorSegundo.frequency.setValueAtTime(
+                            1047,
+                            segundoToque
+                        );
+
+
+                        osciladorSegundo.connect(
+                            gananciaSegundo
+                        );
+
+
+                        osciladorSegundo.start(
+                            segundoToque
+                        );
+
+
+                        osciladorSegundo.stop(
+                            segundoToque + 0.82
+                        );
+
+                    },
+                    480
+                );
+
+            };
+
+
+        const resultado =
+            audioContext.resume();
+
+
+        if (
+            resultado &&
+            typeof resultado.then === "function"
+        ) {
+
+            resultado
+                .then(
+                    iniciarTimbre
+                )
+                .catch(
+                    function() {
+
+                        /* El navegador puede bloquear
+                           el audio automático. No rompe
+                           la interfaz. */
+
+                    }
+                );
+
+        } else {
+
+            iniciarTimbre();
+
+        }
+
+    } catch (error) {
+
+        /* El sonido nunca debe impedir
+           el funcionamiento de la página. */
+
+    }
+
+}
+
+
+function programarTimbreRecreo() {
+
+    if (
+        timbreProgramado
+    ) {
+
+        return;
+
+    }
+
+
+    timbreProgramado =
+        true;
+
+
+    window.setTimeout(
+        function() {
+
+            reproducirTimbreRecreo();
+
+        },
+        4500
+    );
+
+}
+
+
+function desbloquearTimbreConInteraccion() {
+
+    if (
+        timbreIntentado
+    ) {
+
+        return;
+
+    }
+
+
+    reproducirTimbreRecreo();
+
+}
+
+
+
+/* ==================================================
+   YOUTUBE
+   ================================================== */
 
 function obtenerIdYoutube(url) {
 
@@ -83,6 +419,11 @@ function obtenerIdYoutube(url) {
 }
 
 
+
+/* ==================================================
+   VIDEO COMPLEMENTARIO
+   ================================================== */
+
 function resetearVideoComplementario() {
 
     const botonVideo =
@@ -109,22 +450,33 @@ function resetearVideoComplementario() {
         );
 
 
-    if (!botonVideo || !subtitulo || !contenedorVideo || !video) {
+    if (
+        !botonVideo ||
+        !subtitulo ||
+        !contenedorVideo ||
+        !video
+    ) {
 
         return;
 
     }
 
 
-    video.src = "";
+    video.src =
+        "";
 
-    contenedorVideo.classList.remove("visible");
+    contenedorVideo.classList.remove(
+        "visible"
+    );
+
     contenedorVideo.setAttribute(
         "aria-hidden",
         "true"
     );
 
-    botonVideo.classList.remove("oculto");
+    botonVideo.classList.remove(
+        "oculto"
+    );
 
     botonVideo.textContent =
         "▶ VER VIDEO";
@@ -150,7 +502,10 @@ function prepararVideoComplementario() {
         );
 
 
-    if (!botonVideo || !subtitulo) {
+    if (
+        !botonVideo ||
+        !subtitulo
+    ) {
 
         return;
 
@@ -163,15 +518,21 @@ function prepararVideoComplementario() {
 
     if (!urlVideo) {
 
-        botonVideo.classList.add("oculto");
-        subtitulo.textContent = "";
+        botonVideo.classList.add(
+            "oculto"
+        );
+
+        subtitulo.textContent =
+            "";
 
         return;
 
     }
 
 
-    botonVideo.classList.remove("oculto");
+    botonVideo.classList.remove(
+        "oculto"
+    );
 
     subtitulo.textContent =
         subtitulosVideos[paginaActual] ||
@@ -200,7 +561,11 @@ function alternarVideoComplementario() {
         );
 
 
-    if (!botonVideo || !contenedorVideo || !video) {
+    if (
+        !botonVideo ||
+        !contenedorVideo ||
+        !video
+    ) {
 
         return;
 
@@ -226,7 +591,8 @@ function alternarVideoComplementario() {
 
     if (videoVisible) {
 
-        video.src = "";
+        video.src =
+            "";
 
         contenedorVideo.classList.remove(
             "visible"
@@ -294,6 +660,11 @@ function alternarVideoComplementario() {
 }
 
 
+
+/* ==================================================
+   PÁGINAS
+   ================================================== */
+
 function actualizarAccionPagina() {
 
     const botonAccion =
@@ -309,7 +680,9 @@ function actualizarAccionPagina() {
     }
 
 
-    if (paginaActual >= 10) {
+    if (
+        paginaActual >= 10
+    ) {
 
         botonAccion.textContent =
             "VOLVER A INTERFAZ";
@@ -325,7 +698,9 @@ function actualizarAccionPagina() {
 }
 
 
-function cargarPaginaEnVisor(numeroPagina) {
+function cargarPaginaEnVisor(
+    numeroPagina
+) {
 
     const visor =
         document.getElementById(
@@ -380,7 +755,9 @@ function cargarPaginaEnVisor(numeroPagina) {
 }
 
 
-function abrirPagina(numeroPagina) {
+function abrirPagina(
+    numeroPagina
+) {
 
     const modal =
         document.getElementById(
@@ -518,6 +895,11 @@ function cerrarModal() {
 }
 
 
+
+/* ==================================================
+   CIERRE DEL VISOR
+   ================================================== */
+
 window.addEventListener(
     "click",
     function(event) {
@@ -555,6 +937,11 @@ document.addEventListener(
     }
 );
 
+
+
+/* ==================================================
+   PROTECCIONES EXISTENTES
+   ================================================== */
 
 document.addEventListener(
     "contextmenu",
@@ -623,6 +1010,11 @@ document.addEventListener(
 );
 
 
+
+/* ==================================================
+   IMÁGENES
+   ================================================== */
+
 document
     .querySelectorAll("img")
     .forEach(
@@ -635,3 +1027,65 @@ document
 
         }
     );
+
+
+
+/* ==================================================
+   CARRUSEL HORIZONTAL
+   ================================================== */
+
+const carruselHojas =
+    document.getElementById(
+        "carruselHojas"
+    );
+
+
+if (carruselHojas) {
+
+    carruselHojas.addEventListener(
+        "touchstart",
+        function() {
+
+            desbloquearTimbreConInteraccion();
+
+        },
+        {
+            passive: true,
+            once: true
+        }
+    );
+
+}
+
+
+
+/* ==================================================
+   PRIMERA INTERACCIÓN PARA AUDIO
+   ================================================== */
+
+document.addEventListener(
+    "pointerdown",
+    function() {
+
+        desbloquearTimbreConInteraccion();
+
+    },
+    {
+        passive: true,
+        once: true
+    }
+);
+
+
+/* ==================================================
+   INICIO
+   ================================================== */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        programarTimbreRecreo();
+
+    }
+);
