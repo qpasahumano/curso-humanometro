@@ -248,3 +248,81 @@ document
 
         }
     );
+
+
+
+
+/* ==================================================
+   CARRUSEL HORIZONTAL DE PÁGINAS
+   ================================================== */
+
+const carruselHojas =
+    document.getElementById(
+        "carruselHojas"
+    );
+
+
+const indicadorDeslizar =
+    document.querySelector(
+        ".indicador-scroll"
+    );
+
+
+if (
+    carruselHojas &&
+    indicadorDeslizar
+) {
+
+    let carruselYaDesplazado =
+        false;
+
+
+    const ocultarIndicador =
+        function() {
+
+            if (
+                carruselYaDesplazado
+            ) {
+
+                return;
+
+            }
+
+            carruselYaDesplazado =
+                true;
+
+            indicadorDeslizar.classList.add(
+                "oculto"
+            );
+
+        };
+
+
+    carruselHojas.addEventListener(
+        "scroll",
+        ocultarIndicador,
+        {
+            passive: true
+        }
+    );
+
+
+    carruselHojas.addEventListener(
+        "touchstart",
+        function() {
+
+            if (
+                carruselHojas.scrollLeft > 2
+            ) {
+
+                ocultarIndicador();
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+}
