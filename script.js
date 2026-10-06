@@ -712,7 +712,11 @@ async function intentarIngreso() {
             ) {
 
                 mensajeIngreso.textContent =
-                    "No se pudo iniciar sesión. Revisá el correo y la clave.";
+                    "Error de Supabase: " +
+                    (
+                        error.message ||
+                        "No se pudo iniciar sesión."
+                    );
 
             }
 
@@ -782,7 +786,11 @@ async function intentarIngreso() {
         ) {
 
             mensajeIngreso.textContent =
-                "No se pudo conectar con el sistema de acceso.";
+                "Error de Supabase: " +
+                (
+                    error.message ||
+                    "No se pudo conectar con el sistema de acceso."
+                );
 
         }
 
@@ -896,7 +904,11 @@ async function crearCuenta() {
             ) {
 
                 mensajeIngreso.textContent =
-                    "No se pudo crear la cuenta. Revisá los datos e intentá nuevamente.";
+                    "Error de Supabase: " +
+                    (
+                        error.message ||
+                        "No se pudo crear la cuenta."
+                    );
 
             }
 
@@ -966,7 +978,11 @@ async function crearCuenta() {
         ) {
 
             mensajeIngreso.textContent =
-                "No se pudo crear la cuenta.";
+                "Error de Supabase: " +
+                (
+                    error.message ||
+                    "No se pudo crear la cuenta."
+                );
 
         }
 
