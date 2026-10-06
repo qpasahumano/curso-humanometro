@@ -238,6 +238,18 @@
         </section>
 
 
+        <!-- ==================================================
+             CHIVO ESCRITO SOBRE EL PUPITRE
+             ================================================== -->
+
+        <div class="chivo-pupitre" aria-label="Promoción de Humanómetro">
+
+            <span class="chivo-url">www.humanómetro.com</span>
+            <span class="chivo-frase">autoobservate</span>
+
+        </div>
+
+
 
         <!-- ==================================================
              RESPALDO DE SILLA / ACCESO
@@ -334,14 +346,28 @@
                 aria-label="Contenido complementario de la página"
             >
 
-                <button
-                    id="botonVideoComplementario"
-                    class="boton-video-complementario"
-                    type="button"
-                    onclick="alternarVideoComplementario()"
-                >
-                    ▶ VER VIDEO COMPLEMENTARIO
-                </button>
+                <div class="fila-acciones">
+
+                    <button
+                        id="botonVideoComplementario"
+                        class="boton-video-complementario"
+                        type="button"
+                        onclick="alternarVideoComplementario()"
+                    >
+                        ▶ VER VIDEO
+                    </button>
+
+
+                    <button
+                        id="accionPagina"
+                        class="accion-pagina"
+                        type="button"
+                        onclick="avanzarPagina()"
+                    >
+                        SIGUIENTE PÁGINA
+                    </button>
+
+                </div>
 
 
                 <div
@@ -371,15 +397,6 @@
 
                 </div>
 
-
-                <button
-                    id="accionPagina"
-                    class="accion-pagina"
-                    type="button"
-                    onclick="avanzarPagina()"
-                >
-                    SIGUIENTE PÁGINA
-                </button>
 
             </section>
 
