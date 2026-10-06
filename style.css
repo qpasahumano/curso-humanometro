@@ -107,6 +107,8 @@ body {
 
     align-items: center;
 
+    overflow: visible;
+
 }
 
 
@@ -114,13 +116,14 @@ body {
 
     display: block;
 
-    width: 100%;
+    width: 148%;
 
-    max-width: 1100px;
+    max-width: none;
 
     height: auto;
 
-    margin: 0 auto;
+    margin:
+        0 -24%;
 
     pointer-events: none;
 
@@ -302,8 +305,7 @@ body {
     margin:
         12px auto 0;
 
-    padding:
-        0;
+    padding: 0;
 
     display: flex;
 
@@ -424,13 +426,13 @@ body {
         15.5%;
 
     top:
-        8.5%;
+        13.5%;
 
     width:
         70%;
 
     height:
-        35%;
+        30%;
 
     overflow:
         hidden;
@@ -578,7 +580,7 @@ body {
     display: none;
 
     align-items:
-        center;
+        flex-start;
 
     justify-content:
         center;
@@ -618,23 +620,25 @@ body {
         column;
 
     padding:
+        0 !important;
+
+    margin:
         0;
 
     background:
-        transparent;
+        transparent !important;
 
     border:
-        none;
+        none !important;
 
     box-shadow:
-        none;
+        none !important;
 
 }
 
 
 /*
-   El título y las instrucciones
-   permanecen completamente ocultos.
+   Título e instrucciones ocultos.
 */
 
 .titulo-modal,
@@ -649,16 +653,16 @@ body {
 .cerrar-modal {
 
     position:
-        absolute;
+        fixed;
 
     z-index:
-        100;
+        1100;
 
     top:
-        8px;
+        7px;
 
     right:
-        10px;
+        8px;
 
     width:
         48px;
@@ -673,7 +677,7 @@ body {
         none;
 
     background:
-        rgba(255,255,255,.82);
+        rgba(255,255,255,.90);
 
     color:
         #000;
@@ -703,7 +707,7 @@ body {
 
 
 /* ==================================================
-   VISOR DIRECTO DE LA HOJA
+   VISOR DIRECTO DEL PDF
    ================================================== */
 
 .carpeta-visor {
@@ -712,13 +716,19 @@ body {
         relative;
 
     width:
-        100%;
+        100% !important;
 
     height:
         100vh;
 
     max-height:
         100vh;
+
+    flex:
+        1 1 auto;
+
+    min-height:
+        0;
 
     overflow-y:
         auto;
@@ -733,19 +743,19 @@ body {
         pan-y pinch-zoom;
 
     padding:
-        0;
+        0 !important;
 
     margin:
-        0;
+        0 !important;
 
     background:
-        transparent;
+        transparent !important;
 
     border:
-        none;
+        none !important;
 
     box-shadow:
-        none;
+        none !important;
 
 }
 
@@ -754,7 +764,7 @@ body {
 .argollas {
 
     display:
-        none;
+        none !important;
 
 }
 
@@ -768,22 +778,22 @@ body {
         5;
 
     width:
-        100%;
+        100% !important;
 
     min-height:
         0;
 
     padding:
-        0;
+        0 !important;
 
     margin:
-        0;
+        0 !important;
 
     background:
-        transparent;
+        transparent !important;
 
     box-shadow:
-        none;
+        none !important;
 
 }
 
@@ -794,31 +804,31 @@ body {
         block;
 
     width:
-        100%;
+        100% !important;
 
     max-width:
-        100%;
+        none !important;
 
     height:
         auto;
 
     margin:
-        0 auto;
+        0 auto !important;
 
     padding:
-        0;
+        0 !important;
 
     border:
-        none;
+        none !important;
 
     outline:
         none;
 
     background:
-        transparent;
+        transparent !important;
 
     box-shadow:
-        none;
+        none !important;
 
 }
 
@@ -846,6 +856,20 @@ body {
 
         margin-bottom:
             25px;
+
+    }
+
+
+    .pizarron {
+
+        width:
+            148%;
+
+        max-width:
+            none;
+
+        margin:
+            0 -24%;
 
     }
 
@@ -889,13 +913,13 @@ body {
             15.5%;
 
         top:
-            8.5%;
+            13.5%;
 
         width:
             70%;
 
         height:
-            35%;
+            30%;
 
     }
 
@@ -907,31 +931,6 @@ body {
 
         margin-top:
             30px;
-
-    }
-
-
-    .cerrar-modal {
-
-        top:
-            7px;
-
-        right:
-            8px;
-
-    }
-
-
-    .carpeta-visor {
-
-        width:
-            100%;
-
-        height:
-            100vh;
-
-        max-height:
-            100vh;
 
     }
 
@@ -961,6 +960,20 @@ body {
 
         margin-bottom:
             18px;
+
+    }
+
+
+    .pizarron {
+
+        width:
+            148%;
+
+        max-width:
+            none;
+
+        margin:
+            0 -24%;
 
     }
 
@@ -1010,13 +1023,13 @@ body {
             15.5%;
 
         top:
-            8.5%;
+            13.5%;
 
         width:
             70%;
 
         height:
-            35%;
+            30%;
 
         border-radius:
             9% / 11%;
@@ -1083,7 +1096,10 @@ body {
             100vh;
 
         padding:
-            0;
+            0 !important;
+
+        margin:
+            0 !important;
 
     }
 
@@ -1114,7 +1130,7 @@ body {
     .carpeta-visor {
 
         width:
-            100%;
+            100% !important;
 
         height:
             100vh;
@@ -1123,7 +1139,10 @@ body {
             100vh;
 
         padding:
-            0;
+            0 !important;
+
+        margin:
+            0 !important;
 
     }
 
@@ -1131,13 +1150,13 @@ body {
     .hoja-lectura {
 
         width:
-            100%;
+            100% !important;
 
         margin:
-            0;
+            0 !important;
 
         padding:
-            0;
+            0 !important;
 
     }
 
@@ -1145,13 +1164,13 @@ body {
     #paginaVisor {
 
         width:
-            100%;
+            100% !important;
 
         max-width:
-            100%;
+            none !important;
 
         margin:
-            0 auto;
+            0 auto !important;
 
     }
 
