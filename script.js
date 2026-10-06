@@ -123,7 +123,7 @@ function resetearVideoComplementario() {
 
     botonVideo.classList.remove("oculto");
     botonVideo.textContent =
-        "▶ VER VIDEO COMPLEMENTARIO";
+        "▶ VER VIDEO";
 
     subtitulo.textContent =
         subtitulosVideos[paginaActual] ||
@@ -226,7 +226,7 @@ function alternarVideoComplementario() {
         contenedorVideo.setAttribute("aria-hidden", "true");
 
         botonVideo.textContent =
-            "▶ VER VIDEO COMPLEMENTARIO";
+            "▶ VER VIDEO";
 
         return;
 
@@ -254,7 +254,7 @@ function alternarVideoComplementario() {
     contenedorVideo.setAttribute("aria-hidden", "false");
 
     botonVideo.textContent =
-        "▲ OCULTAR VIDEO COMPLEMENTARIO";
+        "▲ CERRAR VIDEO";
 
 
     window.setTimeout(
