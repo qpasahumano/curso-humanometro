@@ -87,7 +87,7 @@ main {
     margin: 0 auto;
 
     padding:
-        18px 28px 45px;
+        18px 28px 42px;
 
     background:
         transparent;
@@ -321,7 +321,7 @@ main {
     max-width: 680px;
 
     margin:
-        24px auto 0;
+        8px auto 0;
 
 }
 
@@ -428,102 +428,6 @@ main {
 
 
 /* ==================================================
-   CHIVO ESCRITO SOBRE EL PUPITRE
-   ================================================== */
-
-.chivo-pupitre {
-
-    position: relative;
-
-    z-index: 17;
-
-    width: fit-content;
-
-    max-width: 250px;
-
-    margin:
-        5px auto 3px;
-
-    padding:
-        2px 8px 3px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        flex-start;
-
-    gap:
-        0;
-
-    transform:
-        rotate(-4deg);
-
-    transform-origin:
-        center;
-
-    background:
-        rgba(246,246,238,.82);
-
-    border:
-        1px solid rgba(220,220,210,.68);
-
-    box-shadow:
-        0 1px 3px rgba(0,0,0,.28);
-
-    color:
-        rgba(35,35,35,.88);
-
-    font-family:
-        "Comic Sans MS",
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
-
-    line-height:
-        1.05;
-
-    text-shadow:
-        0 .5px 0 rgba(0,0,0,.18);
-
-}
-
-
-.chivo-url {
-
-    font-size:
-        clamp(10px, 1.35vw, 14px);
-
-    font-weight:
-        700;
-
-    white-space:
-        nowrap;
-
-}
-
-
-.chivo-frase {
-
-    margin-left:
-        9px;
-
-    font-size:
-        clamp(9px, 1.15vw, 12px);
-
-    font-weight:
-        600;
-
-    white-space:
-        nowrap;
-
-}
-
-
-/* ==================================================
    SILLA
    ================================================== */
 
@@ -538,7 +442,7 @@ main {
     max-width: 720px;
 
     margin:
-        5px auto 0;
+        1px auto 0;
 
     display: flex;
 
@@ -775,7 +679,7 @@ main {
 
 
 /* ==================================================
-   VISOR LIMPIO + CONTENIDO COMPLEMENTARIO
+   VISOR
    ================================================== */
 
 .carpeta-visor {
@@ -1252,7 +1156,7 @@ main {
             100%;
 
         padding:
-            10px 18px 26px;
+            10px 18px 25px;
 
     }
 
@@ -1266,7 +1170,7 @@ main {
             none;
 
         margin:
-            0 auto 10px;
+            0 auto 9px;
 
     }
 
@@ -1299,13 +1203,13 @@ main {
     .hojas-carrusel {
 
         height:
-            clamp(220px, 31vh, 285px);
+            clamp(205px, 29vh, 265px);
 
         min-height:
-            220px;
+            205px;
 
         max-height:
-            285px;
+            265px;
 
         display:
             flex;
@@ -1431,7 +1335,7 @@ main {
             620px;
 
         margin-top:
-            10px;
+            5px;
 
     }
 
@@ -1453,39 +1357,6 @@ main {
     }
 
 
-    .chivo-pupitre {
-
-        max-width:
-            205px;
-
-        margin:
-            3px auto 2px;
-
-        padding:
-            2px 7px 3px;
-
-    }
-
-
-    .chivo-url {
-
-        font-size:
-            10px;
-
-    }
-
-
-    .chivo-frase {
-
-        margin-left:
-            7px;
-
-        font-size:
-            9px;
-
-    }
-
-
     .zona-silla {
 
         width:
@@ -1495,7 +1366,7 @@ main {
             660px;
 
         margin-top:
-            2px;
+            1px;
 
     }
 
@@ -1520,7 +1391,7 @@ main {
     .creditos {
 
         margin-top:
-            5px;
+            4px;
 
         font-size:
             14px;
@@ -1638,7 +1509,7 @@ main {
             100%;
 
         padding:
-            7px 7px 20px;
+            7px 7px 18px;
 
     }
 
@@ -1652,7 +1523,7 @@ main {
             none;
 
         margin:
-            0 auto 7px;
+            0 auto 6px;
 
     }
 
@@ -1685,13 +1556,13 @@ main {
     .hojas-carrusel {
 
         height:
-            clamp(190px, 25vh, 225px);
+            clamp(175px, 22vh, 195px);
 
         min-height:
-            190px;
+            175px;
 
         max-height:
-            225px;
+            195px;
 
     }
 
@@ -1705,7 +1576,7 @@ main {
             560px;
 
         margin-top:
-            12px;
+            4px;
 
     }
 
@@ -1741,42 +1612,6 @@ main {
     }
 
 
-    .chivo-pupitre {
-
-        max-width:
-            190px;
-
-        margin:
-            3px auto 1px;
-
-        padding:
-            2px 6px 3px;
-
-        transform:
-            rotate(-4deg);
-
-    }
-
-
-    .chivo-url {
-
-        font-size:
-            9.5px;
-
-    }
-
-
-    .chivo-frase {
-
-        margin-left:
-            7px;
-
-        font-size:
-            8.5px;
-
-    }
-
-
     .zona-silla {
 
         width:
@@ -1786,7 +1621,7 @@ main {
             600px;
 
         margin-top:
-            1px;
+            0;
 
     }
 
@@ -1811,7 +1646,7 @@ main {
     .creditos {
 
         margin-top:
-            4px;
+            3px;
 
         padding:
             0 5px;
