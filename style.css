@@ -282,6 +282,70 @@ body {
 
 
 /* ==================================================
+   INDICADOR DE SCROLL
+   ================================================== */
+
+.indicador-scroll {
+
+    position: relative;
+
+    align-self: center;
+
+    justify-self: center;
+
+    width: 100%;
+
+    max-width: 180px;
+
+    margin:
+        12px auto 0;
+
+    padding:
+        0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    pointer-events: none;
+
+}
+
+
+.indicador-scroll img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    margin: 0;
+
+    padding: 0;
+
+    border: none;
+
+    outline: none;
+
+    background:
+        transparent;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            1px 2px 2px
+            rgba(0,0,0,.45)
+        );
+
+}
+
+
+
+/* ==================================================
    COMPUTADORA
    ================================================== */
 
@@ -354,22 +418,17 @@ body {
 
     z-index: 30;
 
-    /*
-       Ajuste fino para que el reproductor
-       quede dentro del vidrio negro del CRT.
-    */
-
     left:
-        17.5%;
+        15.5%;
 
     top:
-        10.4%;
+        8.5%;
 
     width:
-        68.5%;
+        70%;
 
     height:
-        35.5%;
+        35%;
 
     overflow:
         hidden;
@@ -378,7 +437,7 @@ body {
         #050505;
 
     border-radius:
-        10% / 12%;
+        9% / 11%;
 
 }
 
@@ -516,15 +575,20 @@ body {
 
     display: none;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
     padding:
-        0;
+        4px;
 
     background:
         rgba(0,0,0,.90);
+
+    overflow:
+        hidden;
 
 }
 
@@ -534,48 +598,66 @@ body {
     position: relative;
 
     width:
-        100%;
+        99%;
 
     max-width:
-        1000px;
+        950px;
+
+    max-height:
+        98vh;
 
     height:
-        100vh;
+        auto;
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
     padding:
-        0;
+        4px;
 
     background:
-        transparent;
+        #ddd4c3;
 
     border:
-        none;
+        3px solid #111;
 
     box-shadow:
+        7px 7px 0 #000;
+
+}
+
+
+/*
+   Se conserva solamente la X.
+   El título y las instrucciones
+   permanecen ocultos.
+*/
+
+.titulo-modal,
+.aviso-zoom {
+
+    display:
         none;
 
 }
 
 
-/* ==================================================
-   CIERRE
-   ================================================== */
-
 .cerrar-modal {
 
-    position: absolute;
+    position:
+        absolute;
 
-    z-index: 100;
+    z-index:
+        100;
 
     top:
         5px;
 
     right:
-        7px;
+        5px;
 
     width:
         42px;
@@ -590,13 +672,10 @@ body {
         none;
 
     background:
-        rgba(255,255,255,.88);
+        rgba(255,255,255,.72);
 
     color:
         #000;
-
-    border-radius:
-        50%;
 
     font-family:
         Arial,
@@ -604,7 +683,7 @@ body {
         sans-serif;
 
     font-size:
-        2rem;
+        2.2rem;
 
     font-weight:
         bold;
@@ -618,33 +697,24 @@ body {
     cursor:
         pointer;
 
-    box-shadow:
-        0 2px 7px
-        rgba(0,0,0,.35);
-
 }
 
 
 
 /* ==================================================
-   VISOR DA PÁGINA
+   CARPETA ESCOLAR DEL VISOR
    ================================================== */
 
 .carpeta-visor {
 
-    position: relative;
-
-    flex:
-        1 1 auto;
-
-    min-height:
-        0;
+    position:
+        relative;
 
     width:
         100%;
 
-    height:
-        100%;
+    max-height:
+        calc(98vh - 8px);
 
     overflow-y:
         auto;
@@ -659,19 +729,144 @@ body {
         pan-y pinch-zoom;
 
     padding:
-        0;
-
-    margin:
-        0;
+        0 3px 12px 43px;
 
     background:
-        transparent;
+        linear-gradient(
+            90deg,
+            #b8d0c4 0,
+            #c9ddd2 6px,
+            #e2d9bd 6px,
+            #e2d9bd 100%
+        );
 
     border:
-        none;
+        2px solid #84796b;
 
     box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.35);
+
+}
+
+
+.perforaciones {
+
+    position:
+        absolute;
+
+    left:
+        8px;
+
+    top:
+        18px;
+
+    bottom:
+        18px;
+
+    width:
+        17px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-around;
+
+    z-index:
+        10;
+
+}
+
+
+.perforaciones span {
+
+    display:
+        block;
+
+    width:
+        13px;
+
+    height:
+        13px;
+
+    border-radius:
+        50%;
+
+    background:
+        #efe7d0;
+
+    border:
+        2px solid #70695e;
+
+    box-shadow:
+        inset 2px 2px 2px
+        rgba(0,0,0,.28);
+
+}
+
+
+.argollas {
+
+    position:
+        absolute;
+
+    left:
+        19px;
+
+    top:
+        18px;
+
+    bottom:
+        18px;
+
+    width:
+        22px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-around;
+
+    z-index:
+        12;
+
+    pointer-events:
         none;
+
+}
+
+
+.argollas i {
+
+    display:
+        block;
+
+    width:
+        22px;
+
+    height:
+        8px;
+
+    border:
+        2px solid #777;
+
+    border-radius:
+        50%;
+
+    background:
+        #c8c1b4;
+
+    box-shadow:
+        1px 2px 2px
+        rgba(0,0,0,.35);
 
 }
 
@@ -690,10 +885,10 @@ body {
     min-height:
         0;
 
-    margin:
+    padding:
         0;
 
-    padding:
+    margin:
         0;
 
     background:
@@ -714,13 +909,13 @@ body {
         100%;
 
     max-width:
-        100%;
+        none;
 
     height:
         auto;
 
     margin:
-        0;
+        0 auto;
 
     padding:
         0;
@@ -778,6 +973,17 @@ body {
     }
 
 
+    .indicador-scroll {
+
+        max-width:
+            150px;
+
+        margin-top:
+            10px;
+
+    }
+
+
     .zona-computadora {
 
         width:
@@ -792,16 +998,16 @@ body {
     .pantalla-youtube {
 
         left:
-            17.5%;
+            15.5%;
 
         top:
-            10.4%;
+            8.5%;
 
         width:
-            68.5%;
+            70%;
 
         height:
-            35.5%;
+            35%;
 
     }
 
@@ -813,6 +1019,17 @@ body {
 
         margin-top:
             30px;
+
+    }
+
+
+    .carpeta-visor {
+
+        padding:
+            0 3px 15px 43px;
+
+        max-height:
+            calc(98vh - 6px);
 
     }
 
@@ -863,18 +1080,21 @@ body {
     }
 
 
-    /*
-       Computadora ligeramente más grande,
-       como ajuste final solicitado.
-    */
+    .indicador-scroll {
+
+        max-width:
+            125px;
+
+        margin-top:
+            8px;
+
+    }
+
 
     .zona-computadora {
 
         width:
-            90%;
-
-        max-width:
-            780px;
+            88%;
 
         margin-top:
             27px;
@@ -882,26 +1102,22 @@ body {
     }
 
 
-    /*
-       Ajuste final del CRT.
-    */
-
     .pantalla-youtube {
 
         left:
-            17.5%;
+            15.5%;
 
         top:
-            10.4%;
+            8.5%;
 
         width:
-            68.5%;
+            70%;
 
         height:
-            35.5%;
+            35%;
 
         border-radius:
-            10% / 12%;
+            9% / 11%;
 
     }
 
@@ -945,13 +1161,27 @@ body {
     }
 
 
+    .modal {
+
+        padding:
+            2px;
+
+    }
+
+
     .modal-contenido {
 
         width:
-            100%;
+            99%;
+
+        max-height:
+            99vh;
 
         height:
-            100vh;
+            auto;
+
+        padding:
+            3px;
 
     }
 
@@ -959,10 +1189,10 @@ body {
     .cerrar-modal {
 
         top:
-            5px;
+            4px;
 
         right:
-            6px;
+            4px;
 
         width:
             40px;
@@ -971,7 +1201,7 @@ body {
             40px;
 
         font-size:
-            1.85rem;
+            2.1rem;
 
         line-height:
             40px;
@@ -981,39 +1211,55 @@ body {
 
     .carpeta-visor {
 
-        width:
-            100%;
-
-        height:
-            100%;
-
         padding:
-            0;
+            0 2px 12px 38px;
+
+        max-height:
+            calc(99vh - 6px);
 
     }
 
 
-    .hoja-lectura {
+    .perforaciones {
+
+        left:
+            6px;
 
         width:
-            100%;
-
-        padding:
-            0;
+            13px;
 
     }
 
 
-    #paginaVisor {
+    .perforaciones span {
 
         width:
-            100%;
-
-        max-width:
-            100%;
+            11px;
 
         height:
-            auto;
+            11px;
+
+    }
+
+
+    .argollas {
+
+        left:
+            16px;
+
+        width:
+            18px;
+
+    }
+
+
+    .argollas i {
+
+        width:
+            18px;
+
+        height:
+            7px;
 
     }
 
