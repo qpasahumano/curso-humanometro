@@ -1,7 +1,7 @@
 "use strict";
 
-/* CACHE-BUSTER: 2026-10-06-0836 */
-const HM_JS_VERSION = "15.0";
+/* CACHE-BUSTER: 2026-10-06-1825 */
+const HM_JS_VERSION = "16.0";
 
 
 const paginas = {
@@ -52,6 +52,153 @@ const subtitulosVideos = {
 
 
 let paginaActual = 1;
+
+
+
+/* ==================================================
+   SUPABASE
+   ================================================== */
+
+const SUPABASE_URL =
+    "https://zjviadsqbhdqdyomaot.supabase.co";
+
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_63lSHlN2SiggU_YsouSzaQ_Bis21lzw";
+
+
+const SUPABASE_FUNCTION_PAGO =
+    "crear-pago";
+
+
+let supabaseClient =
+    null;
+
+
+let supabaseLibraryPromise =
+    null;
+
+
+function cargarLibreriaSupabase() {
+
+    if (
+        window.supabase &&
+        typeof window.supabase.createClient === "function"
+    ) {
+
+        return Promise.resolve();
+
+    }
+
+
+    if (
+        supabaseLibraryPromise
+    ) {
+
+        return supabaseLibraryPromise;
+
+    }
+
+
+    supabaseLibraryPromise =
+        new Promise(
+            function(resolve, reject) {
+
+                const script =
+                    document.createElement(
+                        "script"
+                    );
+
+
+                script.src =
+                    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+
+
+                script.async =
+                    true;
+
+
+                script.onload =
+                    function() {
+
+                        if (
+                            window.supabase &&
+                            typeof window.supabase.createClient === "function"
+                        ) {
+
+                            resolve();
+
+                            return;
+
+                        }
+
+
+                        reject(
+                            new Error(
+                                "No se pudo cargar Supabase."
+                            )
+                        );
+
+                    };
+
+
+                script.onerror =
+                    function() {
+
+                        reject(
+                            new Error(
+                                "No se pudo cargar la librería de Supabase."
+                            )
+                        );
+
+                    };
+
+
+                document.head.appendChild(
+                    script
+                );
+
+            }
+        );
+
+
+    return supabaseLibraryPromise;
+
+}
+
+
+
+async function obtenerSupabaseClient() {
+
+    if (
+        supabaseClient
+    ) {
+
+        return supabaseClient;
+
+    }
+
+
+    await cargarLibreriaSupabase();
+
+
+    supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY,
+            {
+                auth: {
+                    autoRefreshToken: true,
+                    persistSession: true,
+                    detectSessionInUrl: true
+                }
+            }
+        );
+
+
+    return supabaseClient;
+
+}
 
 
 
@@ -119,7 +266,153 @@ const claveAcceso =
     );
 
 
-function mostrarPanelIngreso() {
+let botonCrearCuenta =
+    null;
+
+
+let modoPanelIngreso =
+    "ingreso";
+
+
+
+function mostrarContenidoPrincipal() {
+
+    if (
+        contenidoPrincipal
+    ) {
+
+        contenidoPrincipal.style.display =
+            "";
+
+    }
+
+
+    if (
+        pantallaAcceso
+    ) {
+
+        pantallaAcceso.style.display =
+            "none";
+
+    }
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+
+function ocultarContenidoPrincipal() {
+
+    if (
+        contenidoPrincipal
+    ) {
+
+        contenidoPrincipal.style.display =
+            "none";
+
+    }
+
+
+    if (
+        pantallaAcceso
+    ) {
+
+        pantallaAcceso.style.display =
+            "";
+
+    }
+
+}
+
+
+
+function prepararBotonCrearCuenta() {
+
+    if (
+        botonCrearCuenta
+    ) {
+
+        return;
+
+    }
+
+
+    const contenedor =
+        panelIngreso
+            ? panelIngreso.querySelector(
+                ".panel-ingreso-contenido"
+            )
+            : null;
+
+
+    if (
+        !contenedor
+    ) {
+
+        return;
+
+    }
+
+
+    botonCrearCuenta =
+        document.createElement(
+            "button"
+        );
+
+
+    botonCrearCuenta.id =
+        "botonCrearCuenta";
+
+
+    botonCrearCuenta.type =
+        "button";
+
+
+    botonCrearCuenta.className =
+        "boton-confirmar-ingreso";
+
+
+    botonCrearCuenta.textContent =
+        "CREAR CUENTA";
+
+
+    botonCrearCuenta.addEventListener(
+        "click",
+        function() {
+
+            crearCuenta();
+
+        }
+    );
+
+
+    if (
+        botonConfirmarIngreso
+    ) {
+
+        botonConfirmarIngreso.insertAdjacentElement(
+            "afterend",
+            botonCrearCuenta
+        );
+
+    } else {
+
+        contenedor.appendChild(
+            botonCrearCuenta
+        );
+
+    }
+
+}
+
+
+
+function mostrarPanelIngreso(
+    modo = "ingreso"
+) {
 
     if (
         !panelIngreso
@@ -128,6 +421,13 @@ function mostrarPanelIngreso() {
         return;
 
     }
+
+
+    modoPanelIngreso =
+        modo;
+
+
+    prepararBotonCrearCuenta();
 
 
     panelIngreso.classList.add(
@@ -142,11 +442,32 @@ function mostrarPanelIngreso() {
 
 
     if (
+        usuarioAcceso
+    ) {
+
+        usuarioAcceso.placeholder =
+            "Correo electrónico";
+
+    }
+
+
+    if (
         mensajeIngreso
     ) {
 
-        mensajeIngreso.textContent =
-            "";
+        if (
+            modo === "compra"
+        ) {
+
+            mensajeIngreso.textContent =
+                "Para continuar con la compra, ingresá a tu cuenta o creá una nueva.";
+
+        } else {
+
+            mensajeIngreso.textContent =
+                "";
+
+        }
 
     }
 
@@ -167,6 +488,7 @@ function mostrarPanelIngreso() {
     );
 
 }
+
 
 
 function ocultarPanelIngreso() {
@@ -203,35 +525,617 @@ function ocultarPanelIngreso() {
 }
 
 
-function intentarIngreso() {
 
-    /*
-       La validación real todavía no está conectada
-       al servidor. No se concede acceso desde el
-       navegador hasta implementar la autenticación.
-    */
+async function consultarAccesoUsuario(
+    cliente,
+    userId
+) {
+
+    const resultado =
+        await cliente
+            .from(
+                "user_access"
+            )
+            .select(
+                "has_access"
+            )
+            .eq(
+                "user_id",
+                userId
+            )
+            .maybeSingle();
+
 
     if (
-        mensajeIngreso
+        resultado.error
     ) {
 
-        mensajeIngreso.textContent =
-            "El acceso se habilitará cuando conectemos tu sistema de usuarios.";
+        throw resultado.error;
+
+    }
+
+
+    return Boolean(
+        resultado.data &&
+        resultado.data.has_access === true
+    );
+
+}
+
+
+
+async function verificarAccesoActual(
+    cliente
+) {
+
+    try {
+
+        const {
+            data: usuarioData,
+            error: usuarioError
+        } =
+            await cliente.auth.getUser();
+
+
+        if (
+            usuarioError ||
+            !usuarioData ||
+            !usuarioData.user
+        ) {
+
+            ocultarContenidoPrincipal();
+
+            return false;
+
+        }
+
+
+        const tieneAcceso =
+            await consultarAccesoUsuario(
+                cliente,
+                usuarioData.user.id
+            );
+
+
+        if (
+            tieneAcceso
+        ) {
+
+            mostrarContenidoPrincipal();
+
+            return true;
+
+        }
+
+
+        ocultarContenidoPrincipal();
+
+        return false;
+
+    } catch (error) {
+
+        console.error(
+            "Error verificando acceso:",
+            error
+        );
+
+
+        ocultarContenidoPrincipal();
+
+        return false;
 
     }
 
 }
 
 
-function abrirMercadoPago() {
 
-    window.open(
-        "https://mpago.la/2392HZX",
-        "_blank",
-        "noopener,noreferrer"
-    );
+async function intentarIngreso() {
+
+    if (
+        !usuarioAcceso ||
+        !claveAcceso
+    ) {
+
+        return;
+
+    }
+
+
+    const email =
+        usuarioAcceso.value
+            .trim()
+            .toLowerCase();
+
+
+    const password =
+        claveAcceso.value;
+
+
+    if (
+        !email ||
+        !password
+    ) {
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "Ingresá tu correo y tu clave.";
+
+        }
+
+        return;
+
+    }
+
+
+    if (
+        mensajeIngreso
+    ) {
+
+        mensajeIngreso.textContent =
+            "Verificando acceso...";
+
+    }
+
+
+    try {
+
+        const cliente =
+            await obtenerSupabaseClient();
+
+
+        const {
+            data,
+            error
+        } =
+            await cliente.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+
+        if (
+            error
+        ) {
+
+            console.error(
+                "Error de ingreso:",
+                error
+            );
+
+
+            if (
+                mensajeIngreso
+            ) {
+
+                mensajeIngreso.textContent =
+                    "No se pudo iniciar sesión. Revisá el correo y la clave.";
+
+            }
+
+            return;
+
+        }
+
+
+        if (
+            !data ||
+            !data.user
+        ) {
+
+            if (
+                mensajeIngreso
+            ) {
+
+                mensajeIngreso.textContent =
+                    "No se pudo validar la cuenta.";
+
+            }
+
+            return;
+
+        }
+
+
+        const tieneAcceso =
+            await consultarAccesoUsuario(
+                cliente,
+                data.user.id
+            );
+
+
+        if (
+            tieneAcceso
+        ) {
+
+            ocultarPanelIngreso();
+
+            mostrarContenidoPrincipal();
+
+            return;
+
+        }
+
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "La cuenta es correcta, pero todavía no tiene acceso habilitado. Usá DESBLOQUEAR CONOCIMIENTOS para realizar el pago.";
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Error intentando ingresar:",
+            error
+        );
+
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "No se pudo conectar con el sistema de acceso.";
+
+        }
+
+    }
 
 }
+
+
+
+async function crearCuenta() {
+
+    if (
+        !usuarioAcceso ||
+        !claveAcceso
+    ) {
+
+        return;
+
+    }
+
+
+    const email =
+        usuarioAcceso.value
+            .trim()
+            .toLowerCase();
+
+
+    const password =
+        claveAcceso.value;
+
+
+    if (
+        !email ||
+        !email.includes("@")
+    ) {
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "Ingresá un correo electrónico válido.";
+
+        }
+
+        return;
+
+    }
+
+
+    if (
+        password.length < 6
+    ) {
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "La clave debe tener al menos 6 caracteres.";
+
+        }
+
+        return;
+
+    }
+
+
+    if (
+        mensajeIngreso
+    ) {
+
+        mensajeIngreso.textContent =
+            "Creando tu cuenta...";
+
+    }
+
+
+    try {
+
+        const cliente =
+            await obtenerSupabaseClient();
+
+
+        const {
+            data,
+            error
+        } =
+            await cliente.auth.signUp({
+                email: email,
+                password: password,
+                options: {
+                    emailRedirectTo:
+                        "https://hacetuapp.com/"
+                }
+            });
+
+
+        if (
+            error
+        ) {
+
+            console.error(
+                "Error creando cuenta:",
+                error
+            );
+
+
+            if (
+                mensajeIngreso
+            ) {
+
+                mensajeIngreso.textContent =
+                    "No se pudo crear la cuenta. Revisá los datos e intentá nuevamente.";
+
+            }
+
+            return;
+
+        }
+
+
+        if (
+            data &&
+            data.session
+        ) {
+
+            const tieneAcceso =
+                await consultarAccesoUsuario(
+                    cliente,
+                    data.user.id
+                );
+
+
+            if (
+                tieneAcceso
+            ) {
+
+                ocultarPanelIngreso();
+
+                mostrarContenidoPrincipal();
+
+                return;
+
+            }
+
+
+            if (
+                mensajeIngreso
+            ) {
+
+                mensajeIngreso.textContent =
+                    "Cuenta creada correctamente. Ahora podés continuar con el pago.";
+
+            }
+
+            return;
+
+        }
+
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "Cuenta creada. Revisá tu correo y confirmá tu dirección. Después volvé a ingresar para continuar con el pago.";
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Error creando cuenta:",
+            error
+        );
+
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "No se pudo crear la cuenta.";
+
+        }
+
+    }
+
+}
+
+
+
+async function abrirMercadoPago() {
+
+    if (
+        mensajeIngreso
+    ) {
+
+        mensajeIngreso.textContent =
+            "";
+
+    }
+
+
+    try {
+
+        const cliente =
+            await obtenerSupabaseClient();
+
+
+        const {
+            data: usuarioData,
+            error: usuarioError
+        } =
+            await cliente.auth.getUser();
+
+
+        if (
+            usuarioError ||
+            !usuarioData ||
+            !usuarioData.user
+        ) {
+
+            mostrarPanelIngreso(
+                "compra"
+            );
+
+            return;
+
+        }
+
+
+        const tieneAcceso =
+            await consultarAccesoUsuario(
+                cliente,
+                usuarioData.user.id
+            );
+
+
+        if (
+            tieneAcceso
+        ) {
+
+            mostrarContenidoPrincipal();
+
+            return;
+
+        }
+
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "Generando el acceso de pago...";
+
+        }
+
+
+        const {
+            data,
+            error
+        } =
+            await cliente.functions.invoke(
+                SUPABASE_FUNCTION_PAGO,
+                {
+                    body: {}
+                }
+            );
+
+
+        if (
+            error
+        ) {
+
+            console.error(
+                "Error creando pago:",
+                error
+            );
+
+
+            if (
+                mensajeIngreso
+            ) {
+
+                mensajeIngreso.textContent =
+                    "No se pudo generar el pago. Intentá nuevamente.";
+
+            }
+
+            mostrarPanelIngreso(
+                "compra"
+            );
+
+            return;
+
+        }
+
+
+        if (
+            !data ||
+            !data.payment_url
+        ) {
+
+            if (
+                mensajeIngreso
+            ) {
+
+                mensajeIngreso.textContent =
+                    "Mercado Pago no devolvió un enlace de pago válido.";
+
+            }
+
+            mostrarPanelIngreso(
+                "compra"
+            );
+
+            return;
+
+        }
+
+
+        window.location.href =
+            data.payment_url;
+
+    } catch (error) {
+
+        console.error(
+            "Error abriendo Mercado Pago:",
+            error
+        );
+
+
+        if (
+            mensajeIngreso
+        ) {
+
+            mensajeIngreso.textContent =
+                "No se pudo conectar con el sistema de pago.";
+
+        }
+
+
+        mostrarPanelIngreso(
+            "compra"
+        );
+
+    }
+
+}
+
 
 
 if (
@@ -242,12 +1146,15 @@ if (
         "click",
         function() {
 
-            mostrarPanelIngreso();
+            mostrarPanelIngreso(
+                "ingreso"
+            );
 
         }
     );
 
 }
+
 
 
 if (
@@ -266,6 +1173,7 @@ if (
 }
 
 
+
 if (
     botonConfirmarIngreso
 ) {
@@ -280,6 +1188,7 @@ if (
     );
 
 }
+
 
 
 if (
@@ -478,7 +1387,7 @@ function reproducirTimbreRecreo() {
                         }
 
 
-                        const segundoToque =
+                        const secondoToque =
                             audioContext.currentTime;
 
 
@@ -488,19 +1397,19 @@ function reproducirTimbreRecreo() {
 
                         gananciaSegundo.gain.setValueAtTime(
                             0.0001,
-                            segundoToque
+                            secondoToque
                         );
 
 
                         gananciaSegundo.gain.exponentialRampToValueAtTime(
                             0.055,
-                            segundoToque + 0.02
+                            secondoToque + 0.02
                         );
 
 
                         gananciaSegundo.gain.exponentialRampToValueAtTime(
                             0.0001,
-                            segundoToque + 0.85
+                            secondoToque + 0.85
                         );
 
 
@@ -519,7 +1428,7 @@ function reproducirTimbreRecreo() {
 
                         osciladorSegundo.frequency.setValueAtTime(
                             1047,
-                            segundoToque
+                            secondoToque
                         );
 
 
@@ -529,12 +1438,12 @@ function reproducirTimbreRecreo() {
 
 
                         osciladorSegundo.start(
-                            segundoToque
+                            secondoToque
                         );
 
 
                         osciladorSegundo.stop(
-                            segundoToque + 0.82
+                            secondoToque + 0.82
                         );
 
                     },
@@ -583,6 +1492,7 @@ function reproducirTimbreRecreo() {
 }
 
 
+
 function programarTimbreRecreo() {
 
     if (
@@ -608,6 +1518,7 @@ function programarTimbreRecreo() {
     );
 
 }
+
 
 
 function desbloquearTimbreConInteraccion() {
@@ -732,6 +1643,7 @@ function resetearVideoComplementario() {
 }
 
 
+
 function prepararVideoComplementario() {
 
     const botonVideo =
@@ -783,6 +1695,7 @@ function prepararVideoComplementario() {
         "";
 
 }
+
 
 
 function alternarVideoComplementario() {
@@ -942,6 +1855,7 @@ function actualizarAccionPagina() {
 }
 
 
+
 function cargarPaginaEnVisor(
     numeroPagina
 ) {
@@ -999,6 +1913,7 @@ function cargarPaginaEnVisor(
 }
 
 
+
 function abrirPagina(
     numeroPagina
 ) {
@@ -1040,6 +1955,7 @@ function abrirPagina(
 }
 
 
+
 function avanzarPagina() {
 
     if (
@@ -1058,6 +1974,7 @@ function avanzarPagina() {
     );
 
 }
+
 
 
 function cerrarModal() {
@@ -1317,6 +2234,7 @@ function ocultarIndicadorDeslizar() {
 }
 
 
+
 if (carruselHojas) {
 
     carruselHojas.addEventListener(
@@ -1373,15 +2291,51 @@ document.addEventListener(
 );
 
 
+
 /* ==================================================
    INICIO
    ================================================== */
 
 window.addEventListener(
     "load",
-    function() {
+    async function() {
 
         programarTimbreRecreo();
+
+
+        try {
+
+            const cliente =
+                await obtenerSupabaseClient();
+
+
+            await verificarAccesoActual(
+                cliente
+            );
+
+
+            window.setTimeout(
+                function() {
+
+                    verificarAccesoActual(
+                        cliente
+                    );
+
+                },
+                3000
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Error iniciando Supabase:",
+                error
+            );
+
+
+            ocultarContenidoPrincipal();
+
+        }
 
     }
 );
