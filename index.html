@@ -1,3 +1,4 @@
+                    
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,7 +20,7 @@
 
     <link
         rel="stylesheet"
-        href="style.css?v=12"
+        href="style.css?v=14"
     >
 
 </head>
@@ -198,26 +199,10 @@
             </div>
 
 
-            <!-- ==================================================
-                 INDICADOR DE DESLIZAMIENTO
-                 ================================================== -->
-
             <div class="indicador-scroll">
-
-                <span>DESLIZÁ ← →</span>
-
-                <img
-                    src="a_clean_graphic_png_style_illustration_on_a_transp.png"
-                    alt="Indicador de desplazamiento horizontal"
-                    draggable="false"
-                >
-
+                DESLIZÁ ← →
             </div>
 
-
-            <!-- ==================================================
-                 ANOTACIÓN MANUSCRITA
-                 ================================================== -->
 
             <div class="anotacion-hojas">
                 LEE LAS HOJAS
@@ -360,15 +345,30 @@
                 aria-label="Contenido complementario de la página"
             >
 
+                <div class="fila-acciones">
 
-                <button
-                    id="botonVideoComplementario"
-                    class="boton-video-complementario"
-                    type="button"
-                    onclick="alternarVideoComplementario()"
-                >
-                    ▶ VER VIDEO COMPLEMENTARIO
-                </button>
+
+                    <button
+                        id="botonVideoComplementario"
+                        class="boton-video-complementario"
+                        type="button"
+                        onclick="alternarVideoComplementario()"
+                    >
+                        ▶ VER VIDEO
+                    </button>
+
+
+                    <button
+                        id="accionPagina"
+                        class="accion-pagina"
+                        type="button"
+                        onclick="avanzarPagina()"
+                    >
+                        SIGUIENTE PÁGINA
+                    </button>
+
+
+                </div>
 
 
                 <div
@@ -384,9 +384,7 @@
                     aria-hidden="true"
                 >
 
-
                     <div class="video-responsive">
-
 
                         <iframe
                             id="videoComplementario"
@@ -396,21 +394,9 @@
                             allowfullscreen>
                         </iframe>
 
-
                     </div>
 
-
                 </div>
-
-
-                <button
-                    id="accionPagina"
-                    class="accion-pagina"
-                    type="button"
-                    onclick="avanzarPagina()"
-                >
-                    SIGUIENTE PÁGINA
-                </button>
 
 
             </section>
@@ -426,9 +412,9 @@
 
 
 
-<script src="script.js?v=12"></script>
+<script src="script.js?v=14"></script>
 
 
 </body>
 
-                            </html>
+</html>
