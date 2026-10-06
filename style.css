@@ -298,7 +298,7 @@ body {
 
 /* ==================================================
    LEE LAS HOJAS
-   Anotación tipo Liquid Paper / imprenta manual
+   PNG TRANSPARENTE SOBRE EL PUPITRE
    ================================================== */
 
 .anotacion-hojas {
@@ -308,15 +308,18 @@ body {
     z-index: 26;
 
     left:
-        22%;
+        2%;
 
     top:
         50%;
 
-    bottom:
-        auto;
-
     width:
+        clamp(78px, 27vw, 115px);
+
+    max-width:
+        115px;
+
+    height:
         auto;
 
     margin:
@@ -325,54 +328,33 @@ body {
     padding:
         0;
 
-    color:
-        rgba(255,255,255,.94);
+    display:
+        block;
 
-    font-family:
-        "Arial Black",
-        "Arial",
-        Helvetica,
-        sans-serif;
+    background:
+        transparent;
 
-    font-size:
-        clamp(10px, 1.45vw, 15px);
+    border:
+        none;
 
-    font-weight:
-        800;
+    outline:
+        none;
 
-    line-height:
-        .95;
+    box-shadow:
+        none;
 
-    letter-spacing:
-        .035em;
+    filter:
+        none;
 
-    white-space:
-        nowrap;
-
-    text-transform:
-        uppercase;
+    opacity:
+        .96;
 
     transform:
         translateY(-50%)
-        rotate(-3.2deg)
-        scaleX(.96);
+        rotate(-2deg);
 
     transform-origin:
         left center;
-
-    opacity:
-        .91;
-
-    text-shadow:
-        .7px 0 rgba(255,255,255,.45),
-        -.5px 1px rgba(255,255,255,.30),
-        1px 1px 2px rgba(0,0,0,.62);
-
-    -webkit-text-stroke:
-        .28px rgba(255,255,255,.62);
-
-    filter:
-        blur(.08px);
 
     pointer-events:
         none;
@@ -382,17 +364,17 @@ body {
 
 /* ==================================================
    DESLIZÁ
-   Anotación tipo Liquid Paper / imprenta manual
+   PNG TRANSPARENTE SOBRE EL PUPITRE
    ================================================== */
 
 .indicador-scroll {
 
     position: absolute;
 
-    z-index: 25;
+    z-index: 26;
 
     right:
-        22%;
+        3%;
 
     left:
         auto;
@@ -404,6 +386,12 @@ body {
         2px;
 
     width:
+        clamp(78px, 27vw, 115px);
+
+    max-width:
+        115px;
+
+    height:
         auto;
 
     margin:
@@ -412,56 +400,32 @@ body {
     padding:
         0;
 
-    color:
-        rgba(255,255,255,.94);
+    display:
+        block;
 
-    font-family:
-        "Arial Black",
-        "Arial",
-        Helvetica,
-        sans-serif;
+    background:
+        transparent;
 
-    font-size:
-        clamp(10px, 1.45vw, 15px);
+    border:
+        none;
 
-    font-weight:
-        800;
+    outline:
+        none;
 
-    line-height:
-        .95;
-
-    letter-spacing:
-        .035em;
-
-    white-space:
-        nowrap;
-
-    text-transform:
-        uppercase;
-
-    text-align:
-        left;
-
-    transform:
-        rotate(1.8deg)
-        scaleX(.95);
-
-    transform-origin:
-        right center;
-
-    opacity:
-        .91;
-
-    text-shadow:
-        .7px 0 rgba(255,255,255,.45),
-        -.5px 1px rgba(255,255,255,.30),
-        1px 1px 2px rgba(0,0,0,.62);
-
-    -webkit-text-stroke:
-        .28px rgba(255,255,255,.62);
+    box-shadow:
+        none;
 
     filter:
-        blur(.08px);
+        none;
+
+    opacity:
+        .96;
+
+    transform:
+        rotate(1.5deg);
+
+    transform-origin:
+        right bottom;
 
     pointer-events:
         none;
@@ -794,7 +758,6 @@ body {
 
     display:
         none;
-
 
 }
 
@@ -1504,21 +1467,23 @@ body {
     .anotacion-hojas {
 
         left:
-            22%;
+            2%;
 
         top:
             50%;
 
+        width:
+            clamp(78px, 27vw, 115px);
+
+        max-width:
+            115px;
+
         bottom:
             auto;
 
-        font-size:
-            11px;
-
         transform:
             translateY(-50%)
-            rotate(-3.2deg)
-            scaleX(.96);
+            rotate(-2deg);
 
     }
 
@@ -1526,7 +1491,7 @@ body {
     .indicador-scroll {
 
         right:
-            22%;
+            3%;
 
         left:
             auto;
@@ -1537,12 +1502,14 @@ body {
         bottom:
             2px;
 
-        font-size:
-            11px;
+        width:
+            clamp(78px, 27vw, 115px);
+
+        max-width:
+            115px;
 
         transform:
-            rotate(1.8deg)
-            scaleX(.95);
+            rotate(1.5deg);
 
     }
 
@@ -1791,24 +1758,23 @@ body {
     .anotacion-hojas {
 
         left:
-            22%;
+            2%;
 
         top:
             50%;
 
+        width:
+            clamp(78px, 27vw, 115px);
+
+        max-width:
+            115px;
+
         bottom:
             auto;
 
-        font-size:
-            10px;
-
-        letter-spacing:
-            .03em;
-
         transform:
             translateY(-50%)
-            rotate(-3.2deg)
-            scaleX(.96);
+            rotate(-2deg);
 
     }
 
@@ -1816,7 +1782,7 @@ body {
     .indicador-scroll {
 
         right:
-            22%;
+            3%;
 
         left:
             auto;
@@ -1827,15 +1793,14 @@ body {
         bottom:
             2px;
 
-        font-size:
-            10px;
+        width:
+            clamp(78px, 27vw, 115px);
 
-        letter-spacing:
-            .03em;
+        max-width:
+            115px;
 
         transform:
-            rotate(1.8deg)
-            scaleX(.95);
+            rotate(1.5deg);
 
     }
 
