@@ -3709,3 +3709,134 @@ body {
         height: auto;
     }
 }
+
+
+/* ==================================================
+   AJUSTE REAL — ACCESO
+   1) CARTA/SCROLL MÁS ABAJO
+   2) SCROLL FUERA DE LA CARTA
+   3) BOTONES VISUALMENTE IDÉNTICOS
+   ================================================== */
+
+.pantalla-acceso .acceso-identidad {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    margin-top: 46px;
+    margin-bottom: 30px;
+}
+
+.pantalla-acceso .acceso-carta {
+    position: relative;
+    z-index: 25;
+    width: min(100%, 340px);
+    height: clamp(330px, 55dvh, 500px);
+    min-height: 330px;
+    margin-top: 0;
+    margin-bottom: 42px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    clip-path: inset(0);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+}
+
+.pantalla-acceso .acceso-carta::after {
+    content: none !important;
+}
+
+/* Indicador completamente FUERA del recuadro de scroll.
+   Se ancla al bloque de identidad, pero se coloca
+   exactamente después de la altura del recuadro de carta. */
+.pantalla-acceso .acceso-identidad::after {
+    content: "↑  SCROLL";
+    position: absolute;
+    z-index: 5010;
+    left: 0;
+    right: 0;
+    top: calc(100% + 30px + clamp(330px, 55dvh, 500px) + 42px);
+    height: 14px;
+    padding: 0 4px;
+    display: block;
+    color: rgba(255,255,255,.82);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: .08em;
+    white-space: nowrap;
+    text-align: right;
+    text-shadow: 0 1px 3px rgba(0,0,0,.85);
+    background: transparent;
+    pointer-events: none;
+    opacity: .86;
+}
+
+.pantalla-acceso .acceso-opciones::before {
+    content: none !important;
+}
+
+/* Igualdad REAL de los dos botones:
+   misma caja y misma altura visual, independientemente
+   de las proporciones diferentes de las imágenes. */
+.pantalla-acceso .acceso-opciones {
+    width: min(calc(100% - 12px), 245px);
+    max-width: 245px;
+    gap: 8px;
+}
+
+.pantalla-acceso .acceso-opcion {
+    flex: 0 0 calc((100% - 8px) / 2);
+    width: calc((100% - 8px) / 2);
+    min-width: 0;
+    max-width: none;
+    height: 76px;
+    min-height: 76px;
+    max-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pantalla-acceso .acceso-opcion img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+}
+
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-identidad::after {
+    display: none;
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-identidad {
+        margin-top: 46px;
+        margin-bottom: 30px;
+    }
+
+    .pantalla-acceso .acceso-carta {
+        height: clamp(330px, 55dvh, 500px);
+        min-height: 330px;
+        margin-top: 0;
+        margin-bottom: 42px;
+    }
+
+    .pantalla-acceso .acceso-identidad::after {
+        top: calc(100% + 30px + clamp(330px, 55dvh, 500px) + 42px);
+        padding-right: 4px;
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    .pantalla-acceso .acceso-opcion {
+        height: 76px;
+        min-height: 76px;
+        max-height: 76px;
+    }
+}
