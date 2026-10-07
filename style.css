@@ -164,14 +164,19 @@ body {
 
 .acceso-identidad {
 
-    position: relative;
+    position: absolute;
 
     z-index: 25;
 
-    width: 100%;
+    width: auto;
 
-    margin:
-        1px auto 4px;
+    margin: 0;
+
+    top:
+        clamp(105px, 23vh, 180px);
+
+    right:
+        clamp(8px, 4vw, 38px);
 
     display: flex;
 
@@ -189,7 +194,7 @@ body {
     display: block;
 
     width:
-        min(100%, 120px);
+        min(100%, 105px);
 
     height: auto;
 
@@ -213,6 +218,9 @@ body {
             2px 3px 3px
             rgba(0,0,0,.36)
         );
+
+    transform:
+        rotate(7deg);
 
     pointer-events:
         none;
@@ -251,7 +259,7 @@ body {
     display: block;
 
     width:
-        min(100%, 185px);
+        min(100%, 250px);
 
     height:
         auto;
@@ -296,16 +304,16 @@ body {
     left: 50%;
 
     bottom:
-        10px;
+        8px;
 
     transform:
         translateX(-50%);
 
     width:
-        min(100%, 210px);
+        min(100% - 12px, 245px);
 
     max-width:
-        210px;
+        245px;
 
     margin:
         0;
@@ -315,14 +323,14 @@ body {
 
     display: flex;
 
-    flex-direction: column;
+    flex-direction: row;
 
-    align-items: center;
+    align-items: flex-end;
 
-    justify-content: flex-end;
+    justify-content: space-between;
 
     gap:
-        3px;
+        8px;
 
 }
 
@@ -336,7 +344,13 @@ body {
     display: block;
 
     width:
-        min(100%, 120px);
+        115px;
+
+    min-width:
+        115px;
+
+    max-width:
+        115px;
 
     margin: 0;
 
@@ -1877,17 +1891,29 @@ body {
 
     .acceso-opciones {
 
-        width:
-            min(100%, 210px);
-
-        max-width:
-            210px;
+        left:
+            50%;
 
         bottom:
-            10px;
+            8px;
+
+        width:
+            min(100% - 12px, 245px);
+
+        max-width:
+            245px;
+
+        flex-direction:
+            row;
+
+        align-items:
+            flex-end;
+
+        justify-content:
+            space-between;
 
         gap:
-            3px;
+            8px;
 
     }
 
@@ -1895,7 +1921,13 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 120px);
+            115px;
+
+        min-width:
+            115px;
+
+        max-width:
+            115px;
 
     }
 
@@ -1927,8 +1959,11 @@ body {
 
     .acceso-identidad {
 
-        margin:
-            1px auto 4px;
+        top:
+            clamp(100px, 22vh, 160px);
+
+        right:
+            3%;
 
     }
 
@@ -1936,7 +1971,7 @@ body {
     .acceso-logo-hacetuapp {
 
         width:
-            min(100%, 120px);
+            min(100%, 95px);
 
     }
 
@@ -1952,7 +1987,7 @@ body {
     .acceso-carta-imagen {
 
         width:
-            min(100%, 185px);
+            min(100%, 235px);
 
     }
 
@@ -2370,8 +2405,11 @@ body {
 
     .acceso-identidad {
 
-        margin:
-            1px auto 3px;
+        top:
+            clamp(92px, 21vh, 145px);
+
+        right:
+            2%;
 
     }
 
@@ -2379,7 +2417,10 @@ body {
     .acceso-logo-hacetuapp {
 
         width:
-            min(100%, 105px);
+            min(100%, 82px);
+
+        transform:
+            rotate(7deg);
 
     }
 
@@ -2395,7 +2436,7 @@ body {
     .acceso-carta-imagen {
 
         width:
-            min(100%, 185px);
+            min(100%, 235px);
 
     }
 
@@ -2409,13 +2450,13 @@ body {
             8px;
 
         width:
-            min(100%, 200px);
+            min(100% - 12px, 245px);
 
         max-width:
-            200px;
+            245px;
 
         gap:
-            3px;
+            8px;
 
     }
 
@@ -2423,7 +2464,13 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 115px);
+            115px;
+
+        min-width:
+            115px;
+
+        max-width:
+            115px;
 
     }
 
@@ -2867,16 +2914,22 @@ body {
 .acceso-identidad {
 
     position:
-        relative;
+        absolute;
 
     z-index:
         25;
 
     width:
-        100%;
+        auto;
+
+    top:
+        clamp(92px, 21vh, 145px);
+
+    right:
+        2%;
 
     margin:
-        1px auto 3px;
+        0;
 
     display:
         flex;
@@ -2899,7 +2952,7 @@ body {
         block;
 
     width:
-        min(100%, 105px);
+        min(100%, 82px);
 
     height:
         auto;
@@ -2924,6 +2977,9 @@ body {
             2px 3px 3px
             rgba(0,0,0,.36)
         );
+
+    transform:
+        rotate(7deg);
 
     pointer-events:
         none;
@@ -2970,7 +3026,7 @@ body {
         block;
 
     width:
-        min(100%, 185px);
+        min(100%, 235px);
 
     height:
         auto;
@@ -3024,10 +3080,10 @@ body {
         translateX(-50%);
 
     width:
-        min(100%, 200px);
+        min(100% - 12px, 245px);
 
     max-width:
-        200px;
+        245px;
 
     margin:
         0;
@@ -3039,16 +3095,16 @@ body {
         flex;
 
     flex-direction:
-        column;
+        row;
 
     align-items:
-        center;
-
-    justify-content:
         flex-end;
 
+    justify-content:
+        space-between;
+
     gap:
-        3px;
+        8px;
 
 }
 
@@ -3056,7 +3112,13 @@ body {
 .acceso-opcion {
 
     width:
-        min(100%, 115px);
+        115px;
+
+    min-width:
+        115px;
+
+    max-width:
+        115px;
 
 }
 
@@ -3083,8 +3145,14 @@ body {
 
     .acceso-identidad {
 
+        top:
+            clamp(100px, 22vh, 160px);
+
+        right:
+            3%;
+
         margin:
-            1px auto 3px;
+            0;
 
     }
 
@@ -3092,7 +3160,7 @@ body {
     .acceso-logo-hacetuapp {
 
         width:
-            min(100%, 105px);
+            min(100%, 95px);
 
     }
 
@@ -3108,24 +3176,36 @@ body {
     .acceso-carta-imagen {
 
         width:
-            min(100%, 185px);
+            min(100%, 235px);
 
     }
 
 
     .acceso-opciones {
 
-        width:
-            min(100%, 200px);
-
-        max-width:
-            200px;
+        left:
+            50%;
 
         bottom:
             8px;
 
+        width:
+            min(100% - 12px, 245px);
+
+        max-width:
+            245px;
+
+        flex-direction:
+            row;
+
+        align-items:
+            flex-end;
+
+        justify-content:
+            space-between;
+
         gap:
-            3px;
+            8px;
 
     }
 
@@ -3133,7 +3213,13 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 115px);
+            115px;
+
+        min-width:
+            115px;
+
+        max-width:
+            115px;
 
     }
 
@@ -3156,8 +3242,14 @@ body {
 
     .acceso-identidad {
 
+        top:
+            clamp(92px, 21vh, 145px);
+
+        right:
+            2%;
+
         margin:
-            1px auto 3px;
+            0;
 
     }
 
@@ -3165,7 +3257,10 @@ body {
     .acceso-logo-hacetuapp {
 
         width:
-            min(100%, 105px);
+            min(100%, 82px);
+
+        transform:
+            rotate(7deg);
 
     }
 
@@ -3181,7 +3276,7 @@ body {
     .acceso-carta-imagen {
 
         width:
-            min(100%, 185px);
+            min(100%, 235px);
 
     }
 
@@ -3195,13 +3290,13 @@ body {
             8px;
 
         width:
-            min(100%, 200px);
+            min(100% - 12px, 245px);
 
         max-width:
-            200px;
+            245px;
 
         gap:
-            3px;
+            8px;
 
     }
 
@@ -3209,7 +3304,13 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 115px);
+            115px;
+
+        min-width:
+            115px;
+
+        max-width:
+            115px;
 
     }
 
