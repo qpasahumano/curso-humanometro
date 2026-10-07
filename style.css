@@ -1316,11 +1316,9 @@ body {
     height:
         100dvh;
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
     padding:
         0;
@@ -3495,10 +3493,24 @@ body {
     clip-path: inset(0);
 }
 
-/* El indicador anterior estaba dentro del área desplazable.
-   Se anula para que nunca vuelva a superponerse con la carta. */
 .pantalla-acceso .acceso-carta::after {
-    content: none;
+    content: "↑  SCROLL";
+    position: absolute;
+    z-index: 30;
+    right: 7px;
+    bottom: 7px;
+    display: block;
+    padding: 2px 4px;
+    color: rgba(255,255,255,.82);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .08em;
+    text-shadow: 0 1px 3px rgba(0,0,0,.85);
+    background: transparent;
+    pointer-events: none;
+    opacity: .86;
 }
 
 @media (max-width: 470px) {
@@ -3517,7 +3529,9 @@ body {
     }
 
     .pantalla-acceso .acceso-carta::after {
-        content: none;
+        right: 7px;
+        bottom: 7px;
+        font-size: 10px;
     }
 }
 
@@ -3554,37 +3568,43 @@ body {
 
 
 /* ==================================================
-   AJUSTE SOLICITADO — POSICIÓN DEFINITIVA
-   HACETUAPP → CARTA → SCROLL → BOTONES
+   AJUSTE SOLICITADO — TRES CAMBIOS FINALES
    ================================================== */
 
-/* 1. HACETUAPP.COM MÁS ABAJO.
-      Se reduce el aire que queda hacia los botones. */
+/* 1. HACETUAPP.COM MÁS ABAJO Y CON MENOS AIRE
+      HACIA LOS BOTONES. LA CARTA/RECUADRO BAJA
+      JUNTO CON ÉL Y SEPARA MÁS SU DISTANCIA DEL LOGO. */
 .pantalla-acceso .acceso-identidad {
     margin-top: 46px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-/* 2. LA CARTA BAJA JUNTO CON SU ZONA DE SCROLL.
-      Se conserva el scroll interno de la carta,
-      pero el indicador queda FUERA de ella. */
+/* 2. RECUADRO TRANSPARENTE DE SCROLL MÁS ABAJO.
+      LA CARTA SIGUE SIENDO EL CONTENEDOR DEL SCROLL. */
 .pantalla-acceso .acceso-carta {
     margin-top: 0;
-    margin-bottom: 14px;
+    margin-bottom: 34px;
+    anchor-name: --acceso-carta-scroll;
 }
 
-/* 3. EL INDICADOR YA NO PERTENECE A LA CARTA.
-      Se genera sobre el contenedor fijo de botones,
-      por lo que nunca entra en el recuadro desplazable. */
-.pantalla-acceso .acceso-opciones::before {
+/* EL INDICADOR ANTERIOR ESTABA DENTRO DE LA CARTA. */
+.pantalla-acceso .acceso-carta::after {
+    content: none;
+    display: none;
+}
+
+/* INDICADOR EXTERNO: ABAJO A LA DERECHA, SOBRE EL PUPITRE.
+   No forma parte del recuadro desplazable. */
+.pantalla-acceso::after {
     content: "↑  SCROLL";
-    position: absolute;
+    position: fixed;
     z-index: 5010;
-    right: 0;
-    bottom: calc(100% + 5px);
+    right: max(8px, calc((100vw - 340px) / 2));
+    bottom: calc(8px + 58px + env(safe-area-inset-bottom, 0px));
     display: block;
     width: auto;
     height: 14px;
+    margin: 0;
     padding: 0;
     color: rgba(255,255,255,.82);
     font-family: Arial, Helvetica, sans-serif;
@@ -3600,36 +3620,92 @@ body {
     opacity: .86;
 }
 
-/* 4. AL ABRIR INGRESO, DESAPARECEN LOS BOTONES
-      Y TAMBIÉN EL INDICADOR, EVITANDO CUALQUIER
-      SUPERPOSICIÓN CON MAIL / CONTRASEÑA. */
-.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones::before {
+/* En navegadores con CSS Anchor Positioning,
+   queda exactamente debajo del recuadro de scroll. */
+@supports (anchor-name: --acceso-carta-scroll) {
+    .pantalla-acceso::after {
+        position-anchor: --acceso-carta-scroll;
+        top: anchor(bottom);
+        right: anchor(right);
+        bottom: auto;
+        margin-top: 4px;
+    }
+}
+
+/* 3. LOS DOS BOTONES TIENEN EXACTAMENTE EL MISMO ANCHO. */
+.pantalla-acceso .acceso-opciones {
+    width: min(calc(100% - 12px), 245px);
+    max-width: 245px;
+    gap: 8px;
+}
+
+.pantalla-acceso .acceso-opcion {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+    max-width: none;
+}
+
+.pantalla-acceso .acceso-opcion img {
+    width: 100%;
+    height: auto;
+}
+
+/* Al abrir el ingreso, no aparece el indicador externo
+   ni los botones, conservando el ajuste anterior. */
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
     display: none;
 }
 
-/* 5. AJUSTE MÓVIL: MISMA GEOMETRÍA, SIN CAMBIAR
-      EL TAMAÑO DE LOS BOTONES. */
+.pantalla-acceso:has(.panel-ingreso.visible)::after {
+    display: none;
+}
+
 @media (max-width: 470px) {
 
     .pantalla-acceso .acceso-identidad {
         margin-top: 46px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     .pantalla-acceso .acceso-carta {
         margin-top: 0;
-        margin-bottom: 14px;
+        margin-bottom: 34px;
     }
 
-    .pantalla-acceso .acceso-opciones::before {
-        right: 0;
-        bottom: calc(100% + 5px);
+    .pantalla-acceso::after {
+        right: max(7px, calc((100vw - 340px) / 2));
+        bottom: calc(8px + 58px + env(safe-area-inset-bottom, 0px));
         font-size: 10px;
         line-height: 14px;
     }
 
-    .pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones::before {
-        display: none;
+    @supports (anchor-name: --acceso-carta-scroll) {
+        .pantalla-acceso::after {
+            position-anchor: --acceso-carta-scroll;
+            top: anchor(bottom);
+            right: anchor(right);
+            bottom: auto;
+            margin-top: 4px;
+        }
     }
 
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+        width: min(calc(100% - 12px), 245px);
+        max-width: 245px;
+        gap: 8px;
+    }
+
+    .pantalla-acceso .acceso-opcion {
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .pantalla-acceso .acceso-opcion img {
+        width: 100%;
+        height: auto;
+    }
 }
