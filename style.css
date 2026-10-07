@@ -233,7 +233,7 @@ body {
     width: 100%;
 
     margin:
-        1px auto 5px;
+        1px auto 8px;
 
     display: flex;
 
@@ -251,7 +251,7 @@ body {
     display: block;
 
     width:
-        min(100%, 135px);
+        min(100%, 185px);
 
     height:
         auto;
@@ -289,16 +289,29 @@ body {
 
 .acceso-opciones {
 
-    position: relative;
+    position: fixed;
 
-    z-index: 30;
+    z-index: 5005;
 
-    width: 100%;
+    left: 50%;
 
-    max-width: 250px;
+    bottom:
+        10px;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(100%, 210px);
+
+    max-width:
+        210px;
 
     margin:
-        3px auto 8px;
+        0;
+
+    padding:
+        0;
 
     display: flex;
 
@@ -306,10 +319,10 @@ body {
 
     align-items: center;
 
-    justify-content: center;
+    justify-content: flex-end;
 
     gap:
-        5px;
+        3px;
 
 }
 
@@ -323,7 +336,7 @@ body {
     display: block;
 
     width:
-        min(100%, 145px);
+        min(100%, 120px);
 
     margin: 0;
 
@@ -1864,14 +1877,17 @@ body {
 
     .acceso-opciones {
 
-        max-width:
-            250px;
+        width:
+            min(100%, 210px);
 
-        margin:
-            3px auto 8px;
+        max-width:
+            210px;
+
+        bottom:
+            10px;
 
         gap:
-            5px;
+            3px;
 
     }
 
@@ -1879,7 +1895,7 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 145px);
+            min(100%, 120px);
 
     }
 
@@ -1928,7 +1944,7 @@ body {
     .acceso-carta {
 
         margin:
-            1px auto 5px;
+            1px auto 8px;
 
     }
 
@@ -1936,7 +1952,7 @@ body {
     .acceso-carta-imagen {
 
         width:
-            min(100%, 135px);
+            min(100%, 185px);
 
     }
 
@@ -2347,21 +2363,59 @@ body {
     .acceso-escena {
 
         padding:
-            4px 7px 10px;
+            4px 7px 210px;
+
+    }
+
+
+    .acceso-identidad {
+
+        margin:
+            1px auto 3px;
+
+    }
+
+
+    .acceso-logo-hacetuapp {
+
+        width:
+            min(100%, 105px);
+
+    }
+
+
+    .acceso-carta {
+
+        margin:
+            1px auto 8px;
+
+    }
+
+
+    .acceso-carta-imagen {
+
+        width:
+            min(100%, 185px);
 
     }
 
 
     .acceso-opciones {
 
-        max-width:
-            230px;
+        left:
+            50%;
 
-        margin:
-            2px auto 7px;
+        bottom:
+            8px;
+
+        width:
+            min(100%, 200px);
+
+        max-width:
+            200px;
 
         gap:
-            4px;
+            3px;
 
     }
 
@@ -2369,7 +2423,26 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 135px);
+            min(100%, 115px);
+
+    }
+
+
+    .panel-ingreso {
+
+        width:
+            min(100%, 315px);
+
+        margin:
+            0 auto 20px;
+
+    }
+
+
+    .panel-ingreso-contenido {
+
+        padding:
+            15px 16px 17px;
 
     }
 
@@ -2395,57 +2468,6 @@ body {
 
         margin:
             0 -16%;
-
-    }
-
-
-    .acceso-identidad {
-
-        margin:
-            1px auto 3px;
-
-    }
-
-
-    .acceso-logo-hacetuapp {
-
-        width:
-            min(100%, 105px);
-
-    }
-
-
-    .acceso-carta {
-
-        margin:
-            1px auto 4px;
-
-    }
-
-
-    .acceso-carta-imagen {
-
-        width:
-            min(100%, 125px);
-
-    }
-
-
-    .panel-ingreso {
-
-        width:
-            min(100%, 315px);
-
-        margin:
-            0 auto 20px;
-
-    }
-
-
-    .panel-ingreso-contenido {
-
-        padding:
-            15px 16px 17px;
 
     }
 
@@ -2854,7 +2876,7 @@ body {
         100%;
 
     margin:
-        1px auto 4px;
+        1px auto 3px;
 
     display:
         flex;
@@ -2877,7 +2899,7 @@ body {
         block;
 
     width:
-        min(100%, 120px);
+        min(100%, 105px);
 
     height:
         auto;
@@ -2925,7 +2947,7 @@ body {
         100%;
 
     margin:
-        1px auto 5px;
+        1px auto 8px;
 
     display:
         flex;
@@ -2948,7 +2970,7 @@ body {
         block;
 
     width:
-        min(100%, 135px);
+        min(100%, 185px);
 
     height:
         auto;
@@ -2981,25 +3003,37 @@ body {
 
 
 /* ==================================================
-   AJUSTE FINAL — TAMAÑO DE ACCESOS
+   AJUSTE FINAL — BOTONES DE ACCESO
    ================================================== */
 
 .acceso-opciones {
 
     position:
-        relative;
+        fixed;
 
     z-index:
-        30;
+        5005;
+
+    left:
+        50%;
+
+    bottom:
+        8px;
+
+    transform:
+        translateX(-50%);
 
     width:
-        100%;
+        min(100%, 200px);
 
     max-width:
-        250px;
+        200px;
 
     margin:
-        3px auto 8px;
+        0;
+
+    padding:
+        0;
 
     display:
         flex;
@@ -3011,10 +3045,10 @@ body {
         center;
 
     justify-content:
-        center;
+        flex-end;
 
     gap:
-        5px;
+        3px;
 
 }
 
@@ -3022,7 +3056,7 @@ body {
 .acceso-opcion {
 
     width:
-        min(100%, 145px);
+        min(100%, 115px);
 
 }
 
@@ -3050,7 +3084,7 @@ body {
     .acceso-identidad {
 
         margin:
-            1px auto 4px;
+            1px auto 3px;
 
     }
 
@@ -3058,7 +3092,7 @@ body {
     .acceso-logo-hacetuapp {
 
         width:
-            min(100%, 120px);
+            min(100%, 105px);
 
     }
 
@@ -3066,7 +3100,7 @@ body {
     .acceso-carta {
 
         margin:
-            1px auto 5px;
+            1px auto 8px;
 
     }
 
@@ -3074,21 +3108,24 @@ body {
     .acceso-carta-imagen {
 
         width:
-            min(100%, 135px);
+            min(100%, 185px);
 
     }
 
 
     .acceso-opciones {
 
-        max-width:
-            250px;
+        width:
+            min(100%, 200px);
 
-        margin:
-            3px auto 8px;
+        max-width:
+            200px;
+
+        bottom:
+            8px;
 
         gap:
-            5px;
+            3px;
 
     }
 
@@ -3096,7 +3133,7 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 145px);
+            min(100%, 115px);
 
     }
 
@@ -3112,7 +3149,7 @@ body {
     .acceso-escena {
 
         padding:
-            4px 7px 10px;
+            4px 7px 210px;
 
     }
 
@@ -3136,7 +3173,7 @@ body {
     .acceso-carta {
 
         margin:
-            1px auto 4px;
+            1px auto 8px;
 
     }
 
@@ -3144,21 +3181,27 @@ body {
     .acceso-carta-imagen {
 
         width:
-            min(100%, 125px);
+            min(100%, 185px);
 
     }
 
 
     .acceso-opciones {
 
-        max-width:
-            230px;
+        left:
+            50%;
 
-        margin:
-            2px auto 7px;
+        bottom:
+            8px;
+
+        width:
+            min(100%, 200px);
+
+        max-width:
+            200px;
 
         gap:
-            4px;
+            3px;
 
     }
 
@@ -3166,7 +3209,7 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 135px);
+            min(100%, 115px);
 
     }
 
