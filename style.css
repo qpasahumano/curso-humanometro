@@ -3360,8 +3360,6 @@ body {
     pointer-events: none;
 }
 
-/* Carta grande con desplazamiento INTERNO.
-   El área es transparente: no hay recuadro visible. */
 .pantalla-acceso .acceso-carta {
     position: relative;
     z-index: 25;
@@ -3405,7 +3403,6 @@ body {
     pointer-events: none;
 }
 
-/* Botones: abajo, juntos, mismo tamaño. */
 .pantalla-acceso .acceso-opciones {
     position: fixed;
     z-index: 5005;
@@ -3433,7 +3430,6 @@ body {
 }
 
 @media (max-width: 470px) {
-
     .pantalla-acceso .acceso-escena {
         padding: 4px 7px 90px;
     }
