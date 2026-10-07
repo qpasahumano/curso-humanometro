@@ -3534,3 +3534,34 @@ body {
         font-size: 10px;
     }
 }
+
+/* ==================================================
+   AJUSTE 3 — PANEL DE INGRESO SIN SUPERPOSICIÓN
+   ================================================== */
+
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
+    display: none;
+}
+
+.pantalla-acceso:has(.panel-ingreso.visible) .panel-ingreso {
+    position: relative;
+    z-index: 6000;
+    margin-top: 12px;
+    margin-bottom: 28px;
+}
+
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-carta {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
+        display: none;
+    }
+
+    .pantalla-acceso:has(.panel-ingreso.visible) .panel-ingreso {
+        width: min(100%, 315px);
+        margin-top: 12px;
+        margin-bottom: 28px;
+    }
+}
