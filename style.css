@@ -3472,3 +3472,65 @@ body {
         max-width: 115px;
     }
 }
+
+/* ==================================================
+   AJUSTE 2 — CARTA MÁS BAJA + SCROLL VISIBLE
+   ================================================== */
+
+.pantalla-acceso .acceso-identidad {
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+.pantalla-acceso .acceso-carta {
+    position: relative;
+    z-index: 25;
+    margin-top: 0;
+    margin-bottom: 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    isolation: isolate;
+    clip-path: inset(0);
+}
+
+.pantalla-acceso .acceso-carta::after {
+    content: "↑  SCROLL";
+    position: absolute;
+    z-index: 30;
+    right: 7px;
+    bottom: 7px;
+    display: block;
+    padding: 2px 4px;
+    color: rgba(255,255,255,.82);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .08em;
+    text-shadow: 0 1px 3px rgba(0,0,0,.85);
+    background: transparent;
+    pointer-events: none;
+    opacity: .86;
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-identidad {
+        margin-top: 28px;
+        margin-bottom: 8px;
+    }
+
+    .pantalla-acceso .acceso-carta {
+        margin-top: 0;
+        margin-bottom: 12px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        isolation: isolate;
+        clip-path: inset(0);
+    }
+
+    .pantalla-acceso .acceso-carta::after {
+        right: 7px;
+        bottom: 7px;
+        font-size: 10px;
+    }
+}
