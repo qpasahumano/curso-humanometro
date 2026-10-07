@@ -3328,78 +3328,71 @@ body {
 }
 
 /* ==================================================
-   AJUSTE FINAL — COMPOSICIÓN DEFINITIVA DE ACCESO
-   ==================================================
-   Orden visual:
+   AJUSTE FINAL AUDITADO — ACCESO
    PIZARRÓN → HACETUAPP.COM → CARTA → BOTONES
-   La carta dispone de scroll interno transparente.
    ================================================== */
 
-.acceso-pizarron {
-    order: 1;
-}
-
-.acceso-identidad {
+.pantalla-acceso .acceso-identidad {
     position: relative;
     top: auto;
     right: auto;
-    order: 2;
+    left: auto;
     z-index: 25;
-    width: auto;
+    width: 100%;
     height: auto;
-    margin: 6px auto 8px;
+    margin: 4px auto 8px;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     pointer-events: none;
 }
 
-.acceso-logo-hacetuapp {
+.pantalla-acceso .acceso-logo-hacetuapp {
     display: block;
-    width: 128px;
-    max-width: 128px;
+    width: min(42vw, 132px);
+    max-width: 132px;
     height: auto;
     margin: 0 auto;
     padding: 0;
-    border: none;
-    outline: none;
-    background: transparent;
+    transform: rotate(0deg);
     filter: drop-shadow(2px 3px 3px rgba(0,0,0,.36));
-    transform: rotate(7deg);
     pointer-events: none;
 }
 
-.acceso-carta {
-    order: 3;
+/* Carta grande con desplazamiento INTERNO.
+   El área es transparente: no hay recuadro visible. */
+.pantalla-acceso .acceso-carta {
     position: relative;
     z-index: 25;
-    width: min(100%, 320px);
-    height: clamp(300px, 52dvh, 500px);
+    width: min(100%, 340px);
+    height: clamp(330px, 55dvh, 500px);
+    min-height: 330px;
     margin: 0 auto 12px;
-    padding: 0 5px 0 0;
+    padding: 0;
     display: block;
     overflow-y: auto;
     overflow-x: hidden;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    touch-action: pan-y;
-    pointer-events: auto;
+    -ms-overflow-style: none;
     background: transparent;
     border: none;
     box-shadow: none;
+    pointer-events: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
 }
 
-.acceso-carta::-webkit-scrollbar {
+.pantalla-acceso .acceso-carta::-webkit-scrollbar {
     display: none;
     width: 0;
     height: 0;
 }
 
-.acceso-carta-imagen {
+.pantalla-acceso .acceso-carta-imagen {
     display: block;
-    width: min(100%, 310px);
-    max-width: 310px;
+    width: min(100%, 320px);
+    max-width: 320px;
     height: auto;
     max-height: none;
     margin: 0 auto;
@@ -3412,92 +3405,74 @@ body {
     pointer-events: none;
 }
 
-.acceso-opciones {
-    order: 5;
+/* Botones: abajo, juntos, mismo tamaño. */
+.pantalla-acceso .acceso-opciones {
+    position: fixed;
+    z-index: 5005;
+    left: 50%;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    width: min(calc(100% - 12px), 245px);
+    max-width: 245px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 8px;
 }
 
-.panel-ingreso {
-    order: 4;
-}
-
-@media (max-width: 720px) {
-
-    .acceso-identidad {
-        position: relative;
-        top: auto;
-        right: auto;
-        width: auto;
-        margin: 5px auto 8px;
-    }
-
-    .acceso-logo-hacetuapp {
-        width: 128px;
-        max-width: 128px;
-    }
-
-    .acceso-carta {
-        width: min(100%, 320px);
-        height: clamp(300px, 52dvh, 500px);
-        margin: 0 auto 12px;
-        padding-right: 5px;
-    }
-
-    .acceso-carta-imagen {
-        width: min(100%, 310px);
-        max-width: 310px;
-    }
-
+.pantalla-acceso .acceso-opcion {
+    flex: 0 0 115px;
+    width: 115px;
+    min-width: 115px;
+    max-width: 115px;
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 470px) {
 
-    .acceso-escena {
-        padding: 4px 7px 110px;
+    .pantalla-acceso .acceso-escena {
+        padding: 4px 7px 90px;
     }
 
-    .acceso-identidad {
-        position: relative;
-        top: auto;
-        right: auto;
-        width: auto;
-        margin: 4px auto 7px;
+    .pantalla-acceso .acceso-identidad {
+        margin: 4px auto 8px;
     }
 
-    .acceso-logo-hacetuapp {
-        width: 125px;
-        max-width: 125px;
-        transform: rotate(7deg);
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        width: min(42vw, 132px);
+        max-width: 132px;
     }
 
-    .acceso-carta {
-        width: min(100%, 320px);
-        height: clamp(300px, 52dvh, 470px);
+    .pantalla-acceso .acceso-carta {
+        width: min(100%, 340px);
+        height: clamp(330px, 55dvh, 500px);
+        min-height: 330px;
         margin: 0 auto 12px;
-        padding-right: 5px;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
-    .acceso-carta-imagen {
-        width: min(100%, 310px);
-        max-width: 310px;
+    .pantalla-acceso .acceso-carta-imagen {
+        width: min(100%, 320px);
+        max-width: 320px;
+        max-height: none;
     }
 
-    .acceso-opciones {
-        left: 50%;
-        bottom: 8px;
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(8px + env(safe-area-inset-bottom, 0px));
         width: min(calc(100% - 12px), 245px);
         max-width: 245px;
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
         gap: 8px;
     }
 
-    .acceso-opcion {
+    .pantalla-acceso .acceso-opcion {
         flex: 0 0 115px;
         width: 115px;
         min-width: 115px;
         max-width: 115px;
     }
-
 }
-
