@@ -2905,6 +2905,23 @@ body {
     background-repeat:
         repeat-y;
 
+    overflow:
+        hidden;
+
+}
+
+
+.acceso-escena {
+
+    height:
+        100dvh;
+
+    min-height:
+        100dvh;
+
+    overflow:
+        hidden;
+
 }
 
 
@@ -3328,27 +3345,76 @@ body {
 
 }
 
+
 /* ==================================================
    AJUSTE FINAL — ACCESO
    ÚNICAMENTE LOS CAMBIOS SOLICITADOS
    ================================================== */
 
-/* HACETUAPP.COM: mismo ancho que los botones,
-   colocado por encima de ellos y separado. */
+
+/* ==================================================
+   1. PANTALLA DE ACCESO SIN DESPLAZAMIENTO
+   ================================================== */
+
+.pantalla-acceso {
+
+    overflow:
+        hidden;
+
+    overflow-x:
+        hidden;
+
+    overflow-y:
+        hidden;
+
+}
+
+
+.pantalla-acceso .acceso-escena {
+
+    width:
+        100%;
+
+    height:
+        100dvh;
+
+    min-height:
+        100dvh;
+
+    max-height:
+        100dvh;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* ==================================================
+   2. HACETUAPP.COM
+   MISMO ANCHO QUE LOS BOTONES.
+   SEPARADO DE LOS BOTONES.
+   ================================================== */
+
 .pantalla-acceso .acceso-identidad {
 
-    position: fixed;
+    position:
+        fixed;
 
-    z-index: 5010;
+    z-index:
+        5010;
 
-    left: 50%;
+    left:
+        50%;
 
-    right: auto;
+    right:
+        auto;
 
-    top: auto;
+    top:
+        auto;
 
     bottom:
-        105px;
+        74px;
 
     width:
         115px;
@@ -3356,11 +3422,23 @@ body {
     max-width:
         115px;
 
+    height:
+        auto;
+
     margin:
         0;
 
     padding:
         0;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
 
     transform:
         translateX(-50%);
@@ -3391,6 +3469,15 @@ body {
     padding:
         0;
 
+    border:
+        none;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
     transform:
         rotate(7deg);
 
@@ -3400,9 +3487,12 @@ body {
 }
 
 
-/* CARTA: más grande, debajo del pizarrón,
-   acercada al área de hacetuapp.com,
-   sin tocar elementos externos. */
+/* ==================================================
+   3. CARTA
+   MÁS GRANDE Y ACERCADA A HACETUAPP.COM,
+   SIN CREAR CAJA NI SCROLL.
+   ================================================== */
+
 .pantalla-acceso .acceso-carta {
 
     position:
@@ -3415,7 +3505,7 @@ body {
         100%;
 
     margin:
-        28px auto 105px;
+        24px auto 92px;
 
     padding:
         0;
@@ -3453,10 +3543,10 @@ body {
         block;
 
     width:
-        min(100%, 265px);
+        min(100%, 300px);
 
     max-width:
-        265px;
+        300px;
 
     height:
         auto;
@@ -3491,7 +3581,60 @@ body {
 }
 
 
-/* No se crea ningún recuadro visual adicional. */
+/* ==================================================
+   4. PANEL DE INGRESO
+   NO SE DESPLAZA CON LA PANTALLA.
+   NO OCUPA LA ZONA DE LOS BOTONES.
+   NO CREA CAJA TRANSPARENTE DE SCROLL.
+   ================================================== */
+
+.pantalla-acceso .panel-ingreso {
+
+    position:
+        fixed;
+
+    z-index:
+        5020;
+
+    left:
+        50%;
+
+    right:
+        auto;
+
+    top:
+        auto;
+
+    bottom:
+        145px;
+
+    width:
+        min(100% - 24px, 360px);
+
+    max-width:
+        360px;
+
+    margin:
+        0;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.pantalla-acceso .panel-ingreso.visible {
+
+    display:
+        block;
+
+}
+
+
+/* ==================================================
+   ELIMINAR CUALQUIER ELEMENTO VISUAL EXTRA
+   ================================================== */
+
 .pantalla-acceso .acceso-carta::after,
 .pantalla-acceso::after {
 
@@ -3504,19 +3647,43 @@ body {
 }
 
 
-/* PANEL DE INGRESO:
-   reserva espacio real antes de la zona fija
-   de los botones para impedir superposición. */
-.pantalla-acceso .panel-ingreso {
-
-    margin:
-        0 auto 150px;
-
-}
-
+/* ==================================================
+   TABLET
+   ================================================== */
 
 @media (max-width: 720px) {
 
+    .pantalla-acceso {
+
+        overflow:
+            hidden;
+
+        overflow-x:
+            hidden;
+
+        overflow-y:
+            hidden;
+
+    }
+
+
+    .pantalla-acceso .acceso-escena {
+
+        height:
+            100dvh;
+
+        min-height:
+            100dvh;
+
+        max-height:
+            100dvh;
+
+        overflow:
+            hidden;
+
+    }
+
+
     .pantalla-acceso .acceso-identidad {
 
         left:
@@ -3525,11 +3692,11 @@ body {
         right:
             auto;
 
-        bottom:
-            105px;
-
         top:
             auto;
+
+        bottom:
+            74px;
 
         width:
             115px;
@@ -3560,7 +3727,7 @@ body {
     .pantalla-acceso .acceso-carta {
 
         margin:
-            28px auto 105px;
+            20px auto 92px;
 
     }
 
@@ -3568,25 +3735,81 @@ body {
     .pantalla-acceso .acceso-carta-imagen {
 
         width:
-            min(100%, 255px);
+            min(100%, 285px);
 
         max-width:
-            255px;
+            285px;
 
     }
 
 
     .pantalla-acceso .panel-ingreso {
 
+        left:
+            50%;
+
+        right:
+            auto;
+
+        bottom:
+            145px;
+
+        width:
+            min(100% - 24px, 350px);
+
+        max-width:
+            350px;
+
         margin:
-            0 auto 150px;
+            0;
+
+        transform:
+            translateX(-50%);
 
     }
 
 }
 
 
+/* ==================================================
+   CELULAR
+   ================================================== */
+
 @media (max-width: 470px) {
+
+    .pantalla-acceso {
+
+        overflow:
+            hidden;
+
+        overflow-x:
+            hidden;
+
+        overflow-y:
+            hidden;
+
+    }
+
+
+    .pantalla-acceso .acceso-escena {
+
+        height:
+            100dvh;
+
+        min-height:
+            100dvh;
+
+        max-height:
+            100dvh;
+
+        padding:
+            4px 7px 0;
+
+        overflow:
+            hidden;
+
+    }
+
 
     .pantalla-acceso .acceso-identidad {
 
@@ -3596,11 +3819,11 @@ body {
         right:
             auto;
 
-        bottom:
-            105px;
-
         top:
             auto;
+
+        bottom:
+            74px;
 
         width:
             115px;
@@ -3625,13 +3848,16 @@ body {
         max-width:
             115px;
 
+        transform:
+            rotate(7deg);
+
     }
 
 
     .pantalla-acceso .acceso-carta {
 
         margin:
-            28px auto 105px;
+            16px auto 92px;
 
     }
 
@@ -3639,21 +3865,36 @@ body {
     .pantalla-acceso .acceso-carta-imagen {
 
         width:
-            min(100%, 255px);
+            min(100%, 275px);
 
         max-width:
-            255px;
+            275px;
 
     }
 
 
     .pantalla-acceso .panel-ingreso {
 
+        left:
+            50%;
+
+        right:
+            auto;
+
+        bottom:
+            145px;
+
         width:
-            min(100%, 315px);
+            min(100% - 20px, 315px);
+
+        max-width:
+            315px;
 
         margin:
-            0 auto 150px;
+            0;
+
+        transform:
+            translateX(-50%);
 
     }
 
