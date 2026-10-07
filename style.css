@@ -3327,26 +3327,126 @@ body {
 
 }
 
+/* ==================================================
+   AJUSTE FINAL — ACCESO
+   ÚNICAMENTE LOS CAMBIOS SOLICITADOS
+   ================================================== */
 
-/* AJUSTE FINAL SOLICITADO — ACCESO
-   La carta baja hasta quedar separada de pizarrón, logo, botones y SCROLL.
-   El SCROLL queda fuera del recuadro y en el pupitre.
-   El botón derecho recupera sus dimensiones originales. */
-.pantalla-acceso .acceso-identidad { margin-top: 58px; margin-bottom: 38px; }
-.pantalla-acceso .acceso-carta { margin-top: 0; margin-bottom: 12px; }
-.pantalla-acceso .acceso-carta::after { content: none !important; display:none !important; }
+/* HACETUAPP.COM: sobre la zona de botones,
+   centrado y sin superponerlos. */
+.pantalla-acceso .acceso-identidad {
+    position: fixed;
+    z-index: 5010;
+    left: 50%;
+    right: auto;
+    bottom: calc(62px + env(safe-area-inset-bottom, 0px));
+    top: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.pantalla-acceso .acceso-logo-hacetuapp {
+    display: block;
+    width: min(100%, 82px);
+    max-width: 82px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    transform: rotate(7deg);
+    pointer-events: none;
+}
+
+/* CARTA: más abajo del pizarrón y más grande,
+   sin área de scroll ni indicador. */
+.pantalla-acceso .acceso-carta {
+    position: relative;
+    z-index: 25;
+    width: 100%;
+    margin: 28px auto 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.pantalla-acceso .acceso-carta-imagen {
+    display: block;
+    width: min(100%, 265px);
+    max-width: 265px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    object-fit: contain;
+    filter: drop-shadow(2px 3px 3px rgba(0,0,0,.38));
+    pointer-events: none;
+}
+
+/* El indicador SCROLL se elimina completamente. */
+.pantalla-acceso .acceso-carta::after,
 .pantalla-acceso::after {
- content: "↑ SCROLL"; position: fixed; z-index:5010; right:8px; bottom:92px;
- display:block; color:rgba(255,255,255,.82); font-family:Arial,Helvetica,sans-serif;
- font-size:9px; font-weight:700; line-height:12px; letter-spacing:.06em;
- text-shadow:0 1px 3px rgba(0,0,0,.85); pointer-events:none;
+    content: none !important;
+    display: none !important;
 }
-.pantalla-acceso .acceso-opcion:nth-child(2) {
- flex: 0 0 115px; width:115px; min-width:115px; max-width:115px;
+
+@media (max-width: 720px) {
+    .pantalla-acceso .acceso-identidad {
+        left: 50%;
+        right: auto;
+        bottom: calc(62px + env(safe-area-inset-bottom, 0px));
+        top: auto;
+        margin: 0;
+        transform: translateX(-50%);
+    }
+
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        width: min(100%, 82px);
+        max-width: 82px;
+    }
+
+    .pantalla-acceso .acceso-carta {
+        margin-top: 28px;
+        margin-bottom: 0;
+    }
+
+    .pantalla-acceso .acceso-carta-imagen {
+        width: min(100%, 255px);
+        max-width: 255px;
+    }
 }
-.pantalla-acceso .acceso-opcion:nth-child(2) img { width:100%; height:auto; }
-@media (max-width:470px) {
- .pantalla-acceso .acceso-identidad { margin-top:58px; margin-bottom:38px; }
- .pantalla-acceso::after { right:7px; bottom:88px; font-size:9px; }
- .pantalla-acceso .acceso-opcion:nth-child(2) { flex:0 0 115px; width:115px; min-width:115px; max-width:115px; }
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-identidad {
+        left: 50%;
+        right: auto;
+        bottom: calc(62px + env(safe-area-inset-bottom, 0px));
+        top: auto;
+        margin: 0;
+        transform: translateX(-50%);
+    }
+
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        width: min(100%, 76px);
+        max-width: 76px;
+    }
+
+    .pantalla-acceso .acceso-carta {
+        margin-top: 28px;
+        margin-bottom: 0;
+    }
+
+    .pantalla-acceso .acceso-carta-imagen {
+        width: min(100%, 255px);
+        max-width: 255px;
+    }
 }
