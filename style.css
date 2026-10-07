@@ -171,8 +171,7 @@ body {
     width: 100%;
 
     margin:
-        clamp(5px, 1vh, 10px) auto
-        clamp(10px, 2vh, 18px);
+        2px auto 8px;
 
     display: flex;
 
@@ -185,27 +184,29 @@ body {
 }
 
 
-.acceso-identidad-imagen {
+.acceso-logo-hacetuapp {
 
     display: block;
 
     width:
-        clamp(220px, 42vw, 380px);
-
-    max-width:
-        100%;
+        min(100%, 220px);
 
     height: auto;
 
-    margin: 0;
+    margin:
+        0 auto;
 
-    padding: 0;
+    padding:
+        0;
 
-    border: none;
+    border:
+        none;
 
-    outline: none;
+    outline:
+        none;
 
-    background: transparent;
+    background:
+        transparent;
 
     filter:
         drop-shadow(
@@ -213,16 +214,77 @@ body {
             rgba(0,0,0,.36)
         );
 
-    transform:
-        rotate(-2.5deg);
+    pointer-events:
+        none;
 
-    transform-origin:
-        center center;
+}
+
+
+/* ==================================================
+   CARTA DE PRESENTACIÓN
+   ================================================== */
+
+.acceso-carta {
+
+    position: relative;
+
+    z-index: 25;
+
+    width: 100%;
+
+    margin:
+        2px auto 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
 
     pointer-events: none;
 
 }
 
+
+.acceso-carta-imagen {
+
+    display: block;
+
+    width:
+        min(100%, 390px);
+
+    height: auto;
+
+    margin:
+        0 auto;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    filter:
+        drop-shadow(
+            3px 5px 5px
+            rgba(0,0,0,.40)
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ==================================================
+   OPCIONES DE ACCESO
+   ================================================== */
 
 .acceso-opciones {
 
@@ -232,11 +294,10 @@ body {
 
     width: 100%;
 
-    max-width: 430px;
+    max-width: 330px;
 
     margin:
-        clamp(18px, 4vh, 38px) auto
-        clamp(16px, 3vh, 28px);
+        5px auto 14px;
 
     display: flex;
 
@@ -247,7 +308,7 @@ body {
     justify-content: center;
 
     gap:
-        clamp(14px, 2.5vh, 24px);
+        9px;
 
 }
 
@@ -260,7 +321,8 @@ body {
 
     display: block;
 
-    width: min(100%, 390px);
+    width:
+        min(100%, 220px);
 
     margin: 0;
 
@@ -333,6 +395,10 @@ body {
 
 }
 
+
+/* ==================================================
+   PANEL DE INGRESO
+   ================================================== */
 
 .panel-ingreso {
 
@@ -1800,14 +1866,13 @@ body {
     .acceso-opciones {
 
         max-width:
-            390px;
+            300px;
 
         margin:
-            clamp(14px, 3vh, 28px) auto
-            clamp(14px, 2.5vh, 24px);
+            4px auto 12px;
 
         gap:
-            clamp(12px, 2.2vh, 20px);
+            8px;
 
     }
 
@@ -1815,7 +1880,7 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 255px);
+            min(100%, 205px);
 
     }
 
@@ -1848,19 +1913,31 @@ body {
     .acceso-identidad {
 
         margin:
-            4px auto
-            clamp(8px, 1.8vh, 16px);
+            2px auto 7px;
 
     }
 
 
-    .acceso-identidad-imagen {
+    .acceso-logo-hacetuapp {
 
         width:
-            clamp(210px, 48vw, 330px);
+            min(100%, 200px);
 
-        transform:
-            rotate(-2.5deg);
+    }
+
+
+    .acceso-carta {
+
+        margin:
+            2px auto 8px;
+
+    }
+
+
+    .acceso-carta-imagen {
+
+        width:
+            min(100%, 360px);
 
     }
 
@@ -2271,7 +2348,7 @@ body {
     .acceso-escena {
 
         padding:
-            7px 7px 18px;
+            4px 7px 14px;
 
     }
 
@@ -2279,13 +2356,13 @@ body {
     .acceso-opciones {
 
         max-width:
-            330px;
+            270px;
 
         margin:
-            12px auto 16px;
+            3px auto 10px;
 
         gap:
-            12px;
+            7px;
 
     }
 
@@ -2293,7 +2370,7 @@ body {
     .acceso-opcion {
 
         width:
-            min(100%, 235px);
+            min(100%, 190px);
 
     }
 
@@ -2326,19 +2403,31 @@ body {
     .acceso-identidad {
 
         margin:
-            3px auto
-            10px;
+            1px auto 5px;
 
     }
 
 
-    .acceso-identidad-imagen {
+    .acceso-logo-hacetuapp {
 
         width:
-            min(72vw, 270px);
+            min(100%, 175px);
 
-        transform:
-            rotate(-2.5deg);
+    }
+
+
+    .acceso-carta {
+
+        margin:
+            1px auto 7px;
+
+    }
+
+
+    .acceso-carta-imagen {
+
+        width:
+            min(100%, 335px);
 
     }
 
@@ -2346,7 +2435,10 @@ body {
     .panel-ingreso {
 
         width:
-            min(100%, 320px);
+            min(100%, 315px);
+
+        margin:
+            0 auto 20px;
 
     }
 
@@ -2748,13 +2840,190 @@ body {
 
 
 /* ==================================================
+   AJUSTE FINAL — IDENTIDAD HACETUAPP.COM
+   ================================================== */
+
+.acceso-identidad {
+
+    position:
+        relative;
+
+    z-index:
+        25;
+
+    width:
+        100%;
+
+    margin:
+        2px auto 8px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    pointer-events:
+        none;
+
+}
+
+
+.acceso-logo-hacetuapp {
+
+    display:
+        block;
+
+    width:
+        min(100%, 220px);
+
+    height:
+        auto;
+
+    margin:
+        0 auto;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    filter:
+        drop-shadow(
+            3px 5px 4px
+            rgba(0,0,0,.36)
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ==================================================
+   AJUSTE FINAL — CARTA DE PRESENTACIÓN
+   ================================================== */
+
+.acceso-carta {
+
+    position:
+        relative;
+
+    z-index:
+        25;
+
+    width:
+        100%;
+
+    margin:
+        2px auto 10px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    pointer-events:
+        none;
+
+}
+
+
+.acceso-carta-imagen {
+
+    display:
+        block;
+
+    width:
+        min(100%, 390px);
+
+    height:
+        auto;
+
+    margin:
+        0 auto;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    filter:
+        drop-shadow(
+            3px 5px 5px
+            rgba(0,0,0,.40)
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ==================================================
    AJUSTE FINAL — TAMAÑO DE ACCESOS
    ================================================== */
+
+.acceso-opciones {
+
+    position:
+        relative;
+
+    z-index:
+        30;
+
+    width:
+        100%;
+
+    max-width:
+        330px;
+
+    margin:
+        5px auto 14px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        9px;
+
+}
+
 
 .acceso-opcion {
 
     width:
-        min(100%, 270px);
+        min(100%, 220px);
 
 }
 
@@ -2773,24 +3042,143 @@ body {
 }
 
 
+/* ==================================================
+   AJUSTE FINAL — TABLET
+   ================================================== */
+
 @media (max-width: 720px) {
+
+    .acceso-identidad {
+
+        margin:
+            2px auto 7px;
+
+    }
+
+
+    .acceso-logo-hacetuapp {
+
+        width:
+            min(100%, 200px);
+
+    }
+
+
+    .acceso-carta {
+
+        margin:
+            2px auto 8px;
+
+    }
+
+
+    .acceso-carta-imagen {
+
+        width:
+            min(100%, 360px);
+
+    }
+
+
+    .acceso-opciones {
+
+        max-width:
+            300px;
+
+        margin:
+            4px auto 12px;
+
+        gap:
+            8px;
+
+    }
+
 
     .acceso-opcion {
 
         width:
-            min(100%, 255px);
+            min(100%, 205px);
 
     }
 
 }
 
 
+/* ==================================================
+   AJUSTE FINAL — CELULAR
+   ================================================== */
+
 @media (max-width: 470px) {
+
+    .acceso-escena {
+
+        padding:
+            4px 7px 14px;
+
+    }
+
+
+    .acceso-identidad {
+
+        margin:
+            1px auto 5px;
+
+    }
+
+
+    .acceso-logo-hacetuapp {
+
+        width:
+            min(100%, 175px);
+
+    }
+
+
+    .acceso-carta {
+
+        margin:
+            1px auto 7px;
+
+    }
+
+
+    .acceso-carta-imagen {
+
+        width:
+            min(100%, 335px);
+
+    }
+
+
+    .acceso-opciones {
+
+        max-width:
+            270px;
+
+        margin:
+            3px auto 10px;
+
+        gap:
+            7px;
+
+    }
+
 
     .acceso-opcion {
 
         width:
-            min(100%, 235px);
+            min(100%, 190px);
+
+    }
+
+
+    .panel-ingreso {
+
+        width:
+            min(100%, 315px);
+
+        margin:
+            0 auto 20px;
 
     }
 
