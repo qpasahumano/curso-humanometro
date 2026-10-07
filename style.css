@@ -1316,9 +1316,11 @@ body {
     height:
         100dvh;
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
     padding:
         0;
@@ -3493,24 +3495,10 @@ body {
     clip-path: inset(0);
 }
 
+/* El indicador anterior estaba dentro del área desplazable.
+   Se anula para que nunca vuelva a superponerse con la carta. */
 .pantalla-acceso .acceso-carta::after {
-    content: "↑  SCROLL";
-    position: absolute;
-    z-index: 30;
-    right: 7px;
-    bottom: 7px;
-    display: block;
-    padding: 2px 4px;
-    color: rgba(255,255,255,.82);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: .08em;
-    text-shadow: 0 1px 3px rgba(0,0,0,.85);
-    background: transparent;
-    pointer-events: none;
-    opacity: .86;
+    content: none;
 }
 
 @media (max-width: 470px) {
@@ -3529,9 +3517,7 @@ body {
     }
 
     .pantalla-acceso .acceso-carta::after {
-        right: 7px;
-        bottom: 7px;
-        font-size: 10px;
+        content: none;
     }
 }
 
@@ -3564,4 +3550,86 @@ body {
         margin-top: 12px;
         margin-bottom: 28px;
     }
+}
+
+
+/* ==================================================
+   AJUSTE SOLICITADO — POSICIÓN DEFINITIVA
+   HACETUAPP → CARTA → SCROLL → BOTONES
+   ================================================== */
+
+/* 1. HACETUAPP.COM MÁS ABAJO.
+      Se reduce el aire que queda hacia los botones. */
+.pantalla-acceso .acceso-identidad {
+    margin-top: 46px;
+    margin-bottom: 20px;
+}
+
+/* 2. LA CARTA BAJA JUNTO CON SU ZONA DE SCROLL.
+      Se conserva el scroll interno de la carta,
+      pero el indicador queda FUERA de ella. */
+.pantalla-acceso .acceso-carta {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+/* 3. EL INDICADOR YA NO PERTENECE A LA CARTA.
+      Se genera sobre el contenedor fijo de botones,
+      por lo que nunca entra en el recuadro desplazable. */
+.pantalla-acceso .acceso-opciones::before {
+    content: "↑  SCROLL";
+    position: absolute;
+    z-index: 5010;
+    right: 0;
+    bottom: calc(100% + 5px);
+    display: block;
+    width: auto;
+    height: 14px;
+    padding: 0;
+    color: rgba(255,255,255,.82);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: .08em;
+    white-space: nowrap;
+    text-align: right;
+    text-shadow: 0 1px 3px rgba(0,0,0,.85);
+    background: transparent;
+    pointer-events: none;
+    opacity: .86;
+}
+
+/* 4. AL ABRIR INGRESO, DESAPARECEN LOS BOTONES
+      Y TAMBIÉN EL INDICADOR, EVITANDO CUALQUIER
+      SUPERPOSICIÓN CON MAIL / CONTRASEÑA. */
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones::before {
+    display: none;
+}
+
+/* 5. AJUSTE MÓVIL: MISMA GEOMETRÍA, SIN CAMBIAR
+      EL TAMAÑO DE LOS BOTONES. */
+@media (max-width: 470px) {
+
+    .pantalla-acceso .acceso-identidad {
+        margin-top: 46px;
+        margin-bottom: 20px;
+    }
+
+    .pantalla-acceso .acceso-carta {
+        margin-top: 0;
+        margin-bottom: 14px;
+    }
+
+    .pantalla-acceso .acceso-opciones::before {
+        right: 0;
+        bottom: calc(100% + 5px);
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    .pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones::before {
+        display: none;
+    }
+
 }
