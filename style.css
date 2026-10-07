@@ -1341,6 +1341,7 @@ body {
     display:
         none;
 
+
 }
 
 
@@ -3332,121 +3333,328 @@ body {
    ÚNICAMENTE LOS CAMBIOS SOLICITADOS
    ================================================== */
 
-/* HACETUAPP.COM: sobre la zona de botones,
-   centrado y sin superponerlos. */
+/* HACETUAPP.COM: mismo ancho que los botones,
+   colocado por encima de ellos y separado. */
 .pantalla-acceso .acceso-identidad {
+
     position: fixed;
+
     z-index: 5010;
+
     left: 50%;
+
     right: auto;
-    bottom: calc(62px + env(safe-area-inset-bottom, 0px));
+
     top: auto;
-    width: auto;
-    margin: 0;
-    padding: 0;
-    transform: translateX(-50%);
-    pointer-events: none;
+
+    bottom:
+        105px;
+
+    width:
+        115px;
+
+    max-width:
+        115px;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events:
+        none;
+
 }
+
 
 .pantalla-acceso .acceso-logo-hacetuapp {
-    display: block;
-    width: min(100%, 82px);
-    max-width: 82px;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    transform: rotate(7deg);
-    pointer-events: none;
+
+    display:
+        block;
+
+    width:
+        115px;
+
+    max-width:
+        115px;
+
+    height:
+        auto;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    transform:
+        rotate(7deg);
+
+    pointer-events:
+        none;
+
 }
 
-/* CARTA: más abajo del pizarrón y más grande,
-   sin área de scroll ni indicador. */
+
+/* CARTA: más grande, debajo del pizarrón,
+   acercada al área de hacetuapp.com,
+   sin tocar elementos externos. */
 .pantalla-acceso .acceso-carta {
-    position: relative;
-    z-index: 25;
-    width: 100%;
-    margin: 28px auto 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    pointer-events: none;
+
+    position:
+        relative;
+
+    z-index:
+        25;
+
+    width:
+        100%;
+
+    margin:
+        28px auto 105px;
+
+    padding:
+        0;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    overflow:
+        visible;
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    box-shadow:
+        none;
+
+    pointer-events:
+        none;
+
 }
+
 
 .pantalla-acceso .acceso-carta-imagen {
-    display: block;
-    width: min(100%, 265px);
-    max-width: 265px;
-    height: auto;
-    margin: 0 auto;
-    padding: 0;
-    border: none;
-    outline: none;
-    background: transparent;
-    object-fit: contain;
-    filter: drop-shadow(2px 3px 3px rgba(0,0,0,.38));
-    pointer-events: none;
+
+    display:
+        block;
+
+    width:
+        min(100%, 265px);
+
+    max-width:
+        265px;
+
+    height:
+        auto;
+
+    margin:
+        0 auto;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    object-fit:
+        contain;
+
+    filter:
+        drop-shadow(
+            2px 3px 3px
+            rgba(0,0,0,.38)
+        );
+
+    pointer-events:
+        none;
+
 }
 
-/* El indicador SCROLL se elimina completamente. */
+
+/* No se crea ningún recuadro visual adicional. */
 .pantalla-acceso .acceso-carta::after,
 .pantalla-acceso::after {
-    content: none !important;
-    display: none !important;
+
+    content:
+        none !important;
+
+    display:
+        none !important;
+
 }
+
+
+/* PANEL DE INGRESO:
+   reserva espacio real antes de la zona fija
+   de los botones para impedir superposición. */
+.pantalla-acceso .panel-ingreso {
+
+    margin:
+        0 auto 150px;
+
+}
+
 
 @media (max-width: 720px) {
+
     .pantalla-acceso .acceso-identidad {
-        left: 50%;
-        right: auto;
-        bottom: calc(62px + env(safe-area-inset-bottom, 0px));
-        top: auto;
-        margin: 0;
-        transform: translateX(-50%);
+
+        left:
+            50%;
+
+        right:
+            auto;
+
+        bottom:
+            105px;
+
+        top:
+            auto;
+
+        width:
+            115px;
+
+        max-width:
+            115px;
+
+        margin:
+            0;
+
+        transform:
+            translateX(-50%);
+
     }
+
 
     .pantalla-acceso .acceso-logo-hacetuapp {
-        width: min(100%, 82px);
-        max-width: 82px;
+
+        width:
+            115px;
+
+        max-width:
+            115px;
+
     }
+
 
     .pantalla-acceso .acceso-carta {
-        margin-top: 28px;
-        margin-bottom: 0;
+
+        margin:
+            28px auto 105px;
+
     }
 
+
     .pantalla-acceso .acceso-carta-imagen {
-        width: min(100%, 255px);
-        max-width: 255px;
+
+        width:
+            min(100%, 255px);
+
+        max-width:
+            255px;
+
     }
+
+
+    .pantalla-acceso .panel-ingreso {
+
+        margin:
+            0 auto 150px;
+
+    }
+
 }
 
+
 @media (max-width: 470px) {
+
     .pantalla-acceso .acceso-identidad {
-        left: 50%;
-        right: auto;
-        bottom: calc(62px + env(safe-area-inset-bottom, 0px));
-        top: auto;
-        margin: 0;
-        transform: translateX(-50%);
+
+        left:
+            50%;
+
+        right:
+            auto;
+
+        bottom:
+            105px;
+
+        top:
+            auto;
+
+        width:
+            115px;
+
+        max-width:
+            115px;
+
+        margin:
+            0;
+
+        transform:
+            translateX(-50%);
+
     }
+
 
     .pantalla-acceso .acceso-logo-hacetuapp {
-        width: min(100%, 76px);
-        max-width: 76px;
+
+        width:
+            115px;
+
+        max-width:
+            115px;
+
     }
+
 
     .pantalla-acceso .acceso-carta {
-        margin-top: 28px;
-        margin-bottom: 0;
+
+        margin:
+            28px auto 105px;
+
     }
 
+
     .pantalla-acceso .acceso-carta-imagen {
-        width: min(100%, 255px);
-        max-width: 255px;
+
+        width:
+            min(100%, 255px);
+
+        max-width:
+            255px;
+
     }
+
+
+    .pantalla-acceso .panel-ingreso {
+
+        width:
+            min(100%, 315px);
+
+        margin:
+            0 auto 150px;
+
+    }
+
 }
