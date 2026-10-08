@@ -630,6 +630,10 @@ async function verificarAccesoActual(
 
 
 
+/* ==================================================
+   INGRESO
+   ================================================== */
+
 async function intentarIngreso() {
 
     if (
@@ -687,6 +691,17 @@ async function intentarIngreso() {
             await obtenerSupabaseClient();
 
 
+        console.log(
+            "HUMANÓMETRO: iniciando autenticación con Supabase."
+        );
+
+
+        console.log(
+            "HUMANÓMETRO: URL de Supabase:",
+            SUPABASE_URL
+        );
+
+
         const {
             data,
             error
@@ -702,8 +717,20 @@ async function intentarIngreso() {
         ) {
 
             console.error(
-                "Error de ingreso:",
+                "HUMANÓMETRO: error devuelto por Supabase durante el ingreso:",
                 error
+            );
+
+
+            console.error(
+                "HUMANÓMETRO: nombre del error:",
+                error.name
+            );
+
+
+            console.error(
+                "HUMANÓMETRO: mensaje del error:",
+                error.message
             );
 
 
@@ -730,6 +757,12 @@ async function intentarIngreso() {
             !data.user
         ) {
 
+            console.error(
+                "HUMANÓMETRO: Supabase respondió sin un usuario válido.",
+                data
+            );
+
+
             if (
                 mensajeIngreso
             ) {
@@ -742,6 +775,11 @@ async function intentarIngreso() {
             return;
 
         }
+
+
+        console.log(
+            "HUMANÓMETRO: autenticación realizada correctamente."
+        );
 
 
         const tieneAcceso =
@@ -776,8 +814,35 @@ async function intentarIngreso() {
     } catch (error) {
 
         console.error(
-            "Error intentando ingresar:",
+            "HUMANÓMETRO: EXCEPCIÓN DURANTE EL INGRESO:",
             error
+        );
+
+
+        console.error(
+            "HUMANÓMETRO: tipo de excepción:",
+            error &&
+            error.constructor
+                ? error.constructor.name
+                : "Desconocido"
+        );
+
+
+        console.error(
+            "HUMANÓMETRO: nombre:",
+            error &&
+            error.name
+                ? error.name
+                : "Sin nombre"
+        );
+
+
+        console.error(
+            "HUMANÓMETRO: mensaje:",
+            error &&
+            error.message
+                ? error.message
+                : "Sin mensaje"
         );
 
 
@@ -786,10 +851,12 @@ async function intentarIngreso() {
         ) {
 
             mensajeIngreso.textContent =
-                "Error de Supabase: " +
+                "Error de conexión con Supabase: " +
                 (
-                    error.message ||
-                    "No se pudo conectar con el sistema de acceso."
+                    error &&
+                    error.message
+                        ? error.message
+                        : "No se pudo conectar con el sistema de acceso."
                 );
 
         }
