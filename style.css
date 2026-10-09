@@ -3840,3 +3840,107 @@ body {
         max-height: 76px;
     }
 }
+
+
+/* ==================================================
+   AJUSTE FINAL — PNG ÚNICO DE LAS DOS TECLAS ENTER
+   Se conserva el comportamiento JavaScript mediante
+   los IDs originales botonYaAcceso y botonNoAcceso.
+   ================================================== */
+
+.pantalla-acceso .acceso-opciones {
+    position: fixed;
+    z-index: 5005;
+    left: 50%;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    width: min(94vw, 540px);
+    max-width: 540px;
+    aspect-ratio: 3 / 1;
+    margin: 0;
+    padding: 0;
+    display: block;
+    overflow: visible;
+    background: transparent;
+}
+
+.pantalla-acceso .acceso-teclas-imagen {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,.34));
+}
+
+.pantalla-acceso .acceso-opcion {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    min-width: 0;
+    max-width: none;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    outline-offset: -5px;
+    background: transparent;
+    box-shadow: none;
+    filter: none;
+    cursor: pointer;
+    line-height: normal;
+    transition: transform .14s ease, filter .14s ease;
+}
+
+.pantalla-acceso #botonYaAcceso {
+    left: 0;
+}
+
+.pantalla-acceso #botonNoAcceso {
+    right: 0;
+}
+
+.pantalla-acceso .acceso-opcion img {
+    display: none !important;
+}
+
+.pantalla-acceso .acceso-opcion:hover {
+    transform: scale(1.015);
+    filter: none;
+}
+
+.pantalla-acceso .acceso-opcion:active {
+    transform: scale(.985);
+}
+
+.pantalla-acceso .acceso-opcion:focus-visible {
+    outline: 2px solid rgba(255,255,255,.95);
+    outline-offset: -7px;
+}
+
+/* Al mostrar el formulario, se ocultan las teclas como antes. */
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
+    display: none;
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(94vw, 430px);
+        bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+        aspect-ratio: 3 / 1;
+    }
+}
