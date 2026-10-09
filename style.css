@@ -4162,7 +4162,7 @@ body {
     left: 50% !important;
     right: auto !important;
     top: auto !important;
-    bottom: calc(245px + env(safe-area-inset-bottom, 0px)) !important;
+    bottom: calc(155px + env(safe-area-inset-bottom, 0px)) !important;
     width: 115px !important;
     max-width: 115px !important;
     margin: 0 !important;
@@ -4235,7 +4235,7 @@ body {
         bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
     }
     .pantalla-acceso .acceso-identidad {
-        bottom: calc(245px + env(safe-area-inset-bottom, 0px)) !important;
+        bottom: calc(155px + env(safe-area-inset-bottom, 0px)) !important;
     }
 }
 
@@ -4245,7 +4245,7 @@ body {
         bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
     }
     .pantalla-acceso .acceso-identidad {
-        bottom: calc(220px + env(safe-area-inset-bottom, 0px)) !important;
+        bottom: calc(140px + env(safe-area-inset-bottom, 0px)) !important;
         width: 105px !important;
         max-width: 105px !important;
     }
@@ -4314,20 +4314,13 @@ body {
     }
 }
 
-
 /* =========================================================
-   ÚNICO AJUSTE NUEVO — LOGO DEBAJO DE LAS TECLAS ENTER
-   - Se conserva el tamaño y la función de las teclas.
-   - Las teclas suben solo lo necesario para reservar
-     el espacio inferior del logo.
-   - El logo se oculta mientras el formulario está abierto.
-   - No se modifican el pizarrón ni la carta.
+   ÚNICO AJUSTE SOLICITADO — LOGO DEBAJO DE LAS TECLAS
+   Conserva el tamaño actual de las teclas y de la carta.
+   El formulario oculta el logo para evitar superposiciones.
    ========================================================= */
 
-.pantalla-acceso .acceso-opciones {
-    bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
-}
-
+/* Logo centrado en la franja inferior, debajo de las teclas. */
 .pantalla-acceso .acceso-identidad {
     position: fixed !important;
     z-index: 5006 !important;
@@ -4335,8 +4328,8 @@ body {
     right: auto !important;
     top: auto !important;
     bottom: calc(4px + env(safe-area-inset-bottom, 0px)) !important;
-    width: 82px !important;
-    max-width: 82px !important;
+    width: 76px !important;
+    max-width: 76px !important;
     height: auto !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -4347,40 +4340,58 @@ body {
 .pantalla-acceso .acceso-logo-hacetuapp {
     display: block !important;
     width: 100% !important;
-    max-width: 82px !important;
+    max-width: 76px !important;
     height: auto !important;
     margin: 0 auto !important;
     transform: none !important;
     pointer-events: none !important;
 }
 
-.pantalla-acceso:has(.panel-ingreso.visible) .acceso-identidad {
-    display: none !important;
+/* Se suben las teclas mediante bottom; NO se cambia su ancho,
+   aspect-ratio ni altura, para conservar sus dimensiones actuales. */
+.pantalla-acceso .acceso-opciones {
+    bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
 }
 
 @media (min-width: 721px) {
+    .pantalla-acceso .acceso-identidad {
+        width: 82px !important;
+        max-width: 82px !important;
+    }
+
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 82px !important;
+    }
+
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(104px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+}
+
+@media (max-width: 720px) {
     .pantalla-acceso .acceso-opciones {
         bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
-    }
-    .pantalla-acceso .acceso-identidad {
-        width: 95px !important;
-        max-width: 95px !important;
-    }
-    .pantalla-acceso .acceso-logo-hacetuapp {
-        max-width: 95px !important;
     }
 }
 
 @media (max-width: 470px) {
-    .pantalla-acceso .acceso-opciones {
-        bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
-    }
     .pantalla-acceso .acceso-identidad {
-        width: 76px !important;
-        max-width: 76px !important;
+        width: 68px !important;
+        max-width: 68px !important;
         bottom: calc(3px + env(safe-area-inset-bottom, 0px)) !important;
     }
+
     .pantalla-acceso .acceso-logo-hacetuapp {
-        max-width: 76px !important;
+        max-width: 68px !important;
     }
+
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(78px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+}
+
+/* El logo desaparece mientras el formulario está abierto,
+   así no invade sus campos ni sus botones. */
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-identidad {
+    display: none !important;
 }
