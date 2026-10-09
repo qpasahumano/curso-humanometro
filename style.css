@@ -4162,7 +4162,7 @@ body {
     left: 50% !important;
     right: auto !important;
     top: auto !important;
-    bottom: calc(155px + env(safe-area-inset-bottom, 0px)) !important;
+    bottom: calc(245px + env(safe-area-inset-bottom, 0px)) !important;
     width: 115px !important;
     max-width: 115px !important;
     margin: 0 !important;
@@ -4235,7 +4235,7 @@ body {
         bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
     }
     .pantalla-acceso .acceso-identidad {
-        bottom: calc(155px + env(safe-area-inset-bottom, 0px)) !important;
+        bottom: calc(245px + env(safe-area-inset-bottom, 0px)) !important;
     }
 }
 
@@ -4245,7 +4245,7 @@ body {
         bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
     }
     .pantalla-acceso .acceso-identidad {
-        bottom: calc(140px + env(safe-area-inset-bottom, 0px)) !important;
+        bottom: calc(220px + env(safe-area-inset-bottom, 0px)) !important;
         width: 105px !important;
         max-width: 105px !important;
     }
@@ -4263,49 +4263,24 @@ body {
 }
 
 /* ==================================================
-   AJUSTE SOLICITADO — TECLAS AL 50% DEL TAMAÑO ACTUAL
-   No modifica carta, logo, botones funcionales ni JavaScript.
-   ================================================== */
-.pantalla-acceso .acceso-opciones {
-    width: min(47vw, 270px) !important;
-    max-width: 270px !important;
-}
-
-@media (max-width: 720px) {
-    .pantalla-acceso .acceso-opciones {
-        width: min(47vw, 250px) !important;
-        max-width: 250px !important;
-    }
-}
-
-@media (max-width: 470px) {
-    .pantalla-acceso .acceso-opciones {
-        width: min(47vw, 210px) !important;
-        max-width: 210px !important;
-    }
-}
-
-
-/* ==================================================
-   CORRECCIÓN QUIRÚRGICA SOLICITADA
-   Quitar desplazamiento vertical de la pantalla de acceso
-   y subir las teclas un poco. No cambiar tamaños ni carta.
+   AJUSTE FINAL SOLICITADO — BLOQUEAR DESLIZAMIENTO VERTICAL
+   Se conserva el resto de la matriz y el comportamiento de los botones.
    ================================================== */
 html,
 body {
     overflow: hidden !important;
     overflow-x: hidden !important;
     overflow-y: hidden !important;
+    overscroll-behavior: none !important;
+    touch-action: none !important;
 }
 
 .pantalla-acceso {
-    position: fixed !important;
-    inset: 0 !important;
-    height: 100dvh !important;
     overflow: hidden !important;
     overflow-x: hidden !important;
     overflow-y: hidden !important;
     overscroll-behavior: none !important;
+    touch-action: none !important;
 }
 
 .pantalla-acceso .acceso-escena {
@@ -4314,8 +4289,98 @@ body {
     max-height: 100dvh !important;
     overflow: hidden !important;
     overscroll-behavior: none !important;
+    touch-action: none !important;
 }
 
+.pantalla-acceso .acceso-carta {
+    overscroll-behavior: none !important;
+    touch-action: none !important;
+}
+
+/* Las teclas conservan su tamaño y se levantan apenas 10 px. */
 .pantalla-acceso .acceso-opciones {
     bottom: calc(30px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+@media (max-width: 720px) {
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(30px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(28px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+}
+
+
+/* =========================================================
+   ÚNICO AJUSTE NUEVO — LOGO DEBAJO DE LAS TECLAS ENTER
+   - Se conserva el tamaño y la función de las teclas.
+   - Las teclas suben solo lo necesario para reservar
+     el espacio inferior del logo.
+   - El logo se oculta mientras el formulario está abierto.
+   - No se modifican el pizarrón ni la carta.
+   ========================================================= */
+
+.pantalla-acceso .acceso-opciones {
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+.pantalla-acceso .acceso-identidad {
+    position: fixed !important;
+    z-index: 5006 !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: calc(4px + env(safe-area-inset-bottom, 0px)) !important;
+    width: 82px !important;
+    max-width: 82px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateX(-50%) !important;
+    pointer-events: none !important;
+}
+
+.pantalla-acceso .acceso-logo-hacetuapp {
+    display: block !important;
+    width: 100% !important;
+    max-width: 82px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    pointer-events: none !important;
+}
+
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-identidad {
+    display: none !important;
+}
+
+@media (min-width: 721px) {
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .pantalla-acceso .acceso-identidad {
+        width: 95px !important;
+        max-width: 95px !important;
+    }
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 95px !important;
+    }
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .pantalla-acceso .acceso-identidad {
+        width: 76px !important;
+        max-width: 76px !important;
+        bottom: calc(3px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 76px !important;
+    }
 }
