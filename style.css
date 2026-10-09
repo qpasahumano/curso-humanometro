@@ -3841,41 +3841,47 @@ body {
     }
 }
 
+
 /* ==================================================
-   AJUSTE QUIRÚRGICO — PNG ÚNICO DE LAS DOS TECLAS
-   No modifica la carta ni agrega scroll.
-   Conserva los IDs que utiliza el JavaScript.
+   AJUSTE FINAL — PNG ÚNICO DE LAS DOS TECLAS ENTER
+   Se conserva el comportamiento JavaScript mediante
+   los IDs originales botonYaAcceso y botonNoAcceso.
    ================================================== */
 
 .pantalla-acceso .acceso-opciones {
     position: fixed;
     z-index: 5005;
     left: 50%;
-    bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     transform: translateX(-50%);
     width: min(94vw, 540px);
     max-width: 540px;
     aspect-ratio: 3 / 1;
-    height: auto;
     margin: 0;
     padding: 0;
     display: block;
     overflow: visible;
-    background: transparent url("a_clean_png_style_graphic_on_a_transparent_checker.png") center / 100% 100% no-repeat;
+    background: transparent;
 }
 
-/* La imagen se pinta como fondo del contenedor para que no dependa
-   de que el HTML tenga un <img> adicional. Si existe, se oculta. */
 .pantalla-acceso .acceso-teclas-imagen {
-    display: none !important;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,.34));
 }
 
-.pantalla-acceso .acceso-opciones > img {
-    display: none !important;
-}
-
-/* Dos zonas transparentes, cada una cubre una tecla del PNG. */
-.pantalla-acceso .acceso-opciones .acceso-opcion {
+.pantalla-acceso .acceso-opcion {
     position: absolute;
     z-index: 2;
     top: 0;
@@ -3891,7 +3897,111 @@ body {
     display: block;
     border: 0;
     border-radius: 0;
-    outline: none;
+    outline-offset: -5px;
+    background: transparent;
+    box-shadow: none;
+    filter: none;
+    cursor: pointer;
+    line-height: normal;
+    transition: transform .14s ease, filter .14s ease;
+}
+
+.pantalla-acceso #botonYaAcceso {
+    left: 0;
+}
+
+.pantalla-acceso #botonNoAcceso {
+    right: 0;
+}
+
+.pantalla-acceso .acceso-opcion img {
+    display: none !important;
+}
+
+.pantalla-acceso .acceso-opcion:hover {
+    transform: scale(1.015);
+    filter: none;
+}
+
+.pantalla-acceso .acceso-opcion:active {
+    transform: scale(.985);
+}
+
+.pantalla-acceso .acceso-opcion:focus-visible {
+    outline: 2px solid rgba(255,255,255,.95);
+    outline-offset: -7px;
+}
+
+/* Al mostrar el formulario, se ocultan las teclas como antes. */
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
+    display: none;
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(94vw, 430px);
+        bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+        aspect-ratio: 3 / 1;
+    }
+}
+
+
+/* ==================================================
+   CORRECCIÓN REAL — TECLAS PNG SIN TEXTO HTML VISIBLE
+   Mantiene los IDs y los eventos JavaScript existentes.
+   ================================================== */
+
+.pantalla-acceso .acceso-opciones {
+    position: fixed;
+    z-index: 5005;
+    left: 50%;
+    bottom: calc(26px + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    width: min(94vw, 540px);
+    max-width: 540px;
+    aspect-ratio: 3 / 1;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+    overflow: visible;
+    background: transparent;
+}
+
+.pantalla-acceso .acceso-teclas-imagen {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,.34));
+}
+
+.pantalla-acceso .acceso-opcion {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    min-width: 0;
+    max-width: none;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    outline-offset: -5px;
     background: transparent !important;
     box-shadow: none !important;
     filter: none !important;
@@ -3905,8 +4015,10 @@ body {
     transition: transform .14s ease;
 }
 
-.pantalla-acceso .acceso-opciones .acceso-opcion,
-.pantalla-acceso .acceso-opciones .acceso-opcion * {
+/* Oculta cualquier span/texto de la versión anterior del botón,
+   para que solo se vea la tipografía dibujada dentro del PNG. */
+.pantalla-acceso .acceso-opcion,
+.pantalla-acceso .acceso-opcion * {
     color: transparent !important;
     font-size: 0 !important;
     text-shadow: none !important;
@@ -3920,87 +4032,255 @@ body {
     right: 0;
 }
 
-.pantalla-acceso .acceso-opciones .acceso-opcion img {
+.pantalla-acceso .acceso-opcion img {
     display: none !important;
 }
 
-.pantalla-acceso .acceso-opciones .acceso-opcion:hover {
+.pantalla-acceso .acceso-opcion:hover {
     transform: scale(1.01);
 }
 
-.pantalla-acceso .acceso-opciones .acceso-opcion:active {
+.pantalla-acceso .acceso-opcion:active {
     transform: scale(.985);
 }
 
-.pantalla-acceso .acceso-opciones .acceso-opcion:focus-visible {
+.pantalla-acceso .acceso-opcion:focus-visible {
     outline: 2px solid rgba(255,255,255,.95);
     outline-offset: -7px;
 }
 
-/* Subimos el logo para dejar aire visible entre logo y teclas.
-   No se altera el archivo PNG del logo ni su tamaño. */
-.pantalla-acceso .acceso-identidad {
-    position: fixed;
-    z-index: 5010;
-    left: 50%;
-    right: auto;
-    top: auto;
-    bottom: clamp(155px, 45vw, 190px);
-    width: 115px;
-    max-width: 115px;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(-50%);
-    pointer-events: none;
-}
-
-.pantalla-acceso .acceso-logo-hacetuapp {
-    display: block;
-    width: 115px;
-    max-width: 115px;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    transform: rotate(7deg);
-    pointer-events: none;
-}
-
-/* Al abrir el formulario, las teclas y el logo desaparecen,
-   igual que el comportamiento previo de la pantalla de acceso. */
-.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones,
-.pantalla-acceso:has(.panel-ingreso.visible) .acceso-identidad {
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
     display: none !important;
-}
-
-@media (max-width: 720px) {
-    .pantalla-acceso .acceso-opciones {
-        width: min(94vw, 540px);
-        bottom: calc(22px + env(safe-area-inset-bottom, 0px));
-    }
-
-    .pantalla-acceso .acceso-identidad {
-        bottom: clamp(155px, 45vw, 190px);
-    }
 }
 
 @media (max-width: 470px) {
     .pantalla-acceso .acceso-opciones {
         width: min(94vw, 430px);
-        bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(26px + env(safe-area-inset-bottom, 0px));
+        aspect-ratio: 3 / 1;
     }
+}
 
+
+/* ==================================================
+   CORRECCIÓN QUIRÚRGICA FINAL — TECLAS DE ACCESO
+   No modifica el resto de la interfaz ni agrega scroll a la carta.
+   ================================================== */
+
+/* La imagen completa de las dos teclas se dibuja desde CSS.
+   Así no depende de agregar una etiqueta <img> al HTML. */
+.pantalla-acceso .acceso-opciones {
+    position: fixed !important;
+    z-index: 5005 !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+    transform: translateX(-50%) !important;
+    width: min(94vw, 540px) !important;
+    max-width: 540px !important;
+    height: auto !important;
+    aspect-ratio: 3 / 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+    gap: 0 !important;
+    background-color: transparent !important;
+    background-image: url("a_clean_png_style_graphic_on_a_transparent_checker.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+}
+
+/* Zonas de clic transparentes encima de cada tecla dibujada.
+   El texto viejo queda oculto y no puede aparecer en negro. */
+.pantalla-acceso .acceso-opcion,
+.pantalla-acceso .acceso-opcion:link,
+.pantalla-acceso .acceso-opcion:visited {
+    position: absolute !important;
+    z-index: 2 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 50% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline-offset: -5px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    text-indent: -9999px !important;
+    text-shadow: none !important;
+    cursor: pointer !important;
+}
+
+.pantalla-acceso #botonYaAcceso {
+    left: 0 !important;
+    right: auto !important;
+}
+
+.pantalla-acceso #botonNoAcceso {
+    left: 50% !important;
+    right: 0 !important;
+}
+
+.pantalla-acceso .acceso-opcion *,
+.pantalla-acceso .acceso-opcion img {
+    display: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    text-shadow: none !important;
+}
+
+.pantalla-acceso .acceso-opcion:hover,
+.pantalla-acceso .acceso-opcion:active {
+    transform: none !important;
+    filter: none !important;
+}
+
+.pantalla-acceso .acceso-opcion:focus-visible {
+    outline: 2px solid rgba(255,255,255,.95) !important;
+    outline-offset: -7px !important;
+}
+
+/* Logo encima de las teclas, con separación visible entre ambos. */
+.pantalla-acceso .acceso-identidad {
+    position: fixed !important;
+    z-index: 5010 !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: calc(155px + env(safe-area-inset-bottom, 0px)) !important;
+    width: 115px !important;
+    max-width: 115px !important;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+    pointer-events: none !important;
+}
+
+.pantalla-acceso .acceso-logo-hacetuapp {
+    display: block !important;
+    width: 115px !important;
+    max-width: 115px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: rotate(7deg) !important;
+    pointer-events: none !important;
+}
+
+/* Restaurar la carta tal como está definida en la matriz compartida:
+   sin caja de scroll, sin altura forzada y sin indicadores añadidos. */
+.pantalla-acceso .acceso-carta {
+    position: relative !important;
+    z-index: 25 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 24px auto 92px !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    clip-path: none !important;
+    isolation: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+    -webkit-overflow-scrolling: auto !important;
+    touch-action: auto !important;
+}
+
+.pantalla-acceso .acceso-carta-imagen {
+    display: block !important;
+    width: min(100%, 300px) !important;
+    max-width: 300px !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    pointer-events: none !important;
+}
+
+.pantalla-acceso .acceso-carta::after,
+.pantalla-acceso::after {
+    content: none !important;
+    display: none !important;
+}
+
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
+    display: none !important;
+}
+
+@media (max-width: 720px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(94vw, 500px) !important;
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+    }
     .pantalla-acceso .acceso-identidad {
-        bottom: clamp(155px, 45vw, 190px);
-        width: 115px;
-        max-width: 115px;
+        bottom: calc(155px + env(safe-area-inset-bottom, 0px)) !important;
     }
+}
 
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(94vw, 420px) !important;
+        bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .pantalla-acceso .acceso-identidad {
+        bottom: calc(140px + env(safe-area-inset-bottom, 0px)) !important;
+        width: 105px !important;
+        max-width: 105px !important;
+    }
     .pantalla-acceso .acceso-logo-hacetuapp {
-        width: 115px;
-        max-width: 115px;
+        width: 105px !important;
+        max-width: 105px !important;
+    }
+    .pantalla-acceso .acceso-carta {
+        margin: 16px auto 92px !important;
+    }
+    .pantalla-acceso .acceso-carta-imagen {
+        width: min(100%, 275px) !important;
+        max-width: 275px !important;
+    }
+}
+
+/* ==================================================
+   AJUSTE SOLICITADO — TECLAS AL 50% DEL TAMAÑO ACTUAL
+   No modifica carta, logo, botones funcionales ni JavaScript.
+   ================================================== */
+.pantalla-acceso .acceso-opciones {
+    width: min(47vw, 270px) !important;
+    max-width: 270px !important;
+}
+
+@media (max-width: 720px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(47vw, 250px) !important;
+        max-width: 250px !important;
+    }
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(47vw, 210px) !important;
+        max-width: 210px !important;
     }
 }
