@@ -4284,3 +4284,38 @@ body {
         max-width: 210px !important;
     }
 }
+
+
+/* ==================================================
+   CORRECCIÓN QUIRÚRGICA SOLICITADA
+   Quitar desplazamiento vertical de la pantalla de acceso
+   y subir las teclas un poco. No cambiar tamaños ni carta.
+   ================================================== */
+html,
+body {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+.pantalla-acceso {
+    position: fixed !important;
+    inset: 0 !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    overscroll-behavior: none !important;
+}
+
+.pantalla-acceso .acceso-escena {
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+}
+
+.pantalla-acceso .acceso-opciones {
+    bottom: calc(30px + env(safe-area-inset-bottom, 0px)) !important;
+}
