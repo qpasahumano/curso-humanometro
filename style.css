@@ -4468,22 +4468,270 @@ body {
 
 
 /* =========================================================
-   AJUSTE DEFINITIVO — INTERFAZ DE ACCESO HACETUAPP.COM
-   Orden: PIZARRÓN → CARTA → ESPACIO → BOTONES → LOGO
-   Los cambios de este bloque afectan exclusivamente la pantalla de acceso.
-   El interior del curso y su funcionalidad permanecen sin modificar.
+   AJUSTE FINAL CONFIRMADO — PANTALLA DE ACCESO
+   Orden visual: PIZARRÓN → CARTA → TECLAS → LOGO
+   Solo afecta la pantalla previa de acceso.
+   No modifica el interior del curso ni HTML/JavaScript.
    ========================================================= */
 
-/* Pantalla principal: encajada en el viewport, sin scroll vertical general. */
+/* Orden de los elementos dentro de la escena de acceso. */
+.pantalla-acceso .acceso-pizarron {
+    order: 0 !important;
+}
+
+.pantalla-acceso .acceso-carta {
+    order: 1 !important;
+    position: relative !important;
+    width: min(100%, 340px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 auto 10px !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    clip-path: none !important;
+    isolation: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+    -webkit-overflow-scrolling: auto !important;
+    touch-action: auto !important;
+    anchor-name: --carta-acceso-final;
+}
+
+.pantalla-acceso .acceso-carta-imagen {
+    display: block !important;
+    width: min(100%, 300px) !important;
+    max-width: 300px !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    pointer-events: none !important;
+}
+
+.pantalla-acceso .acceso-carta::after,
+.pantalla-acceso::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Las teclas van debajo de la carta, con un espacio visible.
+   Se conserva el tamaño reducido solicitado en el bloque compartido. */
+.pantalla-acceso .acceso-opciones {
+    order: 2 !important;
+    position: fixed !important;
+    z-index: 5005 !important;
+    position-anchor: --carta-acceso-final;
+    top: anchor(bottom) !important;
+    bottom: auto !important;
+    left: anchor(center) !important;
+    right: auto !important;
+    margin-top: 10px !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    transform: translateX(-50%) !important;
+    width: min(47vw, 270px) !important;
+    max-width: 270px !important;
+    height: auto !important;
+    aspect-ratio: 3 / 1 !important;
+    display: block !important;
+    overflow: visible !important;
+    gap: 0 !important;
+    background-color: transparent !important;
+}
+
+/* Cada mitad conserva su zona de clic y los IDs originales. */
+.pantalla-acceso .acceso-opcion,
+.pantalla-acceso .acceso-opcion:link,
+.pantalla-acceso .acceso-opcion:visited {
+    position: absolute !important;
+    z-index: 2 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 50% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline-offset: -5px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    text-indent: -9999px !important;
+    text-shadow: none !important;
+    cursor: pointer !important;
+    transform: none !important;
+}
+
+.pantalla-acceso #botonYaAcceso {
+    left: 0 !important;
+    right: auto !important;
+}
+
+.pantalla-acceso #botonNoAcceso {
+    left: 50% !important;
+    right: 0 !important;
+}
+
+.pantalla-acceso .acceso-opcion *,
+.pantalla-acceso .acceso-opcion img {
+    display: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    text-shadow: none !important;
+}
+
+.pantalla-acceso .acceso-opcion:focus-visible {
+    outline: 2px solid rgba(255,255,255,.95) !important;
+    outline-offset: -7px !important;
+}
+
+/* El logo queda debajo de las teclas, con un espacio pequeño. */
+.pantalla-acceso .acceso-identidad {
+    order: 3 !important;
+    position: fixed !important;
+    z-index: 5006 !important;
+    position-anchor: --teclas-acceso-final;
+    top: anchor(bottom) !important;
+    bottom: auto !important;
+    left: anchor(center) !important;
+    right: auto !important;
+    margin-top: 6px !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    transform: translateX(-50%) !important;
+    width: 84.46px !important;
+    max-width: 84.46px !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    pointer-events: none !important;
+}
+
+.pantalla-acceso .acceso-opciones {
+    anchor-name: --teclas-acceso-final;
+}
+
+.pantalla-acceso .acceso-logo-hacetuapp {
+    display: block !important;
+    width: 100% !important;
+    max-width: 84.46px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    transform: none !important;
+    pointer-events: none !important;
+}
+
+/* No se muestran las teclas ni el logo con el formulario abierto. */
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones,
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-identidad {
+    display: none !important;
+}
+
+@media (max-width: 720px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(47vw, 250px) !important;
+        max-width: 250px !important;
+    }
+
+    .pantalla-acceso .acceso-identidad {
+        width: 78.28px !important;
+        max-width: 78.28px !important;
+    }
+
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 78.28px !important;
+    }
+}
+
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(47vw, 210px) !important;
+        max-width: 210px !important;
+    }
+
+    .pantalla-acceso .acceso-identidad {
+        width: 70.04px !important;
+        max-width: 70.04px !important;
+    }
+
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 70.04px !important;
+    }
+}
+
+/* Alternativa para navegadores sin CSS Anchor Positioning:
+   mantiene el orden vertical sin alterar el interior del curso. */
+@supports not (anchor-name: --carta-acceso-final) {
+    .pantalla-acceso .acceso-escena {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .pantalla-acceso .acceso-opciones {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin: 10px auto 0 !important;
+        transform: none !important;
+    }
+
+    .pantalla-acceso .acceso-identidad {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin: 6px auto 0 !important;
+        transform: none !important;
+    }
+}
+
+
+/* =========================================================
+   AJUSTE DEFINITIVO — INTERFAZ MÓVIL HACETUAPP.COM
+   Referencia visual: pizarrón, carta completa, espacio,
+   dos teclas proporcionadas y logotipo centrado debajo.
+   Alcance exclusivo: pantalla de acceso y autenticación.
+   ========================================================= */
+
 .pantalla-acceso {
     position: fixed !important;
     inset: 0 !important;
     width: 100% !important;
     height: 100vh !important;
     height: 100dvh !important;
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
-    overscroll-behavior: none !important;
+    overflow: hidden !important;
+    background-image: url("pupitre_humanometro_fondo.png") !important;
+    background-size: 100% 100% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
 }
 
 .pantalla-acceso .acceso-escena {
@@ -4498,27 +4746,24 @@ body {
     height: 100vh !important;
     height: 100dvh !important;
     min-height: 0 !important;
-    max-height: 100vh !important;
     max-height: 100dvh !important;
     margin: 0 auto !important;
-    padding: clamp(4px, 1.2vh, 12px) 10px 5px !important;
+    padding: 1vh 8px 4px !important;
     overflow: hidden !important;
 }
 
-/* El contenedor intermedio deja que carta y logotipo ocupen su propio
-   lugar en la columna, sin usar posiciones absolutas ni superponerlos. */
 .pantalla-acceso .acceso-carta-zona {
     display: contents !important;
 }
 
+/* PIZARRÓN */
 .pantalla-acceso .acceso-pizarron {
     position: relative !important;
     order: 0 !important;
     flex: 0 0 auto !important;
     width: 100% !important;
     max-width: 100% !important;
-    height: auto !important;
-    margin: 0 auto clamp(2px, .6vh, 7px) !important;
+    margin: 0 auto .5vh !important;
     padding: 0 !important;
     display: flex !important;
     justify-content: center !important;
@@ -4528,53 +4773,56 @@ body {
 
 .pantalla-acceso .acceso-pizarron-imagen {
     display: block !important;
-    width: min(112%, 1100px) !important;
+    width: min(112%, 850px) !important;
     max-width: none !important;
     height: auto !important;
-    max-height: clamp(48px, 13vh, 112px) !important;
+    max-height: 13vh !important;
     margin: 0 -6% !important;
     object-fit: contain !important;
     object-position: center !important;
 }
 
-/* La carta conserva su PNG y proporción. Su tamaño responde a la altura
-   disponible para no empujar las teclas ni el logotipo fuera de pantalla. */
+/* CARTA COMPLETA: sin altura forzada, recorte ni scroll interno. */
 .pantalla-acceso .acceso-carta {
     position: relative !important;
     order: 1 !important;
     flex: 0 1 auto !important;
     width: min(100%, 340px) !important;
+    height: auto !important;
     min-width: 0 !important;
     min-height: 0 !important;
-    height: auto !important;
     max-height: none !important;
-    margin: 0 auto clamp(7px, 1.5vh, 14px) !important;
+    margin: 0 auto 1vh !important;
     padding: 0 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     overflow: visible !important;
     clip-path: none !important;
+    isolation: auto !important;
     background: transparent !important;
     border: 0 !important;
     box-shadow: none !important;
-    touch-action: auto !important;
     anchor-name: none !important;
+    pointer-events: none !important;
+    touch-action: auto !important;
 }
 
 .pantalla-acceso .acceso-carta-imagen {
     display: block !important;
-    width: min(100%, clamp(165px, 36vh, 285px)) !important;
-    max-width: 285px !important;
-    max-height: 47vh !important;
+    width: auto !important;
+    max-width: min(100%, 285px) !important;
     height: auto !important;
+    max-height: 57vh !important;
     margin: 0 auto !important;
+    padding: 0 !important;
     object-fit: contain !important;
     object-position: center !important;
+    filter: drop-shadow(2px 3px 3px rgba(0,0,0,.38)) !important;
+    pointer-events: none !important;
 }
 
-/* Las teclas usan la imagen de fondo original del bloque de opciones.
-   Las zonas de clic mantienen los IDs que espera el JavaScript. */
+/* TECLAS: conserva la imagen de fondo original y los IDs de JavaScript. */
 .pantalla-acceso .acceso-opciones {
     position: relative !important;
     order: 2 !important;
@@ -4584,19 +4832,23 @@ body {
     right: auto !important;
     bottom: auto !important;
     left: auto !important;
-    margin: 0 auto clamp(4px, .9vh, 8px) !important;
-    padding: 0 !important;
     transform: none !important;
-    width: min(46vw, 245px) !important;
-    max-width: 245px !important;
+    width: min(76vw, 340px) !important;
+    max-width: 340px !important;
     min-width: 0 !important;
     height: auto !important;
     aspect-ratio: 3 / 1 !important;
+    margin: 0 auto .5vh !important;
+    padding: 0 !important;
     display: block !important;
     overflow: visible !important;
     gap: 0 !important;
-    anchor-name: none !important;
     background-color: transparent !important;
+    background-image: url("a_clean_png_style_graphic_on_a_transparent_checker.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+    anchor-name: none !important;
 }
 
 .pantalla-acceso .acceso-opcion,
@@ -4618,6 +4870,7 @@ body {
     overflow: hidden !important;
     border: 0 !important;
     border-radius: 0 !important;
+    outline-offset: -5px !important;
     background: transparent !important;
     box-shadow: none !important;
     filter: none !important;
@@ -4653,7 +4906,7 @@ body {
     outline-offset: -5px !important;
 }
 
-/* Logotipo original centrado después de las teclas, en el flujo normal. */
+/* LOGOTIPO: flujo normal, centrado y debajo de las teclas. */
 .pantalla-acceso .acceso-identidad {
     position: relative !important;
     order: 3 !important;
@@ -4663,8 +4916,8 @@ body {
     right: auto !important;
     bottom: auto !important;
     left: auto !important;
-    width: clamp(56px, 10vh, 78px) !important;
-    max-width: 78px !important;
+    width: clamp(65px, 10vh, 85px) !important;
+    max-width: 85px !important;
     height: auto !important;
     margin: 0 auto !important;
     padding: 0 !important;
@@ -4686,24 +4939,19 @@ body {
     pointer-events: none !important;
 }
 
-/* Los textos HTML superpuestos a las teclas no se muestran: se conserva
-   la gráfica original y desaparecen los textos negros inferiores. */
-.pantalla-acceso .acceso-opciones .tecla-texto,
-.pantalla-acceso .acceso-opciones .tecla-texto-secundario,
-.pantalla-acceso .acceso-opciones .tecla-texto-terciario {
-    display: none !important;
-}
-
+/* Oculta textos HTML heredados e indicadores inferiores no deseados. */
 .pantalla-acceso .acceso-carta::after,
 .pantalla-acceso::after,
 .pantalla-acceso .acceso-identidad::after,
-.pantalla-acceso .acceso-opciones::before {
+.pantalla-acceso .acceso-opciones::before,
+.pantalla-acceso .tecla-texto,
+.pantalla-acceso .tecla-texto-secundario,
+.pantalla-acceso .tecla-texto-terciario {
     content: none !important;
     display: none !important;
 }
 
-/* Formularios: se ocultan las teclas y el logo mientras se autentica,
-   y el panel dispone del alto útil sin quedar cortado. */
+/* FORMULARIOS: no se superponen con las teclas ni con el logotipo. */
 .pantalla-acceso:has(.panel-ingreso.visible) {
     overflow-x: hidden !important;
     overflow-y: auto !important;
@@ -4730,16 +4978,17 @@ body {
 }
 
 .pantalla-acceso:has(.panel-ingreso.visible) .acceso-pizarron-imagen {
-    max-height: clamp(35px, 8vh, 70px) !important;
+    max-height: 8vh !important;
 }
 
 .pantalla-acceso:has(.panel-ingreso.visible) .acceso-carta {
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
 }
 
 .pantalla-acceso:has(.panel-ingreso.visible) .acceso-carta-imagen {
-    width: min(100%, clamp(115px, 22vh, 180px)) !important;
-    max-height: 23vh !important;
+    width: auto !important;
+    max-width: min(100%, 150px) !important;
+    max-height: 19vh !important;
 }
 
 .pantalla-acceso .panel-ingreso {
@@ -4761,6 +5010,7 @@ body {
 }
 
 .pantalla-acceso .panel-ingreso-contenido label {
+    display: block !important;
     margin-bottom: 4px !important;
     font-size: 13px !important;
 }
@@ -4778,7 +5028,9 @@ body {
 .pantalla-acceso .boton-cerrar-ingreso,
 .pantalla-acceso #botonCrearCuenta {
     box-sizing: border-box !important;
+    width: 100% !important;
     max-width: 100% !important;
+    min-height: 40px !important;
     white-space: normal !important;
 }
 
@@ -4786,32 +5038,7 @@ body {
     overflow-wrap: anywhere !important;
 }
 
-/* Adaptación a pantallas bajas: se reduce la carta y el conjunto de teclas
-   proporcionalmente, sin cambiar los PNG ni su relación de aspecto. */
-@media (max-height: 700px) {
-    .pantalla-acceso .acceso-pizarron-imagen {
-        max-height: 10vh !important;
-    }
-
-    .pantalla-acceso .acceso-carta {
-        margin-bottom: 6px !important;
-    }
-
-    .pantalla-acceso .acceso-carta-imagen {
-        width: min(100%, 31vh, 255px) !important;
-        max-height: 39vh !important;
-    }
-
-    .pantalla-acceso .acceso-opciones {
-        width: min(44vw, 215px) !important;
-        margin-bottom: 4px !important;
-    }
-
-    .pantalla-acceso .acceso-identidad {
-        width: clamp(50px, 8vh, 65px) !important;
-    }
-}
-
+/* TELÉFONOS: escala proporcional con prioridad a la carta completa. */
 @media (max-width: 720px) {
     .pantalla-acceso .acceso-escena {
         padding-right: 7px !important;
@@ -4820,7 +5047,7 @@ body {
 
     .pantalla-acceso .acceso-pizarron-imagen {
         width: min(112%, 850px) !important;
-        max-height: clamp(44px, 11vh, 82px) !important;
+        max-height: 12vh !important;
     }
 
     .pantalla-acceso .acceso-carta {
@@ -4828,50 +5055,71 @@ body {
     }
 
     .pantalla-acceso .acceso-carta-imagen {
-        width: min(100%, clamp(155px, 34vh, 250px)) !important;
-        max-height: 43vh !important;
+        max-width: min(100%, 285px) !important;
+        max-height: 57vh !important;
     }
 
     .pantalla-acceso .acceso-opciones {
-        width: min(46vw, 220px) !important;
-        max-width: 220px !important;
+        width: min(76vw, 300px) !important;
+        max-width: 300px !important;
     }
 
     .pantalla-acceso .acceso-identidad {
-        width: clamp(54px, 9vh, 70px) !important;
-        max-width: 70px !important;
+        width: clamp(58px, 9vh, 76px) !important;
+        max-width: 76px !important;
     }
 }
 
 @media (max-width: 470px) {
+    .pantalla-acceso .acceso-escena {
+        padding: .5vh 5px 3px !important;
+    }
+
     .pantalla-acceso .acceso-pizarron-imagen {
         width: min(112%, 620px) !important;
-        max-height: clamp(38px, 9vh, 65px) !important;
+        max-height: 11vh !important;
     }
 
     .pantalla-acceso .acceso-carta {
-        width: min(100%, 270px) !important;
-        margin-bottom: 6px !important;
+        width: min(100%, 300px) !important;
+        margin-bottom: .8vh !important;
     }
 
     .pantalla-acceso .acceso-carta-imagen {
-        width: min(100%, clamp(140px, 31vh, 220px)) !important;
-        max-height: 39vh !important;
+        max-width: min(100%, 285px) !important;
+        max-height: 57vh !important;
     }
 
     .pantalla-acceso .acceso-opciones {
-        width: min(46vw, 195px) !important;
-        max-width: 195px !important;
-        margin-bottom: 4px !important;
+        width: min(76vw, 285px) !important;
+        max-width: 285px !important;
     }
 
     .pantalla-acceso .acceso-identidad {
-        width: clamp(48px, 8vh, 62px) !important;
-        max-width: 62px !important;
+        width: clamp(56px, 8vh, 70px) !important;
+        max-width: 70px !important;
     }
 
     .pantalla-acceso .panel-ingreso {
         width: min(100%, 315px) !important;
+    }
+}
+
+@media (max-height: 700px) {
+    .pantalla-acceso .acceso-pizarron-imagen {
+        max-height: 10vh !important;
+    }
+
+    .pantalla-acceso .acceso-carta-imagen {
+        max-height: 53vh !important;
+    }
+
+    .pantalla-acceso .acceso-opciones {
+        width: min(72vw, 270px) !important;
+    }
+
+    .pantalla-acceso .acceso-identidad {
+        width: clamp(50px, 8vh, 65px) !important;
     }
 }
 
