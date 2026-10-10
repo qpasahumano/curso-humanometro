@@ -4308,8 +4308,8 @@ body {
     bottom: auto !important;
     left: auto !important;
     flex: 0 0 auto !important;
-    width: 86.99px !important;
-    max-width: 86.99px !important;
+    width: 89.60px !important;
+    max-width: 89.60px !important;
     height: auto !important;
     margin: 0 auto !important;
     padding: 0 !important;
@@ -4323,7 +4323,7 @@ body {
 .pantalla-acceso .acceso-logo-hacetuapp {
     display: block !important;
     width: 100% !important;
-    max-width: 86.99px !important;
+    max-width: 89.60px !important;
     height: auto !important;
     margin: 0 auto !important;
     padding: 0 !important;
@@ -4350,12 +4350,12 @@ body {
     }
 
     .pantalla-acceso .acceso-identidad {
-        width: 80.63px !important;
-        max-width: 80.63px !important;
+        width: 83.05px !important;
+        max-width: 83.05px !important;
     }
 
     .pantalla-acceso .acceso-logo-hacetuapp {
-        max-width: 80.63px !important;
+        max-width: 83.05px !important;
     }
 }
 
@@ -4380,12 +4380,12 @@ body {
     }
 
     .pantalla-acceso .acceso-identidad {
-        width: 72.14px !important;
-        max-width: 72.14px !important;
+        width: 74.30px !important;
+        max-width: 74.30px !important;
     }
 
     .pantalla-acceso .acceso-logo-hacetuapp {
-        max-width: 72.14px !important;
+        max-width: 74.30px !important;
     }
 
     .pantalla-acceso:has(.panel-ingreso.visible) .panel-ingreso {
@@ -4397,7 +4397,7 @@ body {
 /* =========================================================
    AJUSTE QUIRÚRGICO — FORMULARIO MÓVIL Y TECLADO
    Solo afecta al panel de acceso mientras está abierto.
-   No modifica el interior del curso ni sus funciones.
+   El resto de la pantalla y el interior del curso quedan intactos.
    ========================================================= */
 
 .pantalla-acceso:has(.panel-ingreso.visible) {
@@ -4421,13 +4421,13 @@ body {
 .pantalla-acceso:has(.panel-ingreso.visible) .panel-ingreso {
     position: fixed !important;
     z-index: 7000 !important;
-    top: max(8px, env(safe-area-inset-top, 0px)) !important;
+    top: max(6px, env(safe-area-inset-top, 0px)) !important;
     right: 8px !important;
     bottom: auto !important;
     left: 8px !important;
-    width: min(100% - 16px, 360px) !important;
+    width: min(calc(100% - 16px), 360px) !important;
     max-width: 360px !important;
-    max-height: 52dvh !important;
+    max-height: calc(100dvh - max(12px, env(safe-area-inset-top, 0px) + 6px)) !important;
     margin: 0 auto !important;
     overflow-x: hidden !important;
     overflow-y: auto !important;
@@ -4436,6 +4436,7 @@ body {
     touch-action: pan-y !important;
     transform: none !important;
     scrollbar-width: thin !important;
+    scroll-padding-block: 12px !important;
 }
 
 .pantalla-acceso:has(.panel-ingreso.visible) .panel-ingreso-contenido {
@@ -4450,8 +4451,7 @@ body {
     position: relative !important;
     z-index: 1 !important;
     touch-action: manipulation !important;
-    scroll-margin-top: 12px !important;
-    scroll-margin-bottom: 12px !important;
+    scroll-margin-block: 12px !important;
 }
 
 .pantalla-acceso:has(.panel-ingreso.visible) .panel-ingreso-contenido input {
@@ -4470,9 +4470,9 @@ body {
         top: max(6px, env(safe-area-inset-top, 0px)) !important;
         right: 6px !important;
         left: 6px !important;
-        width: min(100% - 12px, 340px) !important;
+        width: min(calc(100% - 12px), 340px) !important;
         max-width: 340px !important;
-        max-height: 52dvh !important;
+        max-height: calc(100dvh - max(12px, env(safe-area-inset-top, 0px) + 6px)) !important;
         margin: 0 auto !important;
     }
 
