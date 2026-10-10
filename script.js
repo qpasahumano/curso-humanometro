@@ -1,7 +1,7 @@
 "use strict";
 
-/* CACHE-BUSTER: 2026-10-06-1825 */
-const HM_JS_VERSION = "16.0";
+/* CACHE-BUSTER: 2026-10-10-1900 */
+const HM_JS_VERSION = "16.1";
 
 
 const paginas = {
@@ -275,6 +275,16 @@ let modoPanelIngreso =
 
 
 
+/* ==================================================
+   MODO DE DESARROLLO
+   true  = mostrar el curso sin verificación automática.
+   false = ejecutar la verificación de acceso habitual.
+   ================================================== */
+
+const MODO_DESARROLLO = true;
+
+
+
 function mostrarContenidoPrincipal() {
 
     if (
@@ -282,7 +292,7 @@ function mostrarContenidoPrincipal() {
     ) {
 
         contenidoPrincipal.style.display =
-            "";
+            "block";
 
     }
 
@@ -2376,7 +2386,7 @@ document.addEventListener(
 
 
 /* ==================================================
-   INICIO
+   INICIO — MODO DE DESARROLLO
    ================================================== */
 
 window.addEventListener(
@@ -2384,6 +2394,17 @@ window.addEventListener(
     async function() {
 
         programarTimbreRecreo();
+
+
+        if (
+            MODO_DESARROLLO
+        ) {
+
+            mostrarContenidoPrincipal();
+
+            return;
+
+        }
 
 
         try {
