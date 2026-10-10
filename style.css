@@ -2,2920 +2,1336 @@
     box-sizing: border-box;
 }
 
-
 html,
 body {
-
     margin: 0;
     padding: 0;
-
     width: 100%;
     max-width: 100vw;
     min-height: 100%;
-
+    overflow: hidden;
     overflow-x: hidden;
-
+    overflow-y: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
 }
-
 
 html {
-
     background: #4a2918;
-
 }
-
 
 body {
-
     overflow-x: hidden;
-
-    font-family:
-        "Courier New",
-        Courier,
-        monospace;
-
+    font-family: "Courier New", Courier, monospace;
     color: #111;
-
     background-color: #4a2918;
-
-    background-image:
-        url("pupitre_humanometro_fondo.png");
-
-    background-size:
-        cover;
-
-    background-position:
-        center top;
-
-    background-repeat:
-        repeat-y;
-
-    background-attachment:
-        fixed;
-
+    background-image: url("pupitre_humanometro_fondo.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
     user-select: none;
-
     -webkit-user-select: none;
-
 }
-
 
 /* ==================================================
    PANTALLA PREVIA DE ACCESO
    ================================================== */
 
 .pantalla-acceso {
-
     position: fixed;
-
     z-index: 5000;
-
     inset: 0;
-
     width: 100%;
-
     height: 100dvh;
-
+    overflow: hidden;
     overflow-x: hidden;
-
-    overflow-y: auto;
-
-    background:
-        transparent;
-
+    overflow-y: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+    background-color: transparent;
+    background-image: url("pupitre_humanometro_fondo.png");
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: repeat-y;
 }
-
 
 .acceso-escena {
-
     position: relative;
-
     width: 100%;
-
     max-width: 1100px;
-
+    height: 100dvh;
     min-height: 100dvh;
-
+    max-height: 100dvh;
     margin: 0 auto;
-
-    padding:
-        18px 28px 34px;
-
+    padding: 18px 28px 34px;
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: flex-start;
-
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
 }
-
-
-.acceso-pizarron {
-
-    position: relative;
-
-    z-index: 20;
-
-    width: 100%;
-
-    max-width: none;
-
-    margin:
-        0 auto;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-}
-
-
-.acceso-pizarron-imagen {
-
-    display: block;
-
-    width: 132%;
-
-    max-width: none;
-
-    height: auto;
-
-    margin:
-        0 -16%;
-
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            5px 8px 7px
-            rgba(0,0,0,.55)
-        );
-
-}
-
 
 /* ==================================================
-   IDENTIDAD HACETUAPP.COM
+   PIZARRÓN DE ACCESO
    ================================================== */
 
-.acceso-identidad {
-
-    position: absolute;
-
-    z-index: 25;
-
-    width: auto;
-
-    margin: 0;
-
-    top:
-        clamp(105px, 23vh, 180px);
-
-    right:
-        clamp(8px, 4vw, 38px);
-
+.acceso-pizarron {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
-    pointer-events: none;
-
 }
 
-
-.acceso-logo-hacetuapp {
-
+.acceso-pizarron-imagen {
     display: block;
-
-    width:
-        min(100%, 105px);
-
+    width: 132%;
+    max-width: none;
     height: auto;
-
-    margin:
-        0 auto;
-
-    padding:
-        0;
-
-    border:
-        none;
-
-    outline:
-        none;
-
-    background:
-        transparent;
-
-    filter:
-        drop-shadow(
-            2px 3px 3px
-            rgba(0,0,0,.36)
-        );
-
-    transform:
-        rotate(7deg);
-
-    pointer-events:
-        none;
-
+    margin: 0 -16%;
+    pointer-events: none;
+    filter: drop-shadow(5px 8px 7px rgba(0, 0, 0, .55));
 }
-
 
 /* ==================================================
    CARTA DE PRESENTACIÓN
    ================================================== */
 
-.acceso-carta {
-
+.pantalla-acceso .acceso-carta {
     position: relative;
-
     z-index: 25;
-
     width: 100%;
-
-    margin:
-        1px auto 8px;
-
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    margin: 24px auto 92px;
+    padding: 0;
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
+    overflow: visible;
+    overflow-x: visible;
+    overflow-y: visible;
+    clip-path: none;
+    isolation: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
     pointer-events: none;
-
+    -webkit-overflow-scrolling: auto;
+    touch-action: auto;
 }
 
-
-.acceso-carta-imagen {
-
+.pantalla-acceso .acceso-carta-imagen {
     display: block;
-
-    width:
-        min(100%, 250px);
-
-    height:
-        auto;
-
-    margin:
-        0 auto;
-
-    padding:
-        0;
-
-    border:
-        none;
-
-    outline:
-        none;
-
-    background:
-        transparent;
-
-    filter:
-        drop-shadow(
-            2px 3px 3px
-            rgba(0,0,0,.38)
-        );
-
-    pointer-events:
-        none;
-
+    width: min(100%, 300px);
+    max-width: 300px;
+    height: auto;
+    max-height: none;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    object-fit: contain;
+    filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, .38));
+    pointer-events: none;
 }
 
+.pantalla-acceso .acceso-carta::after,
+.pantalla-acceso::after {
+    content: none !important;
+    display: none !important;
+}
 
 /* ==================================================
-   OPCIONES DE ACCESO
+   TECLAS DE ACCESO
+   Conserva el PNG de fondo y las zonas de clic.
    ================================================== */
 
-.acceso-opciones {
-
-    position: fixed;
-
-    z-index: 5005;
-
-    left: 50%;
-
-    bottom:
-        8px;
-
-    transform:
-        translateX(-50%);
-
-    width:
-        min(100% - 12px, 245px);
-
-    max-width:
-        245px;
-
-    margin:
-        0;
-
-    padding:
-        0;
-
-    display: flex;
-
-    flex-direction: row;
-
-    align-items: flex-end;
-
-    justify-content: space-between;
-
-    gap:
-        8px;
-
+.pantalla-acceso .acceso-opciones {
+    position: fixed !important;
+    z-index: 5005 !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+    transform: translateX(-50%) !important;
+    width: min(47vw, 250px) !important;
+    max-width: 250px !important;
+    height: auto !important;
+    aspect-ratio: 3 / 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+    gap: 0 !important;
+    background-color: transparent !important;
+    background-image: url("a_clean_png_style_graphic_on_a_transparent_checker.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 100% 100% !important;
 }
 
-
-.acceso-opcion {
-
-    appearance: none;
-
-    -webkit-appearance: none;
-
-    display: block;
-
-    width:
-        115px;
-
-    min-width:
-        115px;
-
-    max-width:
-        115px;
-
-    margin: 0;
-
-    padding: 0;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
-    cursor: pointer;
-
-    line-height: 0;
-
-    filter:
-        drop-shadow(
-            2px 3px 3px
-            rgba(0,0,0,.36)
-        );
-
-    transition:
-        transform .16s ease,
-        filter .16s ease;
-
+.pantalla-acceso .acceso-opcion,
+.pantalla-acceso .acceso-opcion:link,
+.pantalla-acceso .acceso-opcion:visited {
+    position: absolute !important;
+    z-index: 2 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 50% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline-offset: -5px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    text-indent: -9999px !important;
+    text-shadow: none !important;
+    cursor: pointer !important;
 }
 
-
-.acceso-opcion img {
-
-    display: block;
-
-    width: 100%;
-
-    height: auto;
-
-    margin: 0;
-
-    padding: 0;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
-    pointer-events: none;
-
+.pantalla-acceso #botonYaAcceso {
+    left: 0 !important;
+    right: auto !important;
 }
 
-
-.acceso-opcion:hover {
-
-    transform:
-        scale(1.02);
-
-    filter:
-        drop-shadow(
-            3px 4px 4px
-            rgba(0,0,0,.44)
-        );
-
+.pantalla-acceso #botonNoAcceso {
+    left: 50% !important;
+    right: 0 !important;
 }
 
-
-.acceso-opcion:active {
-
-    transform:
-        scale(.985);
-
+.pantalla-acceso .acceso-opcion *,
+.pantalla-acceso .acceso-opcion img {
+    display: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    text-shadow: none !important;
 }
 
+.pantalla-acceso .acceso-opcion:hover,
+.pantalla-acceso .acceso-opcion:active {
+    transform: none !important;
+    filter: none !important;
+}
+
+.pantalla-acceso .acceso-opcion:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, .95) !important;
+    outline-offset: -7px !important;
+}
+
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
+    display: none !important;
+}
 
 /* ==================================================
-   PANEL DE INGRESO (AUDITADO Y CORREGIDO)
+   IDENTIDAD HACETUAPP.COM
+   Centrada debajo de las teclas.
+   Tamaño aumentado un 3 % respecto de la
+   última configuración efectiva proporcionada.
+   ================================================== */
+
+.pantalla-acceso .acceso-identidad {
+    position: fixed !important;
+    z-index: 5006 !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: calc(4px + env(safe-area-inset-bottom, 0px)) !important;
+    width: 80.63px !important;
+    max-width: 80.63px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%) !important;
+    pointer-events: none !important;
+}
+
+.pantalla-acceso .acceso-logo-hacetuapp {
+    display: block !important;
+    width: 100% !important;
+    max-width: 80.63px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, .36));
+    transform: none !important;
+    pointer-events: none !important;
+}
+
+.pantalla-acceso:has(.panel-ingreso.visible) .acceso-identidad {
+    display: none !important;
+}
+
+/* ==================================================
+   PANEL DE INGRESO
    ================================================== */
 
 .panel-ingreso {
-
     position: relative;
-
-    z-index: 6000;
-
+    z-index: 40;
     width: min(100%, 360px);
-
-    margin:
-        10px auto 25px;
-
+    margin: 0 auto 30px;
     display: none;
-
-    opacity: 0;
-
-    transition: opacity 0.2s ease;
-
 }
-
 
 .panel-ingreso.visible {
-
     display: block;
-
-    opacity: 1;
-
 }
-
 
 .panel-ingreso-contenido {
-
     width: 100%;
-
-    padding:
-        18px 20px 20px;
-
-    background:
-        rgba(74,41,24,.96);
-
-    border:
-        2px solid rgba(255,255,255,.75);
-
-    border-radius:
-        6px;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.55);
-
+    padding: 18px 20px 20px;
+    background: rgba(74, 41, 24, .94);
+    border: 2px solid rgba(255, 255, 255, .62);
+    border-radius: 5px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .42);
 }
-
 
 .panel-ingreso-contenido label {
-
     display: block;
-
-    margin:
-        0 0 5px;
-
-    color:
-        #fff;
-
-    font-family:
-        "Courier New",
-        Courier,
-        monospace;
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        .04em;
-
-    text-shadow:
-        0 1px 3px rgba(0,0,0,.85);
-
+    margin: 0 0 5px;
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .85);
 }
-
 
 .panel-ingreso-contenido input {
-
     display: block;
-
     width: 100%;
-
     height: 42px;
-
-    margin:
-        0 0 13px;
-
-    padding:
-        8px 11px;
-
-    border:
-        1px solid rgba(255,255,255,.55);
-
-    border-radius:
-        4px;
-
+    margin: 0 0 13px;
+    padding: 8px 11px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 4px;
     outline: none;
-
-    background:
-        rgba(255,255,255,.93);
-
-    color:
-        #111;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size:
-        16px;
-
+    background: rgba(255, 255, 255, .93);
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
     user-select: text;
-
     -webkit-user-select: text;
-
 }
-
 
 .boton-confirmar-ingreso,
 .boton-cerrar-ingreso {
-
     appearance: none;
-
     -webkit-appearance: none;
-
     width: 100%;
-
     min-height: 40px;
-
-    margin:
-        4px 0 0;
-
-    border:
-        1px solid rgba(255,255,255,.65);
-
-    border-radius:
-        4px;
-
-    background:
-        rgba(0,0,0,.34);
-
-    color:
-        #fff;
-
-    font-family:
-        "Courier New",
-        Courier,
-        monospace;
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        .04em;
-
-    cursor:
-        pointer;
-
+    margin: 4px 0 0;
+    border: 1px solid rgba(255, 255, 255, .65);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, .34);
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    cursor: pointer;
 }
-
 
 .boton-cerrar-ingreso {
-
-    margin-top:
-        8px;
-
-    background:
-        rgba(255,255,255,.12);
-
+    margin-top: 8px;
+    background: rgba(255, 255, 255, .08);
 }
-
 
 .mensaje-ingreso {
-
-    min-height:
-        18px;
-
-    margin:
-        12px 0 0;
-
-    color:
-        rgba(255,255,255,.88);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size:
-        12px;
-
-    line-height:
-        1.35;
-
-    text-align:
-        center;
-
+    min-height: 18px;
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, .88);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
 }
-
-
-/*
-   La interfaz principal permanece detrás
-   de la pantalla de acceso hasta que exista
-   autorización real.
-*/
-
-#contenidoPrincipal {
-
-    display: none;
-
-}
-
 
 /* ==================================================
-   ESCENA COMPLETA
+   CONTENIDO PRINCIPAL
    ================================================== */
 
-.escena-pupitre {
-
-    position: relative;
-
-    width: 100%;
-
-    max-width: 1100px;
-
-    min-height: 100vh;
-
-    margin: 0 auto;
-
-    padding:
-        18px 28px 42px;
-
-    background:
-        transparent;
-
-    overflow-x: hidden;
-
+#contenidoPrincipal {
+    display: none;
 }
 
+.escena-pupitre {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 18px 28px 42px;
+    background: transparent;
+    overflow-x: hidden;
+}
 
 /* ==================================================
-   PIZARRÓN
+   PIZARRÓN PRINCIPAL
    ================================================== */
 
 .zona-pizarron {
-
     position: relative;
-
     z-index: 20;
-
     width: 100%;
-
     max-width: none;
-
-    margin:
-        0 auto 22px;
-
+    margin: 0 auto 22px;
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     overflow: visible;
-
 }
-
 
 .pizarron {
-
     display: block;
-
     width: 132%;
-
     max-width: none;
-
     height: auto;
-
-    margin:
-        0 -16%;
-
+    margin: 0 -16%;
     pointer-events: none;
-
-    filter:
-        drop-shadow(
-            5px 8px 7px
-            rgba(0,0,0,.55)
-        );
-
+    filter: drop-shadow(5px 8px 7px rgba(0, 0, 0, .55));
 }
-
 
 /* ==================================================
    HOJAS
    ================================================== */
 
 .zona-hojas {
-
     position: relative;
-
     z-index: 15;
-
     width: 100%;
-
     display: block;
-
-    padding:
-        0 14px;
-
+    padding: 0 14px;
 }
-
 
 .hojas-carrusel {
-
     width: 100%;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(
-            3,
-            minmax(0, 1fr)
-        );
-
-    gap:
-        20px 18px;
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 18px;
 }
-
 
 .hoja-papel {
-
     position: relative;
-
     margin: 0;
-
     padding: 0;
-
-    background:
-        transparent;
-
+    background: transparent;
     border: none;
-
     cursor: pointer;
-
-    transition:
-        transform .18s ease,
-        filter .18s ease;
-
+    transition: transform .18s ease, filter .18s ease;
 }
-
 
 .hoja-papel:hover {
-
     z-index: 50;
-
-    transform:
-        scale(1.035);
-
-    filter:
-        drop-shadow(
-            6px 9px 7px
-            rgba(0,0,0,.62)
-        );
-
+    transform: scale(1.035);
+    filter: drop-shadow(6px 9px 7px rgba(0, 0, 0, .62));
 }
-
 
 .hoja-papel:active {
-
-    transform:
-        scale(.985);
-
+    transform: scale(.985);
 }
 
-
-.hoja-1 {
-    transform: rotate(-1deg);
-}
-
-.hoja-2 {
-    transform: rotate(.8deg);
-}
-
-.hoja-3 {
-    transform: rotate(-.7deg);
-}
-
-.hoja-4 {
-    transform: rotate(.7deg);
-}
-
-.hoja-5 {
-    transform: rotate(-.8deg);
-}
-
-.hoja-6 {
-    transform: rotate(.9deg);
-}
-
-.hoja-7 {
-    transform: rotate(-.7deg);
-}
-
-.hoja-8 {
-    transform: rotate(.6deg);
-}
-
-.hoja-9 {
-    transform: rotate(-.9deg);
-}
-
-.hoja-10 {
-    transform: rotate(.5deg);
-}
-
+.hoja-1 { transform: rotate(-1deg); }
+.hoja-2 { transform: rotate(.8deg); }
+.hoja-3 { transform: rotate(-.7deg); }
+.hoja-4 { transform: rotate(.7deg); }
+.hoja-5 { transform: rotate(-.8deg); }
+.hoja-6 { transform: rotate(.9deg); }
+.hoja-7 { transform: rotate(-.7deg); }
+.hoja-8 { transform: rotate(.6deg); }
+.hoja-9 { transform: rotate(-.9deg); }
+.hoja-10 { transform: rotate(.5deg); }
 
 .miniatura {
-
     display: block;
-
     width: 100%;
-
     height: auto;
-
     margin: 0;
-
     padding: 0;
-
     border: none;
-
     outline: none;
-
-    background:
-        transparent;
-
+    background: transparent;
     object-fit: contain;
-
     pointer-events: none;
-
-    filter:
-        drop-shadow(
-            4px 6px 5px
-            rgba(0,0,0,.55)
-        );
-
+    filter: drop-shadow(4px 6px 5px rgba(0, 0, 0, .55));
 }
 
-
 /* ==================================================
-   LEE LAS HOJAS
+   INDICADORES DE HOJAS
    ================================================== */
 
 .anotacion-hojas {
-
     position: absolute;
-
     z-index: 26;
-
-    left:
-        2%;
-
-    top:
-        50%;
-
-    width:
-        clamp(39px, 13.5vw, 57.5px);
-
-    max-width:
-        57.5px;
-
-    height:
-        auto;
-
-    margin:
-        0;
-
-    padding:
-        0;
-
-    display:
-        block;
-
-    background:
-        transparent;
-
-    border:
-        none;
-
-    outline:
-        none;
-
-    box-shadow:
-        none;
-
-    filter:
-        none;
-
-    opacity:
-        .96;
-
-    transform:
-        translateY(-50%)
-        rotate(-2deg);
-
-    transform-origin:
-        left center;
-
-    pointer-events:
-        none;
-
+    left: 2%;
+    top: 50%;
+    width: clamp(39px, 13.5vw, 57.5px);
+    max-width: 57.5px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    filter: none;
+    opacity: .96;
+    transform: translateY(-50%) rotate(-2deg);
+    transform-origin: left center;
+    pointer-events: none;
 }
-
-
-/* ==================================================
-   DESLIZÁ
-   ================================================== */
 
 .indicador-scroll {
-
     position: absolute;
-
     z-index: 26;
-
-    right:
-        3%;
-
-    left:
-        auto;
-
-    top:
-        auto;
-
-    bottom:
-        2px;
-
-    width:
-        clamp(39px, 13.5vw, 57.5px);
-
-    max-width:
-        57.5px;
-
-    height:
-        auto;
-
-    margin:
-        0;
-
-    padding:
-        0;
-
-    display:
-        block;
-
-    background:
-        transparent;
-
-    border:
-        none;
-
-    outline:
-        none;
-
-    box-shadow:
-        none;
-
-    filter:
-        none;
-
-    opacity:
-        .96;
-
-    transform:
-        rotate(1.5deg);
-
-    transform-origin:
-        right bottom;
-
-    pointer-events:
-        none;
-
-    transition:
-        opacity .25s ease;
-
+    right: 3%;
+    left: auto;
+    top: auto;
+    bottom: 2px;
+    width: clamp(39px, 13.5vw, 57.5px);
+    max-width: 57.5px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    filter: none;
+    opacity: .96;
+    transform: rotate(1.5deg);
+    transform-origin: right bottom;
+    pointer-events: none;
+    transition: opacity .25s ease;
 }
-
 
 .indicador-scroll.oculto {
-
-    opacity:
-        0;
-
+    opacity: 0;
 }
-
 
 /* ==================================================
    COMPUTADORA
    ================================================== */
 
 .zona-computadora {
-
     position: relative;
-
     z-index: 18;
-
     width: 68%;
-
     max-width: 680px;
-
-    margin:
-        8px auto 0;
-
+    margin: 8px auto 0;
 }
-
 
 .computadora-real {
-
     position: relative;
-
     width: 100%;
-
     margin: 0 auto;
-
     line-height: 0;
-
 }
-
 
 .computadora-imagen {
-
     display: block;
-
     width: 100%;
-
     height: auto;
-
     margin: 0 auto;
-
     border: none;
-
     outline: none;
-
     pointer-events: none;
-
     user-select: none;
-
     -webkit-user-drag: none;
-
-    filter:
-        drop-shadow(
-            8px 13px 11px
-            rgba(0,0,0,.62)
-        );
-
+    filter: drop-shadow(8px 13px 11px rgba(0, 0, 0, .62));
 }
-
 
 /* ==================================================
    YOUTUBE DENTRO DEL CRT
    ================================================== */
 
 .pantalla-youtube {
-
     position: absolute;
-
     z-index: 30;
-
-    left:
-        19%;
-
-    top:
-        11.5%;
-
-    width:
-        62%;
-
-    height:
-        35%;
-
-    overflow:
-        hidden;
-
-    background:
-        #050505;
-
-    border-radius:
-        9% / 11%;
-
+    left: 19%;
+    top: 11.5%;
+    width: 62%;
+    height: 35%;
+    overflow: hidden;
+    background: #050505;
+    border-radius: 9% / 11%;
 }
-
 
 .pantalla-youtube iframe {
-
     display: block;
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    margin:
-        0;
-
-    padding:
-        0;
-
-    border:
-        0;
-
-    outline:
-        0;
-
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
 }
-
 
 /* ==================================================
    SILLA
    ================================================== */
 
 .zona-silla {
-
     position: relative;
-
     z-index: 22;
-
     width: 72%;
-
     max-width: 720px;
-
-    margin:
-        1px auto 0;
-
+    margin: 1px auto 0;
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
 }
-
 
 .silla-real {
-
     position: relative;
-
     width: 100%;
-
     margin: 0 auto;
-
     line-height: 0;
-
 }
-
 
 .respaldo-silla {
-
     display: block;
-
     width: 100%;
-
     height: auto;
-
     margin: 0 auto;
-
     pointer-events: none;
-
     user-select: none;
-
     -webkit-user-drag: none;
-
-    filter:
-        drop-shadow(
-            7px 10px 9px
-            rgba(0,0,0,.60)
-        );
-
+    filter: drop-shadow(7px 10px 9px rgba(0, 0, 0, .60));
 }
-
 
 .boton-silla {
-
     position: absolute;
-
     z-index: 40;
-
-    left:
-        29%;
-
-    top:
-        44%;
-
-    width:
-        42%;
-
-    height:
-        20%;
-
+    left: 29%;
+    top: 44%;
+    width: 42%;
+    height: 20%;
     display: block;
-
     cursor: pointer;
-
-    background:
-        transparent;
-
+    background: transparent;
 }
-
 
 /* ==================================================
    CRÉDITOS
    ================================================== */
 
 .creditos {
-
     width: 100%;
-
-    margin:
-        5px auto 0;
-
+    margin: 5px auto 0;
     padding: 0 8px;
-
     color: #fff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-
     font-weight: 400;
-
     line-height: 1.35;
-
     text-align: center;
-
     letter-spacing: .01em;
-
-    text-shadow:
-        0 1px 4px
-        rgba(0,0,0,.80);
-
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .80);
 }
 
-
 /* ==================================================
-   VISOR
+   VISOR MODAL
    ================================================== */
 
 .modal {
-
     position: fixed;
-
     z-index: 1000;
-
     inset: 0;
-
     display: none;
-
     align-items: center;
-
     justify-content: center;
-
-    padding:
-        0;
-
-    background:
-        rgba(0,0,0,.90);
-
+    padding: 0;
+    background: rgba(0, 0, 0, .90);
 }
-
 
 .modal-contenido {
-
     position: relative;
-
-    width:
-        100%;
-
-    max-width:
-        1100px;
-
-    height:
-        100dvh;
-
+    width: 100%;
+    max-width: 1100px;
+    height: 100dvh;
     display: flex;
-
     flex-direction: column;
-
-    padding:
-        0;
-
-    background:
-        transparent;
-
-    border:
-        none;
-
-    box-shadow:
-        none;
-
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
-
 
 .titulo-modal,
 .aviso-zoom {
-
-    display:
-        none;
-
+    display: none;
 }
-
 
 .cerrar-modal {
-
     position: fixed;
-
     z-index: 9999;
-
-    top:
-        6px;
-
-    right:
-        8px;
-
-    width:
-        42px;
-
-    height:
-        42px;
-
-    padding:
-        0;
-
-    border:
-        none;
-
-    background:
-        transparent;
-
-    color:
-        #fff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size:
-        2.3rem;
-
-    font-weight:
-        bold;
-
-    line-height:
-        42px;
-
-    cursor:
-        pointer;
-
-    text-shadow:
-        0 1px 4px
-        rgba(0,0,0,.95);
-
+    top: 6px;
+    right: 8px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.3rem;
+    font-weight: bold;
+    line-height: 42px;
+    cursor: pointer;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .95);
 }
-
-
-/* ==================================================
-   VISOR
-   ================================================== */
 
 .carpeta-visor {
-
     position: relative;
-
-    flex:
-        1 1 auto;
-
-    min-height:
-        0;
-
-    width:
-        100%;
-
-    overflow-y:
-        auto;
-
-    overflow-x:
-        hidden;
-
-    -webkit-overflow-scrolling:
-        touch;
-
-    touch-action:
-        pan-y pinch-zoom;
-
-    padding:
-        48px 10px 26px;
-
-    background:
-        transparent;
-
-    border:
-        none;
-
-    box-shadow:
-        none;
-
-    scrollbar-width:
-        thin;
-
-    scrollbar-color:
-        rgba(255,255,255,.38)
-        transparent;
-
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y pinch-zoom;
+    padding: 48px 10px 26px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, .38) transparent;
 }
-
 
 .carpeta-visor::-webkit-scrollbar {
-
-    width:
-        7px;
-
+    width: 7px;
 }
-
 
 .carpeta-visor::-webkit-scrollbar-track {
-
-    background:
-        transparent;
-
+    background: transparent;
 }
-
 
 .carpeta-visor::-webkit-scrollbar-thumb {
-
-    background:
-        rgba(255,255,255,.38);
-
-    border-radius:
-        20px;
-
+    background: rgba(255, 255, 255, .38);
+    border-radius: 20px;
 }
-
 
 .perforaciones,
 .argollas {
-
-    display:
-        none;
-
+    display: none;
 }
-
 
 .hoja-lectura {
-
-    position:
-        relative;
-
-    z-index:
-        5;
-
-    width:
-        100%;
-
-    min-height:
-        calc(100dvh - 112px);
-
-    padding:
-        0;
-
-    margin:
-        0 auto;
-
-    background:
-        transparent;
-
-    box-shadow:
-        none;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    min-height: calc(100dvh - 112px);
+    padding: 0;
+    margin: 0 auto;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 
 #paginaVisor {
-
-    display:
-        block;
-
-    width:
-        auto;
-
-    max-width:
-        calc(100vw - 20px);
-
-    max-height:
-        calc(100dvh - 118px);
-
-    height:
-        auto;
-
-    margin:
-        0 auto;
-
-    padding:
-        0;
-
-    border:
-        none;
-
-    outline:
-        none;
-
-    background:
-        transparent;
-
-    box-shadow:
-        none;
-
-    object-fit:
-        contain;
-
+    display: block;
+    width: auto;
+    max-width: calc(100vw - 20px);
+    max-height: calc(100dvh - 118px);
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+    object-fit: contain;
 }
-
 
 /* ==================================================
    CONTENIDO COMPLEMENTARIO
    ================================================== */
 
 .zona-complementaria {
-
-    width:
-        min(100%, 900px);
-
-    margin:
-        0 auto;
-
-    padding:
-        8px 10px 22px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    gap:
-        9px;
-
+    width: min(100%, 900px);
+    margin: 0 auto;
+    padding: 8px 10px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
 }
-
 
 .fila-acciones {
-
-    width:
-        min(100%, 620px);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        10px;
-
+    width: min(100%, 620px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
-
 
 .boton-video-complementario,
 .accion-pagina {
-
-    appearance:
-        none;
-
-    -webkit-appearance:
-        none;
-
-    border:
-        1px solid rgba(255,255,255,.50);
-
-    background:
-        rgba(0,0,0,.38);
-
-    color:
-        rgba(255,255,255,.97);
-
-    font-family:
-        "Comic Sans MS",
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
-
-    font-size:
-        12px;
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        .025em;
-
-    line-height:
-        1.2;
-
-    text-align:
-        center;
-
-    text-shadow:
-        0 0 3px rgba(255,255,255,.60),
-        0 1px 4px rgba(0,0,0,.95);
-
-    border-radius:
-        8px;
-
-    padding:
-        10px 16px;
-
-    cursor:
-        pointer;
-
-    box-shadow:
-        0 0 7px rgba(255,255,255,.16),
-        0 3px 10px rgba(0,0,0,.30);
-
-    transition:
-        background .18s ease,
-        border-color .18s ease,
-        box-shadow .18s ease,
-        transform .18s ease;
-
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid rgba(255, 255, 255, .50);
+    background: rgba(0, 0, 0, .38);
+    color: rgba(255, 255, 255, .97);
+    font-family: "Comic Sans MS", "Segoe Print", "Bradley Hand", cursive;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .025em;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 0 0 3px rgba(255, 255, 255, .60),
+                 0 1px 4px rgba(0, 0, 0, .95);
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    box-shadow: 0 0 7px rgba(255, 255, 255, .16),
+                0 3px 10px rgba(0, 0, 0, .30);
+    transition: background .18s ease,
+                border-color .18s ease,
+                box-shadow .18s ease,
+                transform .18s ease;
 }
-
 
 .boton-video-complementario:hover,
 .accion-pagina:hover {
-
-    background:
-        rgba(255,255,255,.11);
-
-    border-color:
-        rgba(255,255,255,.78);
-
-    box-shadow:
-        0 0 10px rgba(255,255,255,.23),
-        0 3px 12px rgba(0,0,0,.34);
-
+    background: rgba(255, 255, 255, .11);
+    border-color: rgba(255, 255, 255, .78);
+    box-shadow: 0 0 10px rgba(255, 255, 255, .23),
+                0 3px 12px rgba(0, 0, 0, .34);
 }
-
 
 .boton-video-complementario:active,
 .accion-pagina:active {
-
-    transform:
-        scale(.985);
-
+    transform: scale(.985);
 }
-
 
 .boton-video-complementario.oculto {
-
-    display:
-        none;
-
+    display: none;
 }
-
 
 .subtitulo-video {
-
-    min-height:
-        0;
-
-    width:
-        100%;
-
-    color:
-        rgba(255,255,255,.82);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size:
-        12px;
-
-    font-weight:
-        400;
-
-    line-height:
-        1.35;
-
-    letter-spacing:
-        .02em;
-
-    text-align:
-        center;
-
-    text-shadow:
-        0 1px 3px rgba(0,0,0,.90);
-
+    min-height: 0;
+    width: 100%;
+    color: rgba(255, 255, 255, .82);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: .02em;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .90);
 }
-
 
 .contenedor-video-complementario {
-
-    width:
-        min(100%, 860px);
-
-    display:
-        none;
-
-    margin:
-        0 auto;
-
+    width: min(100%, 860px);
+    display: none;
+    margin: 0 auto;
 }
-
 
 .contenedor-video-complementario.visible {
-
-    display:
-        block;
-
+    display: block;
 }
-
 
 .video-responsive {
-
-    position:
-        relative;
-
-    width:
-        100%;
-
-    aspect-ratio:
-        16 / 9;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        9px;
-
-    background:
-        #050505;
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,.42);
-
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 9px;
+    background: #050505;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .42);
 }
-
 
 .video-responsive iframe {
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    display:
-        block;
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    margin:
-        0;
-
-    padding:
-        0;
-
-    border:
-        0;
-
-    outline:
-        0;
-
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
 }
-
 
 .accion-pagina {
-
-    min-width:
-        0;
-
-    flex:
-        1 1 0;
-
-    margin-top:
-        0;
-
-    border-color:
-        rgba(255,255,255,.50);
-
-    background:
-        rgba(20,20,20,.52);
-
+    min-width: 0;
+    flex: 1 1 0;
+    margin-top: 0;
+    border-color: rgba(255, 255, 255, .50);
+    background: rgba(20, 20, 20, .52);
 }
 
-
 /* ==================================================
-   TABLET
+   TABLET Y DISPOSITIVOS DE HASTA 720 PX
    ================================================== */
 
 @media (max-width: 720px) {
-
-
     body {
-
-        background-size:
-            100% auto;
-
-        background-attachment:
-            scroll;
-
+        background-size: 100% auto;
+        background-attachment: scroll;
     }
-
 
     .escena-pupitre {
-
-        width:
-            100%;
-
-        max-width:
-            100%;
-
-        padding:
-            10px 18px 25px;
-
+        width: 100%;
+        max-width: 100%;
+        padding: 10px 18px 25px;
     }
-
 
     .acceso-escena {
-
-        padding:
-            10px 18px 25px;
-
+        padding: 10px 18px 90px;
     }
-
-
-    .acceso-opciones {
-
-        left:
-            50%;
-
-        bottom:
-            8px;
-
-        width:
-            min(100% - 12px, 245px);
-
-        max-width:
-            245px;
-
-        flex-direction:
-            row;
-
-        align-items:
-            flex-end;
-
-        justify-content:
-            space-between;
-
-        gap:
-            8px;
-
-    }
-
-
-    .acceso-opcion {
-
-        width:
-            115px;
-
-        min-width:
-            115px;
-
-        max-width:
-            115px;
-
-    }
-
 
     .acceso-pizarron {
-
-        width:
-            100%;
-
-        max-width:
-            none;
-
+        width: 100%;
+        max-width: none;
     }
-
 
     .acceso-pizarron-imagen {
-
-        width:
-            132%;
-
-        max-width:
-            none;
-
-        margin:
-            0 -16%;
-
+        width: 132%;
+        max-width: none;
+        margin: 0 -16%;
     }
 
-
-    .acceso-identidad {
-
-        top:
-            clamp(100px, 22vh, 160px);
-
-        right:
-            3%;
-
+    .pantalla-acceso .acceso-carta {
+        margin: 24px auto 92px;
     }
 
-
-    .acceso-logo-hacetuapp {
-
-        width:
-            min(100%, 95px);
-
+    .pantalla-acceso .acceso-carta-imagen {
+        width: min(100%, 300px);
+        max-width: 300px;
     }
 
-
-    .acceso-carta {
-
-        margin:
-            1px auto 8px;
-
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+        width: min(47vw, 250px) !important;
+        max-width: 250px !important;
     }
 
-
-    .acceso-carta-imagen {
-
-        width:
-            min(100%, 235px);
-
+    .pantalla-acceso .acceso-identidad {
+        width: 80.63px !important;
+        max-width: 80.63px !important;
+        bottom: calc(4px + env(safe-area-inset-bottom, 0px)) !important;
     }
 
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 80.63px !important;
+    }
 
     .zona-pizarron {
-
-        width:
-            100%;
-
-        max-width:
-            none;
-
-        margin:
-            0 auto 9px;
-
+        width: 100%;
+        max-width: none;
+        margin: 0 auto 9px;
     }
-
 
     .pizarron {
-
-        width:
-            132%;
-
-        max-width:
-            none;
-
-        margin:
-            0 -16%;
-
+        width: 132%;
+        max-width: none;
+        margin: 0 -16%;
     }
-
 
     .zona-hojas {
-
-        width:
-            100%;
-
-        padding:
-            0;
-
+        width: 100%;
+        padding: 0;
     }
-
 
     .hojas-carrusel {
-
-        height:
-            clamp(205px, 29vh, 265px);
-
-        min-height:
-            205px;
-
-        max-height:
-            265px;
-
-        display:
-            flex;
-
-        flex-direction:
-            row;
-
-        gap:
-            0;
-
-        overflow-x:
-            auto;
-
-        overflow-y:
-            hidden;
-
-        scroll-snap-type:
-            x mandatory;
-
-        scroll-behavior:
-            smooth;
-
-        -webkit-overflow-scrolling:
-            touch;
-
-        scrollbar-width:
-            none;
-
-        overscroll-behavior-x:
-            contain;
-
-        touch-action:
-            pan-x;
-
+        height: clamp(205px, 29vh, 265px);
+        min-height: 205px;
+        max-height: 265px;
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        overscroll-behavior-x: contain;
+        touch-action: pan-x;
     }
-
 
     .hojas-carrusel::-webkit-scrollbar {
-
-        display:
-            none;
-
+        display: none;
     }
-
 
     .hoja-papel {
-
-        flex:
-            0 0 100%;
-
-        width:
-            100%;
-
-        height:
-            100%;
-
-        min-width:
-            100%;
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-        justify-content:
-            center;
-
-        scroll-snap-align:
-            center;
-
-        scroll-snap-stop:
-            always;
-
-        transform:
-            none;
-
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        transform: none;
     }
-
 
     .hoja-papel:hover {
-
-        transform:
-            none;
-
+        transform: none;
     }
-
 
     .hoja-papel:active {
-
-        transform:
-            scale(.995);
-
+        transform: scale(.995);
     }
-
 
     .miniatura {
-
-        width:
-            auto;
-
-        max-width:
-            100%;
-
-        height:
-            auto;
-
-        max-height:
-            100%;
-
-        object-fit:
-            contain;
-
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
     }
-
 
     .anotacion-hojas {
-
-        left:
-            2%;
-
-        top:
-            50%;
-
-        width:
-            clamp(39px, 13.5vw, 57.5px);
-
-        max-width:
-            57.5px;
-
-        bottom:
-            auto;
-
-        transform:
-            translateY(-50%)
-            rotate(-2deg);
-
+        left: 2%;
+        top: 50%;
+        width: clamp(39px, 13.5vw, 57.5px);
+        max-width: 57.5px;
+        bottom: auto;
+        transform: translateY(-50%) rotate(-2deg);
     }
-
 
     .indicador-scroll {
-
-        right:
-            3%;
-
-        left:
-            auto;
-
-        top:
-            auto;
-
-        bottom:
-            2px;
-
-        width:
-            clamp(39px, 13.5vw, 57.5px);
-
-        max-width:
-            57.5px;
-
-        transform:
-            rotate(1.5deg);
-
+        right: 3%;
+        left: auto;
+        top: auto;
+        bottom: 2px;
+        width: clamp(39px, 13.5vw, 57.5px);
+        max-width: 57.5px;
+        transform: rotate(1.5deg);
     }
-
 
     .zona-computadora {
-
-        width:
-            63%;
-
-        max-width:
-            620px;
-
-        margin-top:
-            5px;
-
+        width: 63%;
+        max-width: 620px;
+        margin-top: 5px;
     }
-
 
     .pantalla-youtube {
-
-        left:
-            19%;
-
-        top:
-            11.5%;
-
-        width:
-            62%;
-
-        height:
-            35%;
-
+        left: 19%;
+        top: 11.5%;
+        width: 62%;
+        height: 35%;
     }
-
 
     .zona-silla {
-
-        width:
-            66%;
-
-        max-width:
-            660px;
-
-        margin-top:
-            1px;
-
+        width: 66%;
+        max-width: 660px;
+        margin-top: 1px;
     }
-
 
     .boton-silla {
-
-        left:
-            29%;
-
-        top:
-            44%;
-
-        width:
-            42%;
-
-        height:
-            20%;
-
+        left: 29%;
+        top: 44%;
+        width: 42%;
+        height: 20%;
     }
-
 
     .creditos {
-
-        margin-top:
-            4px;
-
-        font-size:
-            14px;
-
+        margin-top: 4px;
+        font-size: 14px;
     }
-
 
     .carpeta-visor {
-
-        padding:
-            48px 8px 20px;
-
+        padding: 48px 8px 20px;
     }
-
 
     .hoja-lectura {
-
-        min-height:
-            calc(100dvh - 110px);
-
+        min-height: calc(100dvh - 110px);
     }
-
 
     #paginaVisor {
-
-        width:
-            auto;
-
-        max-width:
-            calc(100vw - 16px);
-
-        max-height:
-            calc(100dvh - 116px);
-
+        width: auto;
+        max-width: calc(100vw - 16px);
+        max-height: calc(100dvh - 116px);
     }
-
 
     .zona-complementaria {
-
-        width:
-            100%;
-
-        padding:
-            8px 4px 20px;
-
+        width: 100%;
+        padding: 8px 4px 20px;
     }
-
 
     .fila-acciones {
-
-        width:
-            min(100%, 560px);
-
-        gap:
-            8px;
-
+        width: min(100%, 560px);
+        gap: 8px;
     }
-
 
     .boton-video-complementario,
     .accion-pagina {
-
-        min-width:
-            0;
-
-        max-width:
-            none;
-
-        font-size:
-            11px;
-
-        letter-spacing:
-            .02em;
-
-        padding:
-            8px 9px;
-
+        min-width: 0;
+        max-width: none;
+        font-size: 11px;
+        letter-spacing: .02em;
+        padding: 8px 9px;
     }
-
 
     .subtitulo-video {
-
-        font-size:
-            11px;
-
+        font-size: 11px;
     }
-
 }
 
-
 /* ==================================================
-   CELULAR
+   CELULARES DE HASTA 470 PX
    ================================================== */
 
 @media (max-width: 470px) {
-
-
     body {
-
-        background-size:
-            100% auto;
-
-        background-attachment:
-            scroll;
-
+        background-size: 100% auto;
+        background-attachment: scroll;
     }
-
 
     .escena-pupitre {
-
-        width:
-            100%;
-
-        max-width:
-            100%;
-
-        padding:
-            7px 7px 18px;
-
+        width: 100%;
+        max-width: 100%;
+        padding: 7px 7px 18px;
     }
-
 
     .acceso-escena {
-
-        padding:
-            4px 7px 210px;
-
+        padding: 4px 7px 90px;
     }
 
-
-    .acceso-identidad {
-
-        top:
-            clamp(92px, 21vh, 145px);
-
-        right:
-            2%;
-
+    .pantalla-acceso .acceso-carta {
+        margin: 16px auto 92px !important;
     }
 
-
-    .acceso-logo-hacetuapp {
-
-        width:
-            min(100%, 82px);
-
-        transform:
-            rotate(7deg);
-
+    .pantalla-acceso .acceso-carta-imagen {
+        width: min(100%, 275px) !important;
+        max-width: 275px !important;
     }
 
-
-    .acceso-carta {
-
-        margin:
-            1px auto 8px;
-
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(78px + env(safe-area-inset-bottom, 0px)) !important;
+        width: min(47vw, 210px) !important;
+        max-width: 210px !important;
     }
 
-
-    .acceso-carta-imagen {
-
-        width:
-            min(100%, 235px);
-
+    .pantalla-acceso .acceso-identidad {
+        bottom: calc(3px + env(safe-area-inset-bottom, 0px)) !important;
+        width: 70.04px !important;
+        max-width: 70.04px !important;
     }
 
-
-    .acceso-opciones {
-
-        left:
-            50%;
-
-        bottom:
-            8px;
-
-        width:
-            min(100% - 12px, 245px);
-
-        max-width:
-            245px;
-
-        gap:
-            8px;
-
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 70.04px !important;
     }
-
-
-    .acceso-opcion {
-
-        width:
-            115px;
-
-        min-width:
-            115px;
-
-        max-width:
-            115px;
-
-    }
-
 
     .panel-ingreso {
-
-        width:
-            min(100%, 315px);
-
-        margin:
-            0 auto 20px;
-
+        width: min(100%, 315px);
+        margin: 0 auto 20px;
     }
-
 
     .panel-ingreso-contenido {
-
-        padding:
-            15px 16px 17px;
-
+        padding: 15px 16px 17px;
     }
-
-
-    .acceso-pizarron {
-
-        width:
-            100%;
-
-        max-width:
-            none;
-
-    }
-
-
-    .acceso-pizarron-imagen {
-
-        width:
-            132%;
-
-        max-width:
-            none;
-
-        margin:
-            0 -16%;
-
-    }
-
 
     .zona-pizarron {
-
-        width:
-            100%;
-
-        max-width:
-            none;
-
-        margin:
-            0 auto 6px;
-
+        width: 100%;
+        max-width: none;
+        margin: 0 auto 6px;
     }
-
 
     .pizarron {
-
-        width:
-            132%;
-
-        max-width:
-            none;
-
-        margin:
-            0 -16%;
-
+        width: 132%;
+        max-width: none;
+        margin: 0 -16%;
     }
-
 
     .zona-hojas {
-
-        width:
-            100%;
-
-        padding:
-            0;
-
+        width: 100%;
+        padding: 0;
     }
-
 
     .hojas-carrusel {
-
-        height:
-            clamp(175px, 22vh, 195px);
-
-        min-height:
-            175px;
-
-        max-height:
-            195px;
-
+        height: clamp(175px, 22vh, 195px);
+        min-height: 175px;
+        max-height: 195px;
     }
-
 
     .anotacion-hojas {
-
-        left:
-            2%;
-
-        top:
-            50%;
-
-        width:
-            clamp(39px, 13.5vw, 57.5px);
-
-        max-width:
-            57.5px;
-
-        bottom:
-            auto;
-
-        transform:
-            translateY(-50%)
-            rotate(-2deg);
-
+        left: 2%;
+        top: 50%;
+        width: clamp(39px, 13.5vw, 57.5px);
+        max-width: 57.5px;
+        bottom: auto;
+        transform: translateY(-50%) rotate(-2deg);
     }
-
 
     .indicador-scroll {
-
-        right:
-            3%;
-
-        left:
-            auto;
-
-        top:
-            auto;
-
-        bottom:
-            2px;
-
-        width:
-            clamp(39px, 13.5vw, 57.5px);
-
-        max-width:
-            57.5px;
-
-        transform:
-            rotate(1.5deg);
-
+        right: 3%;
+        left: auto;
+        top: auto;
+        bottom: 2px;
+        width: clamp(39px, 13.5vw, 57.5px);
+        max-width: 57.5px;
+        transform: rotate(1.5deg);
     }
-
 
     .zona-computadora {
-
-        width:
-            52%;
-
-        max-width:
-            560px;
-
-        margin-top:
-            3px;
-
-        margin-bottom:
-            0;
-
+        width: 52%;
+        max-width: 560px;
+        margin-top: 3px;
+        margin-bottom: 0;
     }
-
 
     .pantalla-youtube {
-
-        left:
-            19%;
-
-        top:
-            11.5%;
-
-        width:
-            62%;
-
-        height:
-            35%;
-
-        border-radius:
-            9% / 11%;
-
+        left: 19%;
+        top: 11.5%;
+        width: 62%;
+        height: 35%;
+        border-radius: 9% / 11%;
     }
-
 
     .pantalla-youtube iframe {
-
-        width:
-            100%;
-
-        height:
-            100%;
-
+        width: 100%;
+        height: 100%;
     }
-
 
     .zona-silla {
-
-        width:
-            54%;
-
-        max-width:
-            600px;
-
-        margin-top:
-            3px;
-
-        margin-bottom:
-            0;
-
+        width: 54%;
+        max-width: 600px;
+        margin-top: 3px;
+        margin-bottom: 0;
     }
-
 
     .boton-silla {
-
-        left:
-            29%;
-
-        top:
-            44%;
-
-        width:
-            42%;
-
-        height:
-            20%;
-
+        left: 29%;
+        top: 44%;
+        width: 42%;
+        height: 20%;
     }
-
 
     .creditos {
-
-        margin-top:
-            3px;
-
-        padding:
-            0 5px;
-
-        font-size:
-            13px;
-
-        line-height:
-            1.3;
-
+        margin-top: 3px;
+        padding: 0 5px;
+        font-size: 13px;
+        line-height: 1.3;
     }
-
 
     .modal-contenido {
-
-        width:
-            100%;
-
-        height:
-            100dvh;
-
-        padding:
-            0;
-
+        width: 100%;
+        height: 100dvh;
+        padding: 0;
     }
-
 
     .carpeta-visor {
-
-        padding:
-            48px 6px 18px;
-
+        padding: 48px 6px 18px;
     }
-
 
     .perforaciones,
     .argollas {
-
-        display:
-            none;
-
+        display: none;
     }
-
 
     .cerrar-modal {
-
-        top:
-            5px;
-
-        right:
-            6px;
-
-        width:
-            42px;
-
-        height:
-            42px;
-
-        font-size:
-            2.3rem;
-
-        line-height:
-            42px;
-
+        top: 5px;
+        right: 6px;
+        width: 42px;
+        height: 42px;
+        font-size: 2.3rem;
+        line-height: 42px;
     }
-
 
     .hoja-lectura {
-
-        min-height:
-            calc(100dvh - 108px);
-
+        min-height: calc(100dvh - 108px);
     }
-
 
     #paginaVisor {
-
-        width:
-            auto;
-
-        max-width:
-            calc(100vw - 12px);
-
-        max-height:
-            calc(100dvh - 114px);
-
+        width: auto;
+        max-width: calc(100vw - 12px);
+        max-height: calc(100dvh - 114px);
     }
-
 
     .zona-complementaria {
-
-        gap:
-            8px;
-
-        padding:
-            8px 2px 18px;
-
+        gap: 8px;
+        padding: 8px 2px 18px;
     }
-
 
     .fila-acciones {
-
-        width:
-            100%;
-
-        gap:
-            7px;
-
+        width: 100%;
+        gap: 7px;
     }
-
 
     .boton-video-complementario,
     .accion-pagina {
-
-        flex:
-            1 1 0;
-
-        width:
-            0;
-
-        min-width:
-            0;
-
-        max-width:
-            none;
-
-        font-size:
-            10px;
-
-        letter-spacing:
-            .01em;
-
-        padding:
-            8px 5px;
-
-        white-space:
-            nowrap;
-
-        text-shadow:
-            0 0 4px rgba(255,255,255,.72),
-            0 1px 4px rgba(0,0,0,.98);
-
-        box-shadow:
-            0 0 8px rgba(255,255,255,.20),
-            0 3px 10px rgba(0,0,0,.32);
-
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
+        max-width: none;
+        font-size: 10px;
+        letter-spacing: .01em;
+        padding: 8px 5px;
+        white-space: nowrap;
+        text-shadow: 0 0 4px rgba(255, 255, 255, .72),
+                     0 1px 4px rgba(0, 0, 0, .98);
+        box-shadow: 0 0 8px rgba(255, 255, 255, .20),
+                    0 3px 10px rgba(0, 0, 0, .32);
     }
-
 
     .subtitulo-video {
-
-        font-size:
-            10.5px;
-
-        line-height:
-            1.3;
-
+        font-size: 10.5px;
+        line-height: 1.3;
     }
-
 
     .contenedor-video-complementario {
-
-        width:
-            100%;
-
+        width: 100%;
     }
-
 
     .video-responsive {
-
-        border-radius:
-            7px;
-
+        border-radius: 7px;
     }
-
 }
-
 
 /* ==================================================
-   INTEGRACIÓN FINAL — ACCESO Y PANEL DE INGRESO
+   AJUSTES DE POSICIÓN PARA ESCRITORIO
    ================================================== */
 
-.pantalla-acceso:has(.panel-ingreso.visible) .acceso-opciones {
-    display: none !important;
-}
+@media (min-width: 721px) {
+    .pantalla-acceso .acceso-opciones {
+        bottom: calc(104px + env(safe-area-inset-bottom, 0px)) !important;
+        width: min(47vw, 270px) !important;
+        max-width: 270px !important;
+    }
 
-.pantalla-acceso:has(.panel-ingreso.visible) .panel-ingreso {
-    display: block !important;
-    position: relative !important;
-    z-index: 6000 !important;
-    margin-top: 15px !important;
-    margin-bottom: 30px !important;
-}
+    .pantalla-acceso .acceso-identidad {
+        width: 86.99px !important;
+        max-width: 86.99px !important;
+    }
 
-.pantalla-acceso:has(.panel-ingreso.visible) .acceso-carta {
-    margin-bottom: 10px !important;
-}
-
-@media (max-width: 470px) {
-    .pantalla-acceso:has(.panel-ingreso.visible) .panel-ingreso {
-        width: min(100%, 315px) !important;
-        margin-top: 10px !important;
-        margin-bottom: 25px !important;
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 86.99px !important;
     }
 }
