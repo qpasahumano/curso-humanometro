@@ -4395,3 +4395,77 @@ body {
 .pantalla-acceso:has(.panel-ingreso.visible) .acceso-identidad {
     display: none !important;
 }
+
+
+/* =========================================================
+   INTEGRACIÓN FINAL — DOS AJUSTES SOLICITADOS
+   1) Teclas bajadas ligeramente sin alterar sus dimensiones.
+   2) Logo subido para acercarlo a las teclas (+3% de tamaño).
+   ========================================================= */
+
+/* --- Escritorio / General --- */
+.pantalla-acceso .acceso-opciones {
+    width: min(47vw, 270px) !important;
+    max-width: 270px !important;
+    bottom: calc(65px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+.pantalla-acceso .acceso-identidad {
+    bottom: calc(28px + env(safe-area-inset-bottom, 0px)) !important;
+    width: 84.46px !important;
+    max-width: 84.46px !important;
+}
+
+.pantalla-acceso .acceso-logo-hacetuapp {
+    max-width: 84.46px !important;
+}
+
+@media (min-width: 721px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(47vw, 270px) !important;
+        max-width: 270px !important;
+        bottom: calc(65px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .pantalla-acceso .acceso-identidad {
+        bottom: calc(28px + env(safe-area-inset-bottom, 0px)) !important;
+        width: 84.46px !important;
+        max-width: 84.46px !important;
+    }
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 84.46px !important;
+    }
+}
+
+/* --- Tablet (max-width: 720px) --- */
+@media (max-width: 720px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(47vw, 250px) !important;
+        max-width: 250px !important;
+        bottom: calc(55px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .pantalla-acceso .acceso-identidad {
+        bottom: calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+        width: 78.28px !important;
+        max-width: 78.28px !important;
+    }
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 78.28px !important;
+    }
+}
+
+/* --- Celular Angosto (max-width: 470px) --- */
+@media (max-width: 470px) {
+    .pantalla-acceso .acceso-opciones {
+        width: min(47vw, 210px) !important;
+        max-width: 210px !important;
+        bottom: calc(45px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+    .pantalla-acceso .acceso-identidad {
+        bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+        width: 70.04px !important;
+        max-width: 70.04px !important;
+    }
+    .pantalla-acceso .acceso-logo-hacetuapp {
+        max-width: 70.04px !important;
+    }
+}
